@@ -1,0 +1,1 @@
+Maksym O. Kysel, DK-42 group / Кисель Максим Олександрович, група ДК-42 / [@maxim2222](https://github.com/maxim2222)

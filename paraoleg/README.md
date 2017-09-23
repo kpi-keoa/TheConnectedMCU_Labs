@@ -1,0 +1,1 @@
+Oleh O. Paradzinskyi, DK-41 group / Парадзінський Олег Олегович, група ДК-41 / [@paraoleg](https://github.com/paraoleg)

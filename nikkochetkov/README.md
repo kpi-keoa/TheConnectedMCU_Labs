@@ -1,0 +1,1 @@
+Mykyta O. Kochetkov, DK-42 group / Кочетков Микита Олександрович, група ДК-42 / [@nikkochetkov](https://github.com/nikkochetkov)
