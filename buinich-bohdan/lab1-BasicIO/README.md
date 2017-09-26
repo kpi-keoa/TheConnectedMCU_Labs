@@ -1,0 +1,2 @@
+In the lab, I got acquainted with the architecture of MIPS. Has studied peripheral devices such as input and output ports. I learned to manage them. By writing a LED control program, control the LED with the button.
+Modified the program to increase the comfort of working with it (added #define). Checked out on chipKIT debugin board.
