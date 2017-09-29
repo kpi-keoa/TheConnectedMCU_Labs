@@ -1,7 +1,3 @@
-/******************************************************************************/
-/* Files to Include                                                           */
-/******************************************************************************/
-
 #ifdef __XC32
 #include <xc.h>          /* Defines special function registers, CP0 regs  */
 #endif
@@ -15,8 +11,8 @@
 
 /******************************************************************************/
 
-#define Delay_max 8000000
-#define Delay_change 100000
+#define delay_max 8000000
+#define delay_change 1000000
 
 void InitApp(void) {
     /* Setup analog functionality and port direction */
@@ -48,7 +44,7 @@ void InitApp(void) {
 
 
 void Delay(int n) {
-    volatile int i;
+    volatile uint32_t i;
     for (i = 0; i < n; i++) {
     }
 }
@@ -56,31 +52,20 @@ void Delay(int n) {
 
 
 
+void Scan_LEDs(uint32_t iterator, uint32_t delay_count, uint32_t LED_state ) {
+   
 
-void Scan_LEDs(void) {
-    int LED_state = 1; // 1 on (initial value), 0 off
-    int delay_count = Delay_max;
-    int iterator = 0;
-    while (1) {
-        
-        //count to 16
-        if (16 == iterator){
-            iterator=0;
-        } else {
-            iterator=iterator+1;
-        }
-        
-        if (BTN1_PORT_BIT == 1) { // switch 1 is pressed
+        if (BTN1_PORT_BIT) { // switch 1 is pressed
             
             //if press delay time will be decrement by constant
-            if (Delay_change <= delay_count){
-                delay_count = Delay_max;    //if too small set it to max constant
+            if (delay_change <= delay_count){
+                delay_count = delay_max;    //if too small set it to max constant
             } else {
-                delay_count = delay_count - Delay_change; 
+                delay_count = delay_count - delay_change; 
             }
         } 
         
-        if (BTN2_PORT_BIT == 1) { // switch 2 is pressed
+        if (BTN2_PORT_BIT) { // switch 2 is pressed
             // if pressed - blink with all leds
             LED1_PORT = LED_state;            
             LED2_PORT = LED_state;            
@@ -88,7 +73,7 @@ void Scan_LEDs(void) {
             LED4_PORT = LED_state;
             Delay(delay_count);
 
-            LED_state = 1 - LED_state; // next time, set LEDs to opposite state
+            LED_state = ! LED_state; // next time, set LEDs to opposite state
             
             
         } else { 
@@ -121,5 +106,5 @@ void Scan_LEDs(void) {
             Delay( delay_count );    
        
         }
-    }
+    
 }

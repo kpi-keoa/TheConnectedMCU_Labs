@@ -15,7 +15,13 @@
 /* Global Variable Declaration                                                */
 /******************************************************************************/
 
-/* i.e. uint32_t <variable_name>; */
+#define delay_max 8000000
+#define delay_change 1000000
+
+
+uint32_t i = 0;
+uint32_t LED_state = 1; // 1 on (initial value), 0 off
+uint32_t delay_count = delay_max;
 
 /******************************************************************************/
 /* Main Program                                                               */
@@ -26,6 +32,18 @@ int32_t main(void)
     /* Initialize I/O 
      * and Peripherals
      * for application */
+    
+    
+    
     InitApp();
-    Scan_LEDs();
+    
+    while (1){
+        if (16 == i){
+            i=0;
+        } else {
+            i=i+1;
+        }
+        
+        Scan_LEDs(i,delay_count,LED_state);
+    }
 }
