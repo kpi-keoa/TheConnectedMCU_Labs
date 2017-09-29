@@ -50,3 +50,10 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+#Build files
+*.i
+*.s
+*.xml
+*.txt
+*.bash

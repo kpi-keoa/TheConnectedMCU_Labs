@@ -1,0 +1,183 @@
+/******************************************************************************/
+/* Files to Include                                                           */
+/******************************************************************************/
+
+#ifdef __XC32
+#include <xc.h>          /* Defines special function registers, CP0 regs  */
+#endif
+
+#include <stdint.h>          /* For uint32_t definition                       */
+#include <stdbool.h>         /* For true/false definition                     */
+#include "user.h"            /* variables/params used by user.c               */
+
+/******************************************************************************/
+/* User Functions                                                             */
+
+/******************************************************************************/
+
+void InitApp(void) {
+    /* Setup analog functionality and port direction */
+
+    // LED output
+    // Disable analog mode for G6
+    ANSELG |= ~(BIT_6);
+    // Set direction to output for G6
+    TRISG |= ~(BIT_6) ;
+
+    // Initialize outputs for other LEDs
+    
+    ANSELG |= ~(BIT_15);
+    ANSELB |= ~(BIT_11);  
+    
+    TRISG |= ~(BIT_15);
+    TRISD |= ~(BIT_4);
+    TRISB |= ~(BIT_11);
+    
+    // Turn on LEDs for testing
+    
+    LATG |= ~(BIT_6);
+    LATD |= ~(BIT_4)
+    LATB |= ~(BIT_11)
+    LATG |= ~(BIT_15);
+    
+    led_test();
+    
+    // BTN1 input
+    // Disable analog mode
+    ANSELA |= ~(BIT_5);
+    // Set directions to input
+    TRISA |= BIT_5;
+
+    // Initialize input for BTN2
+    TRISA |= BIT_4;
+}
+
+void delay(int n) {
+    volatile int i;
+    for (i = 0; i < n; i++) {
+    }
+}
+
+void led_test(void){
+    
+    volatile int32_t i;
+    
+    for(i = 0; i < 4; i += 1){
+        
+    LATG |= ~(BIT_6);
+    LATD |= ~(BIT_4)
+    LATB |= ~(BIT_11)
+    LATG |= ~(BIT_15);
+    
+    delay(STD_DELAY);
+    
+    LATG |= ~(BIT_6);
+    LATD |= ~(BIT_4)
+    LATB |= ~(BIT_11)
+    LATG |= ~(BIT_15);
+    
+    delay(STD_DELAY);
+    
+    }
+}
+
+void Flash_LED(void) {
+    int delay_count;
+    while (1) {
+        if (1 == BTN1_PORT_BIT) {
+            // switch is pressed
+            delay_count = 1000000;
+        } else {
+            // switch is not pressed
+            delay_count = 4000000;
+        }
+        LD1_PORT_BIT = 1; // Turn on LED
+        delay(delay_count);
+        LD1_PORT_BIT = 0; // Turn off LED
+        delay(delay_count);
+    }
+}
+
+void Scan_LEDs(void) {
+int LED_state = 1; // 1 on (initial value), 0 off
+int delay_count=1000000;
+
+while (1) {
+if (1 == BTN1_PORT_BIT) { 
+delay_count = 300000;
+        } else{    
+delay_count = 1000000;
+        }
+
+if (1 == BTN2_PORT_BIT) { 
+
+            LD1_PORT_BIT = 0;
+            LD2_PORT_BIT = 0;
+            LD3_PORT_BIT = 0;
+            LD4_PORT_BIT = 0;
+        } else {
+            LD1_PORT_BIT = LED_state;
+            delay(delay_count);
+            LD2_PORT_BIT = LED_state;
+            delay(delay_count);
+            LD3_PORT_BIT = LED_state;
+            delay(delay_count);
+            LD4_PORT_BIT = LED_state;
+            delay(delay_count);
+
+// next time, set LEDs to opposite state
+            LED_state = 1 - LED_state; 
+        }
+    }
+}
+
+void play_led(void)
+{
+    
+    uint32_t num_led = 0;
+    uint32_t delay_count = 1000000;
+        
+        if(BTN1_PORT_BIT && BTN2_PORT_BIT){
+            delay(STD_DELAY);
+            delay_count = (300000 == delay_count) ? 1000000 : 300000;// if buttons has been pressed
+                                                                     // then change the freq
+        }
+        
+        if(BTN1_PORT_BIT){
+            num_led = (5 == num_led) ? 1 : (num_led += 1) ; // shift light to the right
+        }else if(BTN2_PORT_BIT && (num_led > 0)){
+            num_led = (0 == num_led) ? 4 : (num_led -= 1); // shift light to the left
+        }
+        
+        switch(num_led){
+            case 1:
+                    LATG |= BIT_6; // Turn on LED 1
+                    delay(delay_count);
+                    LATG |= ~BIT_6; // Turn off LED 1
+                    delay(delay_count);
+                    break;
+            case 2:
+                    LATD |= BIT_4; // Turn on LED 2
+                    delay(delay_count);
+                    LATD |= ~BIT_4; // Turn off LED 2
+                    delay(delay_count);
+                    break;
+            case 3:
+                    LATB |= BIT_11; // Turn on LED 3
+                    delay(delay_count);
+                    LATB |= ~BIT_11; // Turn off LED 3
+                    delay(delay_count);
+                    break;
+            case 4:
+                    LATG |= BIT_15; // Turn on LED 4
+                    delay(delay_count);
+                    LATG |= ~BIT_15; // Turn off LED 4
+                    delay(delay_count);
+                    break;
+            default:
+                num_led = 1;
+                break;
+        }
+        
+    }
+
