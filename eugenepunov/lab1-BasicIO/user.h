@@ -19,10 +19,8 @@
 
 /* TODO User level functions prototypes (i.e. InitApp) go here */
 
-void InitApp(void);         /* I/O and Peripheral Initialization */
+void init_app(void);         /* I/O and Peripheral Initialization */
 
-void Flash_LED(void);
+void flash_led(void);        /* for cheking working board*/
 
-void Scan_LEDs (void);
-
-void Scan_LEDs2(void);
+void scan_leds (void);       /*main functionality of our programm*/

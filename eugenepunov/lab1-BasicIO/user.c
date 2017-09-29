@@ -15,7 +15,7 @@
 
 /******************************************************************************/
 
-void InitApp(void) {
+void init_app(void) {
     /* Setup analog functionality and port direction */
 
     // LED output
@@ -33,18 +33,11 @@ void InitApp(void) {
     
     TRISDbits.TRISD4 = 0; //D4 hasnt analog mode
 
-    // Turn on LEDs for testing
+    // Turn off LEDs for beginning
     
-    led1 = 0;
-    led2 = 0;
-    led3 = 0;
-    led4 = 0;
+    led1 = led2 = led3 = led4 = 0;
     
-
-    // Stop program here
-    
-    // while (1);
-
+     
     // BTN1 input
     // Disable analog mode
     ANSELAbits.ANSA5 = 0;
@@ -54,56 +47,41 @@ void InitApp(void) {
     // Initialize input for BTN2
    // ANSELAbits.ANSA4 = 0; hasnt analog mode
     TRISAbits.TRISA4 = 1;
+    
+    flash_led();        //it turn on all leds and then turn off for cheking the board
 
-    // Test switches
-    
-    /*while (1) {
-      led1 = btn1;
-      led2 = btn2;
-    };*/
-    
-    Scan_LEDs();
+
 }
 
-void Delay(int n) {
-    volatile int i;
-    for (i = 0; i < n; i++) {
+void delay(int n) {
+    n = 10000 * n;      // n - in milliseconds
+    for (; n > 0; n--) {
     }
 }
 
 
-void Flash_LED(void) {
-    int delay_count;
-    while (1) {
-        if (PORTAbits.RA5 == 1) {
-            // switch is pressed
-            delay_count = 1000000;
-        } else {
-            // switch is not pressed
-            delay_count = 4000000;
-        }
-        PORTGbits.RG6 = 1; // Turn on LED
-        Delay(delay_count);
-        PORTGbits.RG6 = 0; // Turn off LED
-        Delay(delay_count);
-    }
+void flash_led(void) {
+    uint32_t delay_count = 1000;//in milliseconds
+        led1 = 1; // Turn on LED
+        delay(delay_count);
+        led1 = 0; // Turn off LED
+        delay(delay_count);
 }
 
-#define VER 1
+#define VER 2   //in VER1 we have standart task for lab1, in VER2 my own idea and its realization
 
 #if VER==1 
 void Scan_LEDs(void) {
     int LED_state = 1; // 1 on (initial value), 0 off
-    int delay_count=1000000;
 
     while (1) {
-        if (btn1 == 1) { // btn1 pressed
+        if (btn1) { // btn1 pressed
             delay_count = 300000;
         } else {    // btn1 not pressed
-            delay_count = 1000000;
+            delay_count = 1000;
         }
 
-        if (btn2 == 1) { // btn 2 pressed
+        if (btn2) { // btn 2 pressed
             // turn off all leds
             led1 = 0;
             led2 = 0;
@@ -120,36 +98,40 @@ void Scan_LEDs(void) {
             Delay(delay_count);
 
 // next time, set LEDs to opposite state
-            LED_state = 1 - LED_state; 
+            LED_state = !LED_state; 
         }
     }
 }
 #elif VER==2
-void Scan_LEDs(void) {
-    int LED_state = 1; // 1 on (initial value), 0 off
-    int delay_count = 1000000; //time to push the button
-    int btn_counter = 0;    //clamping protection
-    int counter = 0;        //times to turn on LED
-    if (btn1 == 1) {        //go into the cycle of counting blinks
+void scan_leds(void) {
+    
+    bool LED_state = 1; // 1 on (initial value), 0 off
+    uint32_t delay_count = 1000; 
+    uint32_t btn_counter = 0;    //clamping protection
+    uint32_t counter = 0;        //times to turn on LED
+    
+    if (1 == btn1) {        //go into the cycle of counting blinks
         counter++;
-        for (int i = 0; i < 2000000; i++) {     //waiting about 2 seconds 
-            if (btn1 == 1 && btn_counter = 0) {
+        uint32_t i = 0;
+        for (i; i < 20000000; i++) {     //waiting about 2 seconds 
+            if ((btn1) && (0 == btn_counter)) {
                 counter++;
                 btn_counter = 1;        //clamping protection
                 i = 0;
             }
-            if (btn_counter == 1 && btn1 == 0) { //inspection for button releasing
+            if ((1 == btn_counter) && (!btn1)) { //inspection for button releasing
                 btn_counter = 0;
             }
         }
     }
     
     if (counter > 0) {      //condition for go into blink n times
-        counter *= 2;       //turn on and turn off there are two iterations of cycle
-        for (int i = 0; i <= counter; i++) {
+        counter <<= 1;       //turn on and turn off there are two iterations of cycle
+        uint32_t i = 0;
+        for (i = 0; i <= counter; i++) {
              led1 = LED_state;  //turn on or turn off led
-             Delay(delay_count);
-             LED_state = 1 - LED_state; 
+             delay(delay_count);
+             LED_state = !LED_state; 
         }
         counter = 0;        //return to begin
     }

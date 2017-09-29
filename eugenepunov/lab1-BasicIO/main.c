@@ -21,11 +21,15 @@
 /* Main Program                                                               */
 /******************************************************************************/
 
-int32_t main(void)
+void main(void)
 {
     /* Initialize I/O 
      * and Peripherals
      * for application */
-    InitApp();
-    Flash_LED();
+    init_app();
+    //Flash_LED();
+    
+    while(1) {
+        scan_leds();
+    }
 }
