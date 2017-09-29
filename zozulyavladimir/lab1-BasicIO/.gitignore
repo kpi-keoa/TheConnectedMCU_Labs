@@ -56,4 +56,8 @@ dkms.conf
 *.s
 *.xml
 *.txt
+<<<<<<< HEAD
+=======
+*.mk
+>>>>>>> 2c896bb0b9afa293dd813732f71d43cfeb967316
 *.bash

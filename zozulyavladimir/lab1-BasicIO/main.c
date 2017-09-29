@@ -27,8 +27,12 @@ int32_t main(void)
      * and Peripherals
      * for application */
     InitApp();
+<<<<<<< HEAD
     
     while(1){
     play_led();
     }
+=======
+    Play_LED();
+>>>>>>> 2c896bb0b9afa293dd813732f71d43cfeb967316
 }
