@@ -2,7 +2,7 @@
 
 void delay(uint32_t val)
 {
-	val *= 1000;
+	val *= 10000;
 	while (val --> 0);
 }
 

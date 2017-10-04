@@ -27,7 +27,7 @@ CMD_MKDIR := gnumkdir -p
 #  compilation
 CC    := $(MP_CC)
 FLAGS := -I./include -g -D__DEBUG -D__MPLAB_DEBUGGER_SIMULATOR=1 \
-	-fframe-base-loclist -x c -c -mprocessor=32MZ2048ECG100 \
+	-fframe-base-loclist -x c -c -mprocessor=32MZ2048EFG100 \
 	-DXPRJ_default=default -legacy-libc
 ifneq ($(TYPE_IMAGE), DEBUG_RUN)
     LD_EMULATION_MODE :=
@@ -40,7 +40,7 @@ endif
 all: $(OUTPUT_FILE)
 
 $(OUTPUT_FILE): $(OBJ_DIR)/src $(OUT_DIR) $(OBJ_FILES)
-	${CC} $(OBJ_FILES) -o $@ -mprocessor=32MZ2048ECG100 -legacy-libc $(LD_EMULATION_MODE) -Wl,--defsym=__MPLAB_BUILD=1,$(LD_DEBUG_FLAGS),--no-code-in-dinit,--no-dinit-in-serial-mem,-Map=$(OUT_DIR)/$(BASE_FILE_NAME).map,--memorysummary,$(OUT_DIR)/memoryfile.xml
+	${CC} $(OBJ_FILES) -o $@ -mprocessor=32MZ2048EFG100 -legacy-libc $(LD_EMULATION_MODE) -Wl,--defsym=__MPLAB_BUILD=1,$(LD_DEBUG_FLAGS),--no-code-in-dinit,--no-dinit-in-serial-mem,-Map=$(OUT_DIR)/$(BASE_FILE_NAME).map,--memorysummary,$(OUT_DIR)/memoryfile.xml
 
 $(OBJ_DIR)/src:
 	$(CMD_MKDIR) $(OBJ_DIR)/src

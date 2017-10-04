@@ -9,8 +9,8 @@ enum PIN_STATE_E pin_read(enum PIN_E pin)
 		case LED_2_PIN: return LATDbits.LATD4  ? HIGH_STATE : LOW_STATE;
 		case LED_3_PIN: return LATBbits.LATB11 ? HIGH_STATE : LOW_STATE;
 		case LED_4_PIN: return LATGbits.LATG15 ? HIGH_STATE : LOW_STATE;
-		case BTN_1_PIN: return LATAbits.LATA5  ? HIGH_STATE : LOW_STATE;
-		case BTN_2_PIN: return LATAbits.LATA4  ? HIGH_STATE : LOW_STATE;
+		case BTN_1_PIN: return PORTAbits.RA5   ? HIGH_STATE : LOW_STATE;
+		case BTN_2_PIN: return PORTAbits.RA4   ? HIGH_STATE : LOW_STATE;
 	}
 	return LOW_STATE;
 }

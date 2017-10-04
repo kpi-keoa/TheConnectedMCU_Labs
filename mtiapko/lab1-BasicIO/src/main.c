@@ -10,7 +10,7 @@ void main()
 
 	while (1)
 	{
-		if (pin_read(BTN_1_PIN) != HIGH_STATE)
+		if (pin_read(BTN_1_PIN) == HIGH_STATE)
 		{
 			FCHECK(pin_write(current_led, LOW_STATE));
 

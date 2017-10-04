@@ -17,7 +17,7 @@ Programs written in this work by pressing the button `BTN_1` lights one of the f
 |5. |`LED_4`|`LED_1`|
 |6. |`LED_1`|  ...  |
 
-The project was written and tested on a microcontroller `PIC32MZ2048ECG100`.
+The project was written and tested on a microcontroller `PIC32MZ2048EFG100`.
 
 ## Build
 
