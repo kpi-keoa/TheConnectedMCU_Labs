@@ -1,13 +1,20 @@
+/******************************************************************************/
+/* Files to Include                                                           */
+/******************************************************************************/
+
 #ifdef __XC32
 #include <xc.h>          /* Defines special function registers, CP0 regs  */
 #endif
 
 #include <stdint.h>          /* For uint32_t definition                       */
 #include <stdbool.h>         /* For true/false definition                     */
-#include "my.h"              /* Functions and params from my.h                */
+#include "user.h"            /* variables/params used by user.c               */
 
-void InitApp(void)
-{
+/******************************************************************************/
+/* User Functions                                                             */
+
+/******************************************************************************/
+void InitApp(void) {
     /* Setup analog functionality and port direction */
 
     // LED output
@@ -23,11 +30,30 @@ void InitApp(void)
     TRISBbits.TRISB11 = 0;
     TRISGbits.TRISG15 = 0;
     TRISDbits.TRISD4 = 0;
-    
-    //Set all LEDs off
-    turnOff();
+
+    // Turn on LEDs for testing
+    LATGbits.LATG6 = 1;
+    LATDbits.LATD4 = 1;
+    LD4_PORT_BIT = 1;
+    LD3_PORT_BIT = 1;
+
+    // BTN1 input
+    // Disable analog mode
+    ANSELAbits.ANSA5 = 0;
+    // Set directions to input
+    TRISAbits.TRISA5 = 1;
+
+    // Initialize input for BTN2
+    TRISAbits.TRISA4 = 1;
+
 }
 
+void delay(uint32_t n) {
+    volatile uint32_t i;
+    for (i = 0; i < n; i++) 
+    {
+    }
+}
 void turnOff()
 {
     LD1_PORT_BIT = 0;
@@ -35,29 +61,18 @@ void turnOff()
     LD3_PORT_BIT = 0;
     LD4_PORT_BIT = 0;
 }
-
-void delay(int n) {
-    volatile int i;
-    for (i = 0; i < n; i++) {
-    }
-}
-
-uint32_t upSpeed(uint32_t counter)
-{   
-    if(1 == BTN1_PORT_BIT)
-    {
-        delay(200000);
-        counter += 1000000;
-    }
-    return counter;
-}
-
-void flashLED()
+// Starter version
+void flashLED(void) 
 {
     volatile uint32_t delay_counter = 0;
-    while(BTN2_PORT_BIT != 1)
+    turnOff();
+    while(!PORTAbits.RA4)
     {
-        delay_counter = upSpeed(delay_counter);
+        if(PORTAbits.RA5)
+        {
+            delay(10000000);
+            delay_counter += 1000000;
+        
         switch(delay_counter)
         {
             case 1000000:
@@ -74,14 +89,19 @@ void flashLED()
                 break;
             default:
                 turnOff();
+                delay_counter = 0;
                 break;
         }
-        turnOff();
-        algorithm(delay_counter);
+        }
+    }
+    turnOff();
+    while(1)
+    {
+    algorithm(delay_counter);
     }
 }
 
-void algorithm(int delay_counter)
+void algorithm(uint32_t delay_counter)
 {
     LD1_PORT_BIT = 1;
     delay(delay_counter);

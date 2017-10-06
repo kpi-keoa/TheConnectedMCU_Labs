@@ -22,7 +22,5 @@
 /* TODO User level functions prototypes (i.e. InitApp) go here */
 
 void InitApp(void);         /* I/O and Peripheral Initialization */
-void flashLED(void);        /* Turn on all LEDs by defined algorithm */  
-uint32_t upSpeed(uint32_t); /* Increase LEDs blinking speed */    
-void turnOff();
-void algorithm(int);        /* Defined algorithm*/
+void flashLED(void);
+void algorithm(uint32_t);
