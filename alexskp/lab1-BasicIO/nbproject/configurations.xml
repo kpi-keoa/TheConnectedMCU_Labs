@@ -16,6 +16,7 @@
       <itemPath>main.c</itemPath>
       <itemPath>init.c</itemPath>
       <itemPath>blinker.c</itemPath>
+      <itemPath>configuration_bits.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -31,7 +32,7 @@
     <conf name="default" type="2">
       <toolsSet>
         <developmentServer>localhost</developmentServer>
-        <targetDevice>PIC32MZ2048ECG100</targetDevice>
+        <targetDevice>PIC32MZ2048EFG100</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
         <platformTool>Simulator</platformTool>

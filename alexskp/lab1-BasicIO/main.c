@@ -1,8 +1,20 @@
 
 #include "lab1_basicIO.h"           /* User funct/params, such as InitApp             */
 
-int32_t main(void)
+void main(void)
 {
     init();     /* initializing GPIOs */  
-    blinker();  /* blinker application */
+    
+    uint8_t mode = SPEED_DISPLAYING_MODE;
+    uint8_t speed = 1;
+    
+    while (1) {
+        check_buttons(&mode, &speed);
+        if (mode == SPEED_DISPLAYING_MODE) {
+            display_speed(speed);
+        } 
+        else if (mode == BLINKING_MODE) {
+            blink(speed);
+        }
+    }
 }

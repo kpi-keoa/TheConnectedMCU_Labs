@@ -1,15 +1,14 @@
 
 #include "lab1_basicIO.h"    /* variables/params used by user.c               */
 
-void delay(uint32_t n) 
+void delay(volatile uint32_t n) 
 {
-    volatile int i;
-    for (i = 0; i < n; i++) {}
- }
+    for (; n > 0; n--);
+}
 
 void check_buttons(uint8_t *mode, uint8_t *speed) 
 {
-    if (!BTN1) {
+    if (BTN1) {
         delay(DEBOUNCE_DELAY);      /* a little delay after pressing the button */
         (*mode) = !(*mode);         /* changing displaying mode */
     }
@@ -23,31 +22,21 @@ void check_buttons(uint8_t *mode, uint8_t *speed)
     }
 }
 
-void blinker(void) 
-{
-    uint8_t mode = SPEED_DISPLAYING_MODE;
-    uint8_t speed = 1;
+void blink(uint8_t speed) {
     uint32_t led_delay;
-            
-    while (1) {
-        check_buttons(&mode, &speed);
-        if (mode == SPEED_DISPLAYING_MODE) {
-            display_speed(speed);
-        } 
-        else if (mode == BLINKING_MODE) {
-            led_delay = speed * BASE_LED_DELAY;
-            SET_LED1(0);
-            SET_LED2(0);
-            SET_LED3(0);
-            SET_LED4(0);
-            delay(led_delay);
-            SET_LED1(1);
-            SET_LED2(1);
-            SET_LED3(1);
-            SET_LED4(1);
-            delay(led_delay);
-        }
-    }
+    led_delay = speed * BASE_LED_DELAY;
+    
+    SET_LED1(1);
+    SET_LED2(1);
+    SET_LED3(1);
+    SET_LED4(1);
+    delay(led_delay);
+    
+    SET_LED1(0);
+    SET_LED2(0);
+    SET_LED3(0);
+    SET_LED4(0);
+    delay(led_delay);
 }
 
 /* display_speed func dislaying the speed of blinking in binary code using 4 onboard LEDs*/

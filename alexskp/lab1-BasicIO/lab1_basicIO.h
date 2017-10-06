@@ -48,8 +48,8 @@
 #define BTN1 (BTN1_PORT >> BTN1_BIT) & 1
 #define BTN2 (BTN2_PORT >> BTN2_BIT) & 1
 
-#define DEBOUNCE_DELAY          100
-#define BASE_LED_DELAY          50000
+#define DEBOUNCE_DELAY          1000000
+#define BASE_LED_DELAY          1000000
 
 #define BLINKING_MODE           0
 #define SPEED_DISPLAYING_MODE   1
@@ -65,7 +65,7 @@ void init(void);
 void check_buttons(uint8_t *, uint8_t *);
 
 /* blinking function */
-void blinker(void);
+void blink(uint8_t);
 
 /* displaying the speed of blinking in binary code */
 void display_speed(uint8_t);
