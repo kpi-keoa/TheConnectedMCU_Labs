@@ -1,0 +1,2 @@
+﻿All work for labs1-3 was done. 
+I added the function that flashes the LED as many times as the button was pressed. When you press buuton in first time you go into cycle that count your button presses and it will "wait" while you dont stop press it. When you stop push the button, you go into a cycle that flash LED as many times as written in the variable "counter" after the first cycle.
