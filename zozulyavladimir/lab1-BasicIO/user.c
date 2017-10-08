@@ -20,36 +20,36 @@ void InitApp(void) {
 
     // LED output
     // Disable analog mode for G6
-    ANSELG |= ~(BIT_6);
+    ANSELG |= (0 << 6);
     // Set direction to output for G6
-    TRISG |= ~(BIT_6) ;
+    TRISG |= (0 << 6) ;
 
     // Initialize outputs for other LEDs
     
-    ANSELG |= ~(BIT_15);
-    ANSELB |= ~(BIT_11);  
+    ANSELG |= (0 << 15);
+    ANSELB |= (0 << 11);  
     
-    TRISG |= ~(BIT_15);
-    TRISD |= ~(BIT_4);
-    TRISB |= ~(BIT_11);
+    TRISG |= (0 << 15);
+    TRISD |= (0 << 4);
+    TRISB |= (0 << 11);
     
     // Turn on LEDs for testing
     
-    LATG |= ~(BIT_6);
-    LATD |= ~(BIT_4)
-    LATB |= ~(BIT_11)
-    LATG |= ~(BIT_15);
+    LATG |= (0 << 6);
+    LATD |= (0 << 4)
+    LATB |= (0 << 11)
+    LATG |= (0 << 15);
     
     led_test();
     
     // BTN1 input
     // Disable analog mode
-    ANSELA |= ~(BIT_5);
+    ANSELA |= (0 << 5);
     // Set directions to input
-    TRISA |= BIT_5;
+    TRISA |= (1 << 5);
 
     // Initialize input for BTN2
-    TRISA |= BIT_4;
+    TRISA |= (1 << 4);
 }
 
 void delay(int n) {
@@ -78,56 +78,6 @@ void led_test(void){
     
     delay(STD_DELAY);
     
-    }
-}
-
-void Flash_LED(void) {
-    int delay_count;
-    while (1) {
-        if (1 == BTN1_PORT_BIT) {
-            // switch is pressed
-            delay_count = 1000000;
-        } else {
-            // switch is not pressed
-            delay_count = 4000000;
-        }
-        LD1_PORT_BIT = 1; // Turn on LED
-        delay(delay_count);
-        LD1_PORT_BIT = 0; // Turn off LED
-        delay(delay_count);
-    }
-}
-
-void Scan_LEDs(void) {
-int LED_state = 1; // 1 on (initial value), 0 off
-int delay_count=1000000;
-
-while (1) {
-if (1 == BTN1_PORT_BIT) { 
-delay_count = 300000;
-        } else{    
-delay_count = 1000000;
-        }
-
-if (1 == BTN2_PORT_BIT) { 
-
-            LD1_PORT_BIT = 0;
-            LD2_PORT_BIT = 0;
-            LD3_PORT_BIT = 0;
-            LD4_PORT_BIT = 0;
-        } else {
-            LD1_PORT_BIT = LED_state;
-            delay(delay_count);
-            LD2_PORT_BIT = LED_state;
-            delay(delay_count);
-            LD3_PORT_BIT = LED_state;
-            delay(delay_count);
-            LD4_PORT_BIT = LED_state;
-            delay(delay_count);
-
-// next time, set LEDs to opposite state
-            LED_state = 1 - LED_state; 
-        }
     }
 }
 

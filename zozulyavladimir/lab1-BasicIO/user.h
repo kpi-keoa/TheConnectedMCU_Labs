@@ -39,10 +39,6 @@
 
 /* TODO User level functions prototypes (i.e. InitApp) go here */
 
-void InitApp(void);         /* I/O and Peripheral Initialization */
-
-void Flash_LED(void);       
-
-void Scan_LEDs(void);       
+void InitApp(void);         /* I/O and Peripheral Initialization */     
 
 void play_led(void);        //Function to move leds
