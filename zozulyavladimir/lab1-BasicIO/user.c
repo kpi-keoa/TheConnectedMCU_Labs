@@ -20,7 +20,7 @@ void InitApp(void) {
 
     // LED output
     // Disable analog mode for G6
-<<<<<<< HEAD
+
     ANSELG |= ~(BIT_6);
     // Set direction to output for G6
     TRISG |= ~(BIT_6) ;
@@ -54,7 +54,7 @@ void InitApp(void) {
 }
 
 void delay(int n) {
-=======
+
     ANSELGbits.ANSG6 = 0;
     // Set direction to output for G6
     TRISGbits.TRISG6 = 0;
@@ -96,13 +96,13 @@ void delay(int n) {
 }
 
 void Delay(int n) {
->>>>>>> 2c896bb0b9afa293dd813732f71d43cfeb967316
+
     volatile int i;
     for (i = 0; i < n; i++) {
     }
 }
 
-<<<<<<< HEAD
+
 void led_test(void){
     
     volatile int32_t i;
@@ -126,8 +126,8 @@ void led_test(void){
     }
 }
 
-=======
->>>>>>> 2c896bb0b9afa293dd813732f71d43cfeb967316
+
+
 void Flash_LED(void) {
     int delay_count;
     while (1) {
@@ -139,15 +139,15 @@ void Flash_LED(void) {
             delay_count = 4000000;
         }
         LD1_PORT_BIT = 1; // Turn on LED
-<<<<<<< HEAD
+
         delay(delay_count);
         LD1_PORT_BIT = 0; // Turn off LED
         delay(delay_count);
-=======
+
         Delay(delay_count);
         LD1_PORT_BIT = 0; // Turn off LED
         Delay(delay_count);
->>>>>>> 2c896bb0b9afa293dd813732f71d43cfeb967316
+
     }
 }
 
@@ -170,7 +170,7 @@ if (1 == BTN2_PORT_BIT) {
             LD4_PORT_BIT = 0;
         } else {
             LD1_PORT_BIT = LED_state;
-<<<<<<< HEAD
+
             delay(delay_count);
             LD2_PORT_BIT = LED_state;
             delay(delay_count);
@@ -178,7 +178,7 @@ if (1 == BTN2_PORT_BIT) {
             delay(delay_count);
             LD4_PORT_BIT = LED_state;
             delay(delay_count);
-=======
+
 Delay(delay_count);
             LD2_PORT_BIT = LED_state;
 Delay(delay_count);
@@ -186,7 +186,7 @@ Delay(delay_count);
 Delay(delay_count);
             LD4_PORT_BIT = LED_state;
 Delay(delay_count);
->>>>>>> 2c896bb0b9afa293dd813732f71d43cfeb967316
+
 
 // next time, set LEDs to opposite state
             LED_state = 1 - LED_state; 
@@ -194,7 +194,7 @@ Delay(delay_count);
     }
 }
 
-<<<<<<< HEAD
+
 void play_led(void)
 {
     
@@ -203,7 +203,7 @@ void play_led(void)
         
         if(BTN1_PORT_BIT && BTN2_PORT_BIT){
             delay(STD_DELAY);
-=======
+
 void Play_LED(void)
 {
     
@@ -217,26 +217,26 @@ void Play_LED(void)
         
         if(BTN1_PORT_BIT && BTN1_PORT_BIT){
             Delay(std_delay);
->>>>>>> 2c896bb0b9afa293dd813732f71d43cfeb967316
+
             delay_count = (300000 == delay_count) ? 1000000 : 300000;// if buttons has been pressed
                                                                      // then change the freq
         }
         
         if(BTN1_PORT_BIT){
-<<<<<<< HEAD
+
             num_led = (5 == num_led) ? 1 : (num_led += 1) ; // shift light to the right
         }else if(BTN2_PORT_BIT && (num_led > 0)){
             num_led = (0 == num_led) ? 4 : (num_led -= 1); // shift light to the left
-=======
+
             num_led = (5 == num_led) ? 1 : num_led ++; // shift light to the right
         }else if(BTN2_PORT_BIT && num_led > 0){
             num_led = (0 == num_led) ? 4 : num_led --; // shift light to the left
->>>>>>> 2c896bb0b9afa293dd813732f71d43cfeb967316
+
         }
         
         switch(num_led){
             case 1:
-<<<<<<< HEAD
+
                     LATG |= BIT_6; // Turn on LED 1
                     delay(delay_count);
                     LATG |= ~BIT_6; // Turn off LED 1
@@ -259,7 +259,6 @@ void Play_LED(void)
                     delay(delay_count);
                     LATG |= ~BIT_15; // Turn off LED 4
                     delay(delay_count);
-=======
                     LD1_PORT_BIT = 1; // Turn on LED 1
                     Delay(delay_count);
                     LD1_PORT_BIT = 0; // Turn off LED 1
@@ -282,7 +281,6 @@ void Play_LED(void)
                     Delay(delay_count);
                     LD4_PORT_BIT = 0; // Turn off LED 4
                     Delay(delay_count);
->>>>>>> 2c896bb0b9afa293dd813732f71d43cfeb967316
                     break;
             default:
                 num_led = 1;
@@ -290,8 +288,5 @@ void Play_LED(void)
         }
         
     }
-<<<<<<< HEAD
-
-=======
 }
->>>>>>> 2c896bb0b9afa293dd813732f71d43cfeb967316
+

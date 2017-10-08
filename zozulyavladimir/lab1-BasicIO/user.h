@@ -8,8 +8,6 @@
 #define LD2_PORT_BIT        LATDbits.LATD4
 #define LD3_PORT_BIT        LATBbits.LATB11
 #define LD4_PORT_BIT        LATGbits.LATG15
-
-<<<<<<< HEAD
 #define BTN1_PORT_BIT       PORTAbits.RA5
 #define BTN2_PORT_BIT       PORTAbits.RA4
 
@@ -31,13 +29,11 @@
 #define BIT_13 (1 << 13)
 #define BIT_14 (1 << 14)
 #define BIT_15 (1 << 15)
-=======
 
 #define BTN1_PORT_BIT       PORTAbits.RA5
 #define BTN2_PORT_BIT       PORTAbits.RA4
 
 #define std_delay 1000000
->>>>>>> 2c896bb0b9afa293dd813732f71d43cfeb967316
 
 /* TODO Application specific user parameters used in user.c may go here */
 
@@ -49,15 +45,14 @@
 
 void InitApp(void);         /* I/O and Peripheral Initialization */
 
-<<<<<<< HEAD
 void Flash_LED(void);       
 
 void Scan_LEDs(void);       
 
 void play_led(void);        //Function to move leds
-=======
+
 void Flash_LED(void);
 
 void Scan_LEDs(void);
 
->>>>>>> 2c896bb0b9afa293dd813732f71d43cfeb967316
+
