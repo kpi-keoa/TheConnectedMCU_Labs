@@ -14,12 +14,13 @@
 #define BTN_1       PORTAbits.RA5
 #define BTN_2       PORTAbits.RA4
 
-#define DELAY_TIME 1000000
+#define BLINK_DELAY 10000000
+#define DEBOUNCE_DELAY 2000000
 #define MSG "test msg"
 
 char encoded_msg[100];
 
-void delay(uint32_t val);
+void delay(volatile uint32_t val);
 void init_app(void);         // I/O and Peripheral Initialization 
 void blink_leds(uint32_t mode);
 void display_msg(void);

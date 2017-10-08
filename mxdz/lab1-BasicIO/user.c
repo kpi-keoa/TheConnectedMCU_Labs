@@ -4,8 +4,7 @@ void morse_code_encoding(char msg[], char *res) {
     char *morse_table[] = {
         "13","3111","3131","311","1","1131","331","1111","11","1333","313","1311","33","31","333","1331","3313","131","111","3","113","1113","133","3113","3133","3311"
     };
-    uint32_t i;
-    for (i = 0; msg[i]!='\0'; i++) {
+    for (uint32_t i = 0; msg[i]!='\0'; i++) {
         if (msg[i] == ' ') {
             strcat(res, " ");
         } else {
@@ -50,38 +49,35 @@ void init_app(void) {
     morse_code_encoding(MSG, encoded_msg);
 }
 
-void delay(uint32_t val) {
-    volatile uint32_t i;
-    for (i = 0; i < val; i++) {
-    }
+void delay(volatile uint32_t val) {
+    while (val --> 0);
 }
 
 void blink_leds(uint32_t mode) {
     if (mode == 1) {
         LED_1 = 1;
-        delay(DELAY_TIME);
+        delay(BLINK_DELAY);
         LED_1 = 0;
+        delay(BLINK_DELAY);
     } else if(mode == 3) {
-        LED_2, LED_3, LED_4 = 1;
-        delay(DELAY_TIME);
-        LED_2, LED_3, LED_4 = 0;
+        LED_2 = LED_3 = LED_4 = 1;
+        delay(BLINK_DELAY);
+        LED_2 = LED_3 = LED_4 = 0;
+        delay(BLINK_DELAY);
     }
 }
 
 void display_msg(void) {
-    uint32_t i;
-    while (1) {
-        if (BTN_1 == 1) { // switch 1 is pressed
-            for(i = 0; encoded_msg!='\0'; i++) {
-                if(encoded_msg[i] == '1') {
-                    blink_leds(1);
-                } else if(encoded_msg[i] == '3') {
-                    blink_leds(3);
-                } else {
-                    delay(DELAY_TIME);
-                }
+    if (BTN_1 == 1) { 
+        delay(DEBOUNCE_DELAY);
+        for(uint32_t i = 0; encoded_msg[i]!='\0'; i++) {
+            if(encoded_msg[i] == '1') {
+                blink_leds(1);
+            } else if(encoded_msg[i] == '3') {
+                blink_leds(3);
+            } else {
+                delay(BLINK_DELAY);
             }
-            delay(1000);
         }
     }
 }

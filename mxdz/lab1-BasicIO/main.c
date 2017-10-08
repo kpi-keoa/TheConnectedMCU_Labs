@@ -27,5 +27,7 @@ void main(void)
      * and Peripherals
      * for application */
     init_app();
-    display_msg();
+    while (1) {
+        display_msg();
+    }
 }
