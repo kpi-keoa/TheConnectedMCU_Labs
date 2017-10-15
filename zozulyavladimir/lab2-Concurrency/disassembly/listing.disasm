@@ -1,0 +1,927 @@
+Disassembly Listing for Demo4_Basic_Concurrency_Interrupts
+Generated From:
+D:/study/7/MIPS_PIC/Labs/Demo4_Basic_Concurrency_Interrupts.X-20171003T104024Z-001/Demo4_Basic_Concurrency_Interrupts.X/dist/C32_PIC32MZ2048ECG100/debug/Demo4_Basic_Concurrency_Interrupts.X.debug.elf
+15 ????. 2017 14:16:06
+
+---  d:/study/7/mips_pic/labs/demo4_basic_concurrency_interrupts.x-20171003t104024z-001/demo4_basic_concurrency_interrupts.x/user.c
+1:                   /******************************************************************************/
+2:                   /* Files to Include                                                           */
+3:                   /******************************************************************************/
+4:                   
+5:                   #ifdef __XC32
+6:                   #include <xc.h>          /* Defines special function registers, CP0 regs  */
+7:                   #endif
+8:                   
+9:                   #include <stdint.h>          /* For uint32_t definition                       */
+10:                  #include <stdbool.h>         /* For true/false definition                     */
+11:                  #include "user.h"            /* variables/params used by user.c               */
+12:                  #include <sys/attribs.h>
+13:                  #include <proc/p32mz2048ecg100.h>
+14:                  
+15:                  
+16:                  volatile uint32_t win = 0;//win detector 
+17:                  volatile int32_t g_position = 0;//current leds position position
+18:                  volatile uint32_t test = 0;
+19:                  
+20:                  /******************************************************************************/
+21:                  /* User Functions                                                             */
+22:                  /******************************************************************************/
+23:                  void InitApp(void) {
+9D000250  27BDFFF8   ADDIU SP, SP, -8
+9D000254  AFBF0004   SW RA, 4(SP)
+9D000258  AFBE0000   SW S8, 0(SP)
+9D00025C  03A0F021   ADDU S8, SP, ZERO
+24:                      /* Setup analog functionality and port direction */
+25:                      // LED outputs
+26:                      // Disable analog mode if present
+27:                      ANSELG &=~((1 << 6) | (1 << 15));
+9D000260  3C02BF86   LUI V0, -16506
+9D000264  8C430600   LW V1, 1536(V0)
+9D000268  3C02FFFF   LUI V0, -1
+9D00026C  34427FBF   ORI V0, V0, 32703
+9D000270  00621824   AND V1, V1, V0
+9D000274  3C02BF86   LUI V0, -16506
+9D000278  AC430600   SW V1, 1536(V0)
+28:                      ANSELB &=~(1 << 11);
+9D00027C  3C02BF86   LUI V0, -16506
+9D000280  8C420100   LW V0, 256(V0)
+9D000284  2404F7FF   ADDIU A0, ZERO, -2049
+9D000288  00441824   AND V1, V0, A0
+9D00028C  3C02BF86   LUI V0, -16506
+9D000290  AC430100   SW V1, 256(V0)
+29:                      
+30:                      // Set direction to output 
+31:                      TRISG &=~((1 << 6) | (1 << 15));
+9D000294  3C02BF86   LUI V0, -16506
+9D000298  8C430610   LW V1, 1552(V0)
+9D00029C  3C02FFFF   LUI V0, -1
+9D0002A0  34427FBF   ORI V0, V0, 32703
+9D0002A4  00621824   AND V1, V1, V0
+9D0002A8  3C02BF86   LUI V0, -16506
+9D0002AC  AC430610   SW V1, 1552(V0)
+32:                      TRISB &=~(1 << 11);
+9D0002B0  3C02BF86   LUI V0, -16506
+9D0002B4  8C420110   LW V0, 272(V0)
+9D0002B8  2404F7FF   ADDIU A0, ZERO, -2049
+9D0002BC  00441824   AND V1, V0, A0
+9D0002C0  3C02BF86   LUI V0, -16506
+9D0002C4  AC430110   SW V1, 272(V0)
+33:                      TRISD &=~(1 << 4);
+9D0002C8  3C02BF86   LUI V0, -16506
+9D0002CC  8C420310   LW V0, 784(V0)
+9D0002D0  2404FFEF   ADDIU A0, ZERO, -17
+9D0002D4  00441824   AND V1, V0, A0
+9D0002D8  3C02BF86   LUI V0, -16506
+9D0002DC  AC430310   SW V1, 784(V0)
+34:                      // Turn off LEDs for initialization
+35:                      LATG &=~((1 << 6) | (1 << 15));
+9D0002E0  3C02BF86   LUI V0, -16506
+9D0002E4  8C430630   LW V1, 1584(V0)
+9D0002E8  3C02FFFF   LUI V0, -1
+9D0002EC  34427FBF   ORI V0, V0, 32703
+9D0002F0  00621824   AND V1, V1, V0
+9D0002F4  3C02BF86   LUI V0, -16506
+9D0002F8  AC430630   SW V1, 1584(V0)
+36:                      LATB &=~(1 << 11);
+9D0002FC  3C02BF86   LUI V0, -16506
+9D000300  8C420130   LW V0, 304(V0)
+9D000304  2404F7FF   ADDIU A0, ZERO, -2049
+9D000308  00441824   AND V1, V0, A0
+9D00030C  3C02BF86   LUI V0, -16506
+9D000310  AC430130   SW V1, 304(V0)
+37:                      LATD &=~(1 <<  4);
+9D000314  3C02BF86   LUI V0, -16506
+9D000318  8C420330   LW V0, 816(V0)
+9D00031C  2404FFEF   ADDIU A0, ZERO, -17
+9D000320  00441824   AND V1, V0, A0
+9D000324  3C02BF86   LUI V0, -16506
+9D000328  AC430330   SW V1, 816(V0)
+38:                      // BTN1 and BTN2 inputs
+39:                      // Disable analog mode
+40:                      ANSELA &=~(1 << 5);
+9D00032C  3C02BF86   LUI V0, -16506
+9D000330  8C420000   LW V0, 0(V0)
+9D000334  2404FFDF   ADDIU A0, ZERO, -33
+9D000338  00441824   AND V1, V0, A0
+9D00033C  3C02BF86   LUI V0, -16506
+9D000340  AC430000   SW V1, 0(V0)
+41:                      // Set directions to input
+42:                      TRISA |= (1 << 5);
+9D000344  3C02BF86   LUI V0, -16506
+9D000348  8C420010   LW V0, 16(V0)
+9D00034C  34430020   ORI V1, V0, 32
+9D000350  3C02BF86   LUI V0, -16506
+9D000354  AC430010   SW V1, 16(V0)
+43:                      TRISA |= (1 << 4);
+9D000358  3C02BF86   LUI V0, -16506
+9D00035C  8C420010   LW V0, 16(V0)
+9D000360  34430010   ORI V1, V0, 16
+9D000364  3C02BF86   LUI V0, -16506
+9D000368  AC430010   SW V1, 16(V0)
+44:                  
+45:                      // 3. Configure peripheral to generate interrupts
+46:                      // Enable change notification interrupt in CN
+47:                      CNENA |= (1 << 5);
+9D00036C  3C02BF86   LUI V0, -16506
+9D000370  8C420080   LW V0, 128(V0)
+9D000374  34430020   ORI V1, V0, 32
+9D000378  3C02BF86   LUI V0, -16506
+9D00037C  AC430080   SW V1, 128(V0)
+48:                      CNENA |= (1 << 4);
+9D000380  3C02BF86   LUI V0, -16506
+9D000384  8C420080   LW V0, 128(V0)
+9D000388  34430010   ORI V1, V0, 16
+9D00038C  3C02BF86   LUI V0, -16506
+9D000390  AC430080   SW V1, 128(V0)
+49:                      // 4. Configure Interrupt Controller
+50:                      // Enable change notification  interrupts
+51:                      IEC3bits.CNAIE = 1;
+9D000394  3C03BF81   LUI V1, -16511
+9D000398  8C6200F0   LW V0, 240(V1)
+9D00039C  24040001   ADDIU A0, ZERO, 1
+9D0003A0  7C82B584   INS V0, A0, 22, 1
+9D0003A4  AC6200F0   SW V0, 240(V1)
+52:                      // Set priority
+53:                      IPC29bits.CNAIP = 2;
+9D0003A8  3C03BF81   LUI V1, -16511
+9D0003AC  8C620310   LW V0, 784(V1)
+9D0003B0  24040002   ADDIU A0, ZERO, 2
+9D0003B4  7C82A484   INS V0, A0, 18, 3
+9D0003B8  AC620310   SW V0, 784(V1)
+54:                      // Clear interrupt Flag
+55:                      IFS3bits.CNAIF = 0;
+9D0003BC  3C03BF81   LUI V1, -16511
+9D0003C0  8C620070   LW V0, 112(V1)
+9D0003C4  7C02B584   INS V0, ZERO, 22, 1
+9D0003C8  AC620070   SW V0, 112(V1)
+56:                      // 5. Set Interrupt Controller for multi-vector mode
+57:                      INTCONSET = _INTCON_MVEC_MASK;
+9D0003CC  3C02BF81   LUI V0, -16511
+9D0003D0  24031000   ADDIU V1, ZERO, 4096
+9D0003D4  AC430008   SW V1, 8(V0)
+58:                      // 6. Globally enable interrupts
+59:                      __builtin_enable_interrupts();
+9D0003D8  41626020   EI V0
+60:                      // 7. Enable peripheral
+61:                      CNCONAbits.ON = 1;
+9D0003DC  3C03BF86   LUI V1, -16506
+9D0003E0  94620070   LHU V0, 112(V1)
+9D0003E4  24040001   ADDIU A0, ZERO, 1
+9D0003E8  7C827BC4   INS V0, A0, 15, 1
+9D0003EC  A4620070   SH V0, 112(V1)
+62:                  }
+9D0003F0  03C0E821   ADDU SP, S8, ZERO
+9D0003F4  8FBF0004   LW RA, 4(SP)
+9D0003F8  8FBE0000   LW S8, 0(SP)
+9D0003FC  27BD0008   ADDIU SP, SP, 8
+9D000400  03E00008   JR RA
+9D000404  00000000   NOP
+63:                  
+64:                  void delay (int32_t n) {
+9D000408  27BDFFF0   ADDIU SP, SP, -16
+9D00040C  AFBE000C   SW S8, 12(SP)
+9D000410  03A0F021   ADDU S8, SP, ZERO
+9D000414  AFC40010   SW A0, 16(S8)
+65:                      volatile int i;
+66:                      for (i = 0; i < n; i++) {
+9D000418  AFC00000   SW ZERO, 0(S8)
+9D00041C  0B40010C   J 0x9D000430
+9D000420  00000000   NOP
+9D000424  8FC20000   LW V0, 0(S8)
+9D000428  24420001   ADDIU V0, V0, 1
+9D00042C  AFC20000   SW V0, 0(S8)
+9D000430  8FC30000   LW V1, 0(S8)
+9D000434  8FC20010   LW V0, 16(S8)
+9D000438  0062102A   SLT V0, V1, V0
+9D00043C  1440FFF9   BNE V0, ZERO, 0x9D000424
+9D000440  00000000   NOP
+67:                      }
+68:                  }
+9D000444  03C0E821   ADDU SP, S8, ZERO
+9D000448  8FBE000C   LW S8, 12(SP)
+9D00044C  27BD0010   ADDIU SP, SP, 16
+9D000450  03E00008   JR RA
+9D000454  00000000   NOP
+69:                  
+70:                  void win_leds(void) {
+9D000458  27BDFFE0   ADDIU SP, SP, -32
+9D00045C  AFBF001C   SW RA, 28(SP)
+9D000460  AFBE0018   SW S8, 24(SP)
+9D000464  03A0F021   ADDU S8, SP, ZERO
+71:                        
+72:                      int32_t i;
+73:                        for(i = 0; i < 3; i ++){  
+9D000468  AFC00010   SW ZERO, 16(S8)
+9D00046C  0B40017E   J 0x9D0005F8
+9D000470  00000000   NOP
+9D0005EC  8FC20010   LW V0, 16(S8)
+9D0005F0  24420001   ADDIU V0, V0, 1
+9D0005F4  AFC20010   SW V0, 16(S8)
+9D0005F8  8FC20010   LW V0, 16(S8)
+9D0005FC  28420003   SLTI V0, V0, 3
+9D000600  1440FF9C   BNE V0, ZERO, 0x9D000474
+9D000604  00000000   NOP
+74:                          if(1 == win){
+9D000474  8F838040   LW V1, -32704(GP)
+9D000478  24020001   ADDIU V0, ZERO, 1
+9D00047C  1462002D   BNE V1, V0, 0x9D000534
+9D000480  00000000   NOP
+75:                              set_leds(0x0000);
+9D000484  00002021   ADDU A0, ZERO, ZERO
+9D000488  0F400287   JAL set_leds
+9D00048C  00000000   NOP
+76:                               delay(FAST_DELAY);
+9D000490  3C020007   LUI V0, 7
+9D000494  3444A120   ORI A0, V0, -24288
+9D000498  0F400102   JAL delay
+9D00049C  00000000   NOP
+77:                              set_leds(0x1000);
+9D0004A0  24041000   ADDIU A0, ZERO, 4096
+9D0004A4  0F400287   JAL set_leds
+9D0004A8  00000000   NOP
+78:                               delay(FAST_DELAY);
+9D0004AC  3C020007   LUI V0, 7
+9D0004B0  3444A120   ORI A0, V0, -24288
+9D0004B4  0F400102   JAL delay
+9D0004B8  00000000   NOP
+79:                              set_leds(0x0100);
+9D0004BC  24040100   ADDIU A0, ZERO, 256
+9D0004C0  0F400287   JAL set_leds
+9D0004C4  00000000   NOP
+80:                               delay(FAST_DELAY);
+9D0004C8  3C020007   LUI V0, 7
+9D0004CC  3444A120   ORI A0, V0, -24288
+9D0004D0  0F400102   JAL delay
+9D0004D4  00000000   NOP
+81:                              set_leds(0x0010);
+9D0004D8  24040010   ADDIU A0, ZERO, 16
+9D0004DC  0F400287   JAL set_leds
+9D0004E0  00000000   NOP
+82:                               delay(FAST_DELAY);
+9D0004E4  3C020007   LUI V0, 7
+9D0004E8  3444A120   ORI A0, V0, -24288
+9D0004EC  0F400102   JAL delay
+9D0004F0  00000000   NOP
+83:                              set_leds(0x0001);
+9D0004F4  24040001   ADDIU A0, ZERO, 1
+9D0004F8  0F400287   JAL set_leds
+9D0004FC  00000000   NOP
+84:                               delay(FAST_DELAY);
+9D000500  3C020007   LUI V0, 7
+9D000504  3444A120   ORI A0, V0, -24288
+9D000508  0F400102   JAL delay
+9D00050C  00000000   NOP
+85:                              set_leds(0x0000);
+9D000510  00002021   ADDU A0, ZERO, ZERO
+9D000514  0F400287   JAL set_leds
+9D000518  00000000   NOP
+86:                               delay(FAST_DELAY);
+9D00051C  3C020007   LUI V0, 7
+9D000520  3444A120   ORI A0, V0, -24288
+9D000524  0F400102   JAL delay
+9D000528  00000000   NOP
+9D00052C  0B40017B   J 0x9D0005EC
+9D000530  00000000   NOP
+87:                          }
+88:                          else if(2 == win){
+9D000534  8F838040   LW V1, -32704(GP)
+9D000538  24020002   ADDIU V0, ZERO, 2
+9D00053C  1462002B   BNE V1, V0, 0x9D0005EC
+9D000540  00000000   NOP
+89:                              set_leds(0x0000);
+9D000544  00002021   ADDU A0, ZERO, ZERO
+9D000548  0F400287   JAL set_leds
+9D00054C  00000000   NOP
+90:                               delay(FAST_DELAY);
+9D000550  3C020007   LUI V0, 7
+9D000554  3444A120   ORI A0, V0, -24288
+9D000558  0F400102   JAL delay
+9D00055C  00000000   NOP
+91:                              set_leds(0x0001);
+9D000560  24040001   ADDIU A0, ZERO, 1
+9D000564  0F400287   JAL set_leds
+9D000568  00000000   NOP
+92:                               delay(FAST_DELAY);
+9D00056C  3C020007   LUI V0, 7
+9D000570  3444A120   ORI A0, V0, -24288
+9D000574  0F400102   JAL delay
+9D000578  00000000   NOP
+93:                              set_leds(0x0010);
+9D00057C  24040010   ADDIU A0, ZERO, 16
+9D000580  0F400287   JAL set_leds
+9D000584  00000000   NOP
+94:                               delay(FAST_DELAY);
+9D000588  3C020007   LUI V0, 7
+9D00058C  3444A120   ORI A0, V0, -24288
+9D000590  0F400102   JAL delay
+9D000594  00000000   NOP
+95:                              set_leds(0x0100);
+9D000598  24040100   ADDIU A0, ZERO, 256
+9D00059C  0F400287   JAL set_leds
+9D0005A0  00000000   NOP
+96:                               delay(FAST_DELAY);
+9D0005A4  3C020007   LUI V0, 7
+9D0005A8  3444A120   ORI A0, V0, -24288
+9D0005AC  0F400102   JAL delay
+9D0005B0  00000000   NOP
+97:                              set_leds(0x1000);
+9D0005B4  24041000   ADDIU A0, ZERO, 4096
+9D0005B8  0F400287   JAL set_leds
+9D0005BC  00000000   NOP
+98:                               delay(FAST_DELAY);
+9D0005C0  3C020007   LUI V0, 7
+9D0005C4  3444A120   ORI A0, V0, -24288
+9D0005C8  0F400102   JAL delay
+9D0005CC  00000000   NOP
+99:                              set_leds(0x0000);
+9D0005D0  00002021   ADDU A0, ZERO, ZERO
+9D0005D4  0F400287   JAL set_leds
+9D0005D8  00000000   NOP
+100:                              delay(FAST_DELAY);
+9D0005DC  3C020007   LUI V0, 7
+9D0005E0  3444A120   ORI A0, V0, -24288
+9D0005E4  0F400102   JAL delay
+9D0005E8  00000000   NOP
+101:                         }
+102:                     }
+103:                         things();
+9D000608  0F40024F   JAL things
+9D00060C  00000000   NOP
+104:                 }
+9D000610  03C0E821   ADDU SP, S8, ZERO
+9D000614  8FBF001C   LW RA, 28(SP)
+9D000618  8FBE0018   LW S8, 24(SP)
+9D00061C  27BD0020   ADDIU SP, SP, 32
+9D000620  03E00008   JR RA
+9D000624  00000000   NOP
+105:                 
+106:                 void set_led_position(int32_t g_position){
+9D000628  27BDFFE8   ADDIU SP, SP, -24
+9D00062C  AFBF0014   SW RA, 20(SP)
+9D000630  AFBE0010   SW S8, 16(SP)
+9D000634  03A0F021   ADDU S8, SP, ZERO
+9D000638  AFC40018   SW A0, 24(S8)
+107:                     
+108:                     switch(g_position){
+9D00063C  8FC20018   LW V0, 24(S8)
+9D000640  24420003   ADDIU V0, V0, 3
+9D000644  2C430007   SLTIU V1, V0, 7
+9D000648  10600032   BEQ V1, ZERO, 0x9D000714
+9D00064C  00000000   NOP
+9D000650  00021880   SLL V1, V0, 2
+9D000654  3C029D00   LUI V0, -25344
+9D000658  2442066C   ADDIU V0, V0, 1644
+9D00065C  00621021   ADDU V0, V1, V0
+9D000660  8C420000   LW V0, 0(V0)
+9D000664  00400008   JR V0
+9D000668  00000000   NOP
+109:                                 case -3: 
+110:                                     set_leds(0x1000);
+9D000688  24041000   ADDIU A0, ZERO, 4096
+9D00068C  0F400287   JAL set_leds
+9D000690  00000000   NOP
+111:                                     break;
+9D000694  0B4001C9   J 0x9D000724
+9D000698  00000000   NOP
+112:                                 case -2:
+113:                                     set_leds(0x1100);
+9D00069C  24041100   ADDIU A0, ZERO, 4352
+9D0006A0  0F400287   JAL set_leds
+9D0006A4  00000000   NOP
+114:                                     break;
+9D0006A8  0B4001C9   J 0x9D000724
+9D0006AC  00000000   NOP
+115:                                 case -1:
+116:                                     set_leds(0x0100);
+9D0006B0  24040100   ADDIU A0, ZERO, 256
+9D0006B4  0F400287   JAL set_leds
+9D0006B8  00000000   NOP
+117:                                     break;
+9D0006BC  0B4001C9   J 0x9D000724
+9D0006C0  00000000   NOP
+118:                                 case 0:
+119:                                     set_leds(0x0110);
+9D0006C4  24040110   ADDIU A0, ZERO, 272
+9D0006C8  0F400287   JAL set_leds
+9D0006CC  00000000   NOP
+120:                                     break;
+9D0006D0  0B4001C9   J 0x9D000724
+9D0006D4  00000000   NOP
+121:                                 case 1:
+122:                                     set_leds(0x0010);
+9D0006D8  24040010   ADDIU A0, ZERO, 16
+9D0006DC  0F400287   JAL set_leds
+9D0006E0  00000000   NOP
+123:                                     break;
+9D0006E4  0B4001C9   J 0x9D000724
+9D0006E8  00000000   NOP
+124:                                 case 2:
+125:                                     set_leds(0x0011);
+9D0006EC  24040011   ADDIU A0, ZERO, 17
+9D0006F0  0F400287   JAL set_leds
+9D0006F4  00000000   NOP
+126:                                     break;
+9D0006F8  0B4001C9   J 0x9D000724
+9D0006FC  00000000   NOP
+127:                                 case 3:
+128:                                     set_leds(0x0001);
+9D000700  24040001   ADDIU A0, ZERO, 1
+9D000704  0F400287   JAL set_leds
+9D000708  00000000   NOP
+129:                                     break;
+9D00070C  0B4001C9   J 0x9D000724
+9D000710  00000000   NOP
+130:                                 default:
+131:                                     set_leds(0x0000);
+9D000714  00002021   ADDU A0, ZERO, ZERO
+9D000718  0F400287   JAL set_leds
+9D00071C  00000000   NOP
+132:                                     break;
+9D000720  00000000   NOP
+133:                     }
+134:                 }
+9D000724  03C0E821   ADDU SP, S8, ZERO
+9D000728  8FBF0014   LW RA, 20(SP)
+9D00072C  8FBE0010   LW S8, 16(SP)
+9D000730  27BD0018   ADDIU SP, SP, 24
+9D000734  03E00008   JR RA
+9D000738  00000000   NOP
+135:                 
+136:                 void __ISR(_CHANGE_NOTICE_A_VECTOR, IPL2SRS) ISR_PortA_Change(void) {
+9D00073C  415DE800   RDPGPR SP, SP
+9D000740  401A7000   MFC0 K0, EPC
+9D000744  401B6000   MFC0 K1, Status
+9D000748  27BDFFC0   ADDIU SP, SP, -64
+9D00074C  AFBA003C   SW K0, 60(SP)
+9D000750  401A6002   MFC0 K0, SRSCtl
+9D000754  AFBB0038   SW K1, 56(SP)
+9D000758  AFBA0034   SW K0, 52(SP)
+9D00075C  7C1B7844   INS K1, ZERO, 1, 15
+9D000760  377B0800   ORI K1, K1, 2048
+9D000764  409B6000   MTC0 K1, Status
+9D000768  00001012   MFLO V0
+9D00076C  AFA2002C   SW V0, 44(SP)
+9D000770  00001810   MFHI V1
+9D000774  AFA30028   SW V1, 40(SP)
+9D000778  00201012   MFLO V0
+9D00077C  AFA20024   SW V0, 36(SP)
+9D000780  00201810   MFHI V1
+9D000784  AFA30020   SW V1, 32(SP)
+9D000788  00401012   MFLO V0
+9D00078C  AFA2001C   SW V0, 28(SP)
+9D000790  00401810   MFHI V1
+9D000794  AFA30018   SW V1, 24(SP)
+9D000798  00601012   MFLO V0
+9D00079C  AFA20014   SW V0, 20(SP)
+9D0007A0  00601810   MFHI V1
+9D0007A4  AFA30010   SW V1, 16(SP)
+9D0007A8  7C3F1CB8   RDDSP V1, 0x3F
+9D0007AC  AFA30030   SW V1, 48(SP)
+9D0007B0  03A0F021   ADDU S8, SP, ZERO
+137:                     if(CNSTATAbits.CNSTATA4){
+9D0007B4  3C02BF86   LUI V0, -16506
+9D0007B8  8C420090   LW V0, 144(V0)
+9D0007BC  30420010   ANDI V0, V0, 16
+9D0007C0  1040001B   BEQ V0, ZERO, 0x9D000830
+9D0007C4  00000000   NOP
+138:                         g_position = BTN2_PORT_BIT ? g_position + 1 : g_position;
+9D0007C8  3C02BF86   LUI V0, -16506
+9D0007CC  8C420020   LW V0, 32(V0)
+9D0007D0  30420010   ANDI V0, V0, 16
+9D0007D4  10400005   BEQ V0, ZERO, 0x9D0007EC
+9D0007D8  00000000   NOP
+9D0007DC  8F828044   LW V0, -32700(GP)
+9D0007E0  24420001   ADDIU V0, V0, 1
+9D0007E4  0B4001FC   J 0x9D0007F0
+9D0007E8  00000000   NOP
+9D0007EC  8F828044   LW V0, -32700(GP)
+9D0007F0  AF828044   SW V0, -32700(GP)
+139:                         test = (BTN1_PORT_BIT && BTN2_PORT_BIT) ? 1 : 0;
+9D0007F4  3C02BF86   LUI V0, -16506
+9D0007F8  8C420020   LW V0, 32(V0)
+9D0007FC  30420020   ANDI V0, V0, 32
+9D000800  10400009   BEQ V0, ZERO, 0x9D000828
+9D000804  00000000   NOP
+9D000808  3C02BF86   LUI V0, -16506
+9D00080C  8C420020   LW V0, 32(V0)
+9D000810  30420010   ANDI V0, V0, 16
+9D000814  10400004   BEQ V0, ZERO, 0x9D000828
+9D000818  00000000   NOP
+9D00081C  24020001   ADDIU V0, ZERO, 1
+9D000820  0B40020B   J 0x9D00082C
+9D000824  00000000   NOP
+9D000828  00001021   ADDU V0, ZERO, ZERO
+9D00082C  AF828048   SW V0, -32696(GP)
+140:                     }
+141:                     if(CNSTATAbits.CNSTATA5){
+9D000830  3C02BF86   LUI V0, -16506
+9D000834  8C420090   LW V0, 144(V0)
+9D000838  30420020   ANDI V0, V0, 32
+9D00083C  1040001B   BEQ V0, ZERO, 0x9D0008AC
+9D000840  00000000   NOP
+142:                         g_position = BTN1_PORT_BIT ? g_position - 1: g_position;
+9D000844  3C02BF86   LUI V0, -16506
+9D000848  8C420020   LW V0, 32(V0)
+9D00084C  30420020   ANDI V0, V0, 32
+9D000850  10400005   BEQ V0, ZERO, 0x9D000868
+9D000854  00000000   NOP
+9D000858  8F828044   LW V0, -32700(GP)
+9D00085C  2442FFFF   ADDIU V0, V0, -1
+9D000860  0B40021B   J 0x9D00086C
+9D000864  00000000   NOP
+9D000868  8F828044   LW V0, -32700(GP)
+9D00086C  AF828044   SW V0, -32700(GP)
+143:                         test = (BTN1_PORT_BIT && BTN2_PORT_BIT) ? 1 : 0;
+9D000870  3C02BF86   LUI V0, -16506
+9D000874  8C420020   LW V0, 32(V0)
+9D000878  30420020   ANDI V0, V0, 32
+9D00087C  10400009   BEQ V0, ZERO, 0x9D0008A4
+9D000880  00000000   NOP
+9D000884  3C02BF86   LUI V0, -16506
+9D000888  8C420020   LW V0, 32(V0)
+9D00088C  30420010   ANDI V0, V0, 16
+9D000890  10400004   BEQ V0, ZERO, 0x9D0008A4
+9D000894  00000000   NOP
+9D000898  24020001   ADDIU V0, ZERO, 1
+9D00089C  0B40022A   J 0x9D0008A8
+9D0008A0  00000000   NOP
+9D0008A4  00001021   ADDU V0, ZERO, ZERO
+9D0008A8  AF828048   SW V0, -32696(GP)
+144:                     }
+145:                 
+146:                     things();
+9D0008AC  0F40024F   JAL things
+9D0008B0  00000000   NOP
+147:                 
+148:                     IFS3bits.CNAIF = 0;
+9D0008B4  3C03BF81   LUI V1, -16511
+9D0008B8  8C620070   LW V0, 112(V1)
+9D0008BC  7C02B584   INS V0, ZERO, 22, 1
+9D0008C0  AC620070   SW V0, 112(V1)
+149:                 }
+9D0008C4  03C0E821   ADDU SP, S8, ZERO
+9D0008C8  8FA30030   LW V1, 48(SP)
+9D0008CC  7C61FCF8   WRDSP V1, 0x3F
+9D0008D0  8FA2002C   LW V0, 44(SP)
+9D0008D4  00400013   MTLO V0
+9D0008D8  8FA30028   LW V1, 40(SP)
+9D0008DC  00600011   MTHI V1
+9D0008E0  8FA50024   LW A1, 36(SP)
+9D0008E4  00A00813   MTLO A1
+9D0008E8  8FA50020   LW A1, 32(SP)
+9D0008EC  00A00811   MTHI A1
+9D0008F0  8FA5001C   LW A1, 28(SP)
+9D0008F4  00A01013   MTLO A1
+9D0008F8  8FA50018   LW A1, 24(SP)
+9D0008FC  00A01011   MTHI A1
+9D000900  8FA50014   LW A1, 20(SP)
+9D000904  00A01813   MTLO A1
+9D000908  8FA50010   LW A1, 16(SP)
+9D00090C  00A01811   MTHI A1
+9D000910  41606000   DI ZERO
+9D000914  000000C0   EHB
+9D000918  8FBB0034   LW K1, 52(SP)
+9D00091C  8FBA003C   LW K0, 60(SP)
+9D000920  409B6002   MTC0 K1, SRSCtl
+9D000924  8FBB0038   LW K1, 56(SP)
+9D000928  409A7000   MTC0 K0, EPC
+9D00092C  27BD0040   ADDIU SP, SP, 64
+9D000930  41DDE800   WRPGPR SP, SP
+9D000934  409B6000   MTC0 K1, Status
+9D000938  42000018   ERET
+150:                 
+151:                 void things(void){
+9D00093C  27BDFFE8   ADDIU SP, SP, -24
+9D000940  AFBF0014   SW RA, 20(SP)
+9D000944  AFBE0010   SW S8, 16(SP)
+9D000948  03A0F021   ADDU S8, SP, ZERO
+152:                  
+153:                      switch(win){
+9D00094C  8F828040   LW V0, -32704(GP)
+9D000950  10400006   BEQ V0, ZERO, 0x9D00096C
+9D000954  00000000   NOP
+9D000958  2C420003   SLTIU V0, V0, 3
+9D00095C  10400029   BEQ V0, ZERO, 0x9D000A04
+9D000960  00000000   NOP
+9D000964  0B40027A   J 0x9D0009E8
+9D000968  00000000   NOP
+154:                 
+155:                             case 0:
+156:                                 if(~test){
+9D00096C  8F838048   LW V1, -32696(GP)
+9D000970  2402FFFF   ADDIU V0, ZERO, -1
+9D000974  10620019   BEQ V1, V0, 0x9D0009DC
+9D000978  00000000   NOP
+157:                                 switch(g_position){
+9D00097C  8F828044   LW V0, -32700(GP)
+9D000980  2403FFFC   ADDIU V1, ZERO, -4
+9D000984  1043000A   BEQ V0, V1, 0x9D0009B0
+9D000988  00000000   NOP
+9D00098C  24030004   ADDIU V1, ZERO, 4
+9D000990  1443000D   BNE V0, V1, 0x9D0009C8
+9D000994  00000000   NOP
+158:                                     
+159:                                     case  4:
+160:                                         win = 1;
+9D000998  24020001   ADDIU V0, ZERO, 1
+9D00099C  AF828040   SW V0, -32704(GP)
+161:                                         win_leds();
+9D0009A0  0F400116   JAL win_leds
+9D0009A4  00000000   NOP
+162:                                         break;
+9D0009A8  0B400277   J 0x9D0009DC
+9D0009AC  00000000   NOP
+163:                                         
+164:                                     case  -4:
+165:                                         win = 2;
+9D0009B0  24020002   ADDIU V0, ZERO, 2
+9D0009B4  AF828040   SW V0, -32704(GP)
+166:                                         win_leds();
+9D0009B8  0F400116   JAL win_leds
+9D0009BC  00000000   NOP
+167:                                         break;
+9D0009C0  0B400277   J 0x9D0009DC
+9D0009C4  00000000   NOP
+168:                                         
+169:                                     default:
+170:                                         set_led_position(g_position);
+9D0009C8  8F828044   LW V0, -32700(GP)
+9D0009CC  00402021   ADDU A0, V0, ZERO
+9D0009D0  0F40018A   JAL set_led_position
+9D0009D4  00000000   NOP
+171:                                         break;
+9D0009D8  00000000   NOP
+172:                                     }
+173:                                 }
+174:                                 test = 0;
+9D0009DC  AF808048   SW ZERO, -32696(GP)
+175:                                break;
+9D0009E0  0B400281   J 0x9D000A04
+9D0009E4  00000000   NOP
+176:                 
+177:                          case 1: case 2:
+178:                              if(test){
+9D0009E8  8F828048   LW V0, -32696(GP)
+9D0009EC  10400004   BEQ V0, ZERO, 0x9D000A00
+9D0009F0  00000000   NOP
+179:                                     g_position = 0;
+9D0009F4  AF808044   SW ZERO, -32700(GP)
+180:                                     win = 0;
+9D0009F8  AF808040   SW ZERO, -32704(GP)
+181:                                     test = 0;
+9D0009FC  AF808048   SW ZERO, -32696(GP)
+182:                              }
+183:                                 break;
+9D000A00  00000000   NOP
+184:                         }
+185:                 }
+9D000A04  03C0E821   ADDU SP, S8, ZERO
+9D000A08  8FBF0014   LW RA, 20(SP)
+9D000A0C  8FBE0010   LW S8, 16(SP)
+9D000A10  27BD0018   ADDIU SP, SP, 24
+9D000A14  03E00008   JR RA
+9D000A18  00000000   NOP
+186:                 
+187:                 void set_leds(uint32_t leds)
+188:                 {
+9D000A1C  27BDFFF0   ADDIU SP, SP, -16
+9D000A20  AFBE000C   SW S8, 12(SP)
+9D000A24  03A0F021   ADDU S8, SP, ZERO
+9D000A28  AFC40010   SW A0, 16(S8)
+189:                    //LD1_PORT_BIT
+190:                     uint32_t i = 0;
+9D000A2C  AFC00000   SW ZERO, 0(S8)
+191:                     i |= ((leds & (1 << 0)) << 0);
+9D000A30  8FC20010   LW V0, 16(S8)
+9D000A34  30420001   ANDI V0, V0, 1
+9D000A38  8FC30000   LW V1, 0(S8)
+9D000A3C  00621025   OR V0, V1, V0
+9D000A40  AFC20000   SW V0, 0(S8)
+192:                     i |= ((leds & (1 << 1)) << 1);
+9D000A44  8FC20010   LW V0, 16(S8)
+9D000A48  30420002   ANDI V0, V0, 2
+9D000A4C  00021040   SLL V0, V0, 1
+9D000A50  8FC30000   LW V1, 0(S8)
+9D000A54  00621025   OR V0, V1, V0
+9D000A58  AFC20000   SW V0, 0(S8)
+193:                     i |= ((leds & (1 << 2)) << 2);
+9D000A5C  8FC20010   LW V0, 16(S8)
+9D000A60  30420004   ANDI V0, V0, 4
+9D000A64  00021080   SLL V0, V0, 2
+9D000A68  8FC30000   LW V1, 0(S8)
+9D000A6C  00621025   OR V0, V1, V0
+9D000A70  AFC20000   SW V0, 0(S8)
+194:                     i |= ((leds & (1 << 3)) << 3);
+9D000A74  8FC20010   LW V0, 16(S8)
+9D000A78  30420008   ANDI V0, V0, 8
+9D000A7C  000210C0   SLL V0, V0, 3
+9D000A80  8FC30000   LW V1, 0(S8)
+9D000A84  00621025   OR V0, V1, V0
+9D000A88  AFC20000   SW V0, 0(S8)
+195:                    //LD2_PORT_BIT 
+196:                     i = (leds & (1 << 1));
+9D000A8C  8FC20010   LW V0, 16(S8)
+9D000A90  30420002   ANDI V0, V0, 2
+9D000A94  AFC20000   SW V0, 0(S8)
+197:                    //LD3_PORT_BIT 
+198:                     i = (leds & (1 << 2));
+9D000A98  8FC20010   LW V0, 16(S8)
+9D000A9C  30420004   ANDI V0, V0, 4
+9D000AA0  AFC20000   SW V0, 0(S8)
+199:                    //LD4_PORT_BIT
+200:                     i = (leds & (1 << 3));
+9D000AA4  8FC20010   LW V0, 16(S8)
+9D000AA8  30420008   ANDI V0, V0, 8
+9D000AAC  AFC20000   SW V0, 0(S8)
+201:                 }
+9D000AB0  03C0E821   ADDU SP, S8, ZERO
+---  d:/study/7/mips_pic/labs/demo4_basic_concurrency_interrupts.x-20171003t104024z-001/demo4_basic_concurrency_interrupts.x/main.c
+1:                   /******************************************************************************/
+2:                   /*  Files to Include                                                          */
+3:                   /******************************************************************************/
+4:                   #ifdef __XC32
+5:                       #include <xc.h>          /* Defines special function registers, CP0 regs  */
+6:                   #endif
+7:                   
+8:                   #include <stdint.h>         /* For uint32_t definition                        */
+9:                   #include <stdbool.h>        /* For true/false definition                      */
+10:                  
+11:                  #include "system.h"         /* System funct/params, like osc/periph config    */
+12:                  #include "user.h"           /* User funct/params, such as InitApp             */
+13:                  
+14:                  /******************************************************************************/
+15:                  /* Global Variable Declaration                                                */
+16:                  /******************************************************************************/
+17:                  
+18:                  /* i.e. uint32_t <variable_name>; */
+19:                  
+20:                  /******************************************************************************/
+21:                  /* Main Program                                                               */
+22:                  /******************************************************************************/
+23:                  
+24:                  int32_t main(void)
+25:                  {
+9D0011AC  27BDFFE8   ADDIU SP, SP, -24
+9D0011B0  AFBF0014   SW RA, 20(SP)
+9D0011B4  AFBE0010   SW S8, 16(SP)
+9D0011B8  03A0F021   ADDU S8, SP, ZERO
+26:                      /* Initialize I/O 
+27:                       * and Peripherals
+28:                       * for application */
+29:                      InitApp();
+9D0011BC  0F400094   JAL InitApp
+9D0011C0  00000000   NOP
+30:                      set_leds(0x0110);
+9D0011C4  24040110   ADDIU A0, ZERO, 272
+9D0011C8  0F400287   JAL set_leds
+9D0011CC  00000000   NOP
+31:                      while(1){
+32:                      }
+9D0011D0  0B400474   J 0x9D0011D0
+33:                  }
+---  d:/study/7/mips_pic/labs/demo4_basic_concurrency_interrupts.x-20171003t104024z-001/demo4_basic_concurrency_interrupts.x/exceptions.c
+1:                   /******************************************************************************/
+2:                   /* Files to Include                                                           */
+3:                   /******************************************************************************/
+4:                   
+5:                   #ifdef __XC32
+6:                       #include <xc.h>          /* Defines special funciton registers, CP0 regs  */
+7:                   #endif
+8:                   
+9:                   // #include <plib.h>            /* Include to use PIC32 peripheral libraries     */
+10:                  #include <stdint.h>          /* For uint32_t definition                       */
+11:                  #include <stdbool.h>         /* For true/false definition                     */
+12:                  
+13:                  /******************************************************************************/
+14:                  /* Exception Macro Definitions                                                */
+15:                  /******************************************************************************/
+16:                  
+17:                  /*When WRITE_EXCEPTION_CAUSE_TO_FLASH is defined the PIC32 executes a self
+18:                  write routine to save the exception cause register.*/
+19:                  
+20:                  /* #define WRITE_EXCEPTION_CAUSE_TO_FLASH */
+21:                  
+22:                  #ifdef WRITE_EXCEPTION_CAUSE_TO_FLASH
+23:                  
+24:                  /* Physical Addresses which are at the end of KSEG 0 program memory. */
+25:                  /* User may want to adjust these values */
+26:                  #define EXCEPTION_CAUSE 0x1D007FFC
+27:                  #define EXCEPTION_ADDR  0x1D007FF8
+28:                  
+29:                  #endif
+30:                  
+31:                  /******************************************************************************/
+32:                  /* Exception Variable Declaration                                             */
+33:                  /******************************************************************************/
+34:                  
+35:                  /* static in case exception condition would stop auto variable being created  */
+36:                  static enum {
+37:                      EXCEP_IRQ = 0,           /* interrupt */
+38:                      EXCEP_AdEL = 4,          /* address error exception (load or ifetch) */
+39:                      EXCEP_AdES,              /* address error exception (store) */
+40:                      EXCEP_IBE,               /* bus error (ifetch) */
+41:                      EXCEP_DBE,               /* bus error (load/store) */
+42:                      EXCEP_Sys,               /* syscall */
+43:                      EXCEP_Bp,                /* breakpoint */
+44:                      EXCEP_RI,                /* reserved instruction */
+45:                      EXCEP_CpU,               /* coprocessor unusable */
+46:                      EXCEP_Overflow,          /* arithmetic overflow */
+47:                      EXCEP_Trap,              /* trap (possible divide by zero) */
+48:                      EXCEP_IS1 = 16,          /* implementation specfic 1 */
+49:                      EXCEP_CEU,               /* CorExtend Unuseable */
+50:                      EXCEP_C2E                /* coprocessor 2 */
+51:                  } _excep_code;
+52:                  
+53:                  /* static in case exception condition would stop auto variable being created */
+54:                  static unsigned int _epc_code;
+55:                  static unsigned int _excep_addr;
+56:                  
+57:                  /******************************************************************************/
+58:                  /* Exception Handling                                                         */
+59:                  /******************************************************************************/
+60:                  
+61:                  /* This function overrides the normal _weak_ _generic_exception_handler which
+62:                  is defined in the C32 User's Guide.  The _weak_ _generic_exception_handler
+63:                  just does an infinite loop. */
+64:                  void _general_exception_handler(void)
+65:                  {
+9D000190  27BDFFF0   ADDIU SP, SP, -16
+9D000194  AFBF000C   SW RA, 12(SP)
+9D000198  AFBE0008   SW S8, 8(SP)
+9D00019C  03A0F021   ADDU S8, SP, ZERO
+66:                      unsigned long t0 = _CP0_GET_COUNT(); /* Used for NVMOP 6 us Delay */
+9D0001A0  40024800   MFC0 V0, Count
+9D0001A4  AFC20000   SW V0, 0(S8)
+67:                  
+68:                      /* Mask off Mask of the ExcCode Field from the Cause Register
+69:                      Refer to the MIPs M4K Software User's manual */
+70:                      _excep_code=_CP0_GET_CAUSE() & 0x0000007C >> 2;
+9D0001A8  40026800   MFC0 V0, Cause
+9D0001AC  3042001F   ANDI V0, V0, 31
+9D0001B0  AF828034   SW V0, -32716(GP)
+71:                      _excep_addr=_CP0_GET_EPC();
+9D0001B4  40027000   MFC0 V0, EPC
+9D0001B8  AF82803C   SW V0, -32708(GP)
+72:                  
+73:                      _CP0_SET_STATUS(_CP0_GET_STATUS()&0xFFFFFFE); /* Disable Interrupts */
+9D0001BC  40036000   MFC0 V1, Status
+9D0001C0  3C020FFF   LUI V0, 4095
+9D0001C4  3442FFFE   ORI V0, V0, -2
+9D0001C8  00621024   AND V0, V1, V0
+9D0001CC  40826000   MTC0 V0, Status
+9D0001D0  000000C0   EHB
+74:                  
+75:                  #ifdef WRITE_EXCEPTION_CAUSE_TO_FLASH
+76:                  
+77:                      /* Store the exception causes in program memory in case the part exhibited
+78:                      the problem in release mode.  Gives user a place to start debugging
+79:                      the problem. */
+80:                  
+81:                      NVMCON = 0x4001;            /* set WREN and Word Programing mode */
+82:                      NVMADDR = EXCEPTION_CAUSE;  /* PM Address at which we'll store the */
+83:                                                  /* cause register */
+84:                      NVMDATA   = _excep_code;
+85:                  
+86:                      /* wait at least 6 us for LVD start-up
+87:                      assume we're running at max frequency
+88:                      (80 MHz) so we're always safe */
+89:                      {
+90:                          while (_CP0_GET_COUNT() - t0 < (80/2)*6);
+91:                      }
+92:                  
+93:                      NVMKEY    = 0xAA996655;
+94:                      NVMKEY    = 0x556699AA;     /* unlock sequence */
+95:                      NVMCONSET = NVMCON_WR;
+96:                      while(NVMCON & NVMCON_WR);  /* wait on write to finish */
+97:                  
+98:                      NVMCON = 0x4001;            /* set WREN and Word Programing mode */
+99:                      NVMADDR = EXCEPTION_ADDR;   /* PM Address at which we'll store the */
+100:                                                 /* exception address register */
+101:                     NVMDATA   = _excep_addr;
+102:                 
+103:                     /* wait at least 6 us for LVD start-up
+104:                     assume we're running at max frequency
+105:                     (80 MHz) so we're always safe */
+106:                     {
+107:                         while (_CP0_GET_COUNT() - t0 < (80/2)*6);
+108:                     }
+109:                 
+110:                     NVMKEY    = 0xAA996655;
+111:                     NVMKEY    = 0x556699AA;     /* unlock sequence */
+112:                     NVMCONSET = NVMCON_WR;
+113:                     while(NVMCON & NVMCON_WR);
+114:                 
+115:                     /* Write the exception cause and address to the part can be read and
+116:                     the cause determined. */
+117:                     NVMWriteWord((void*)EXCEPTION_CAUSE, _excep_code);
+118:                     NVMWriteWord((void*)EXCEPTION_ADDR, _excep_addr);
+119:                 
+120:                 #endif
+121:                 
+122:                     while (1)
+123:                     {
+124:                         /* Examine _excep_code to identify the type of exception */
+125:                         /* Examine _excep_addr to find the address that caused the exception */
+126:                     }
+9D0001D4  0B400075   J 0x9D0001D4
+127:                 }

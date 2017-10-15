@@ -28,6 +28,5 @@ int32_t main(void)
      * for application */
     InitApp();
     set_leds(0,1,1,0);
-    while(1){
-    }
+    while(1); //trap CPU
 }

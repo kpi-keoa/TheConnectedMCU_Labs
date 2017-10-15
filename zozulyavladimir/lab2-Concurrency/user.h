@@ -15,7 +15,7 @@
 
 /* TODO Application specific user parameters used in user.c may go here */
 #define SLOW_DELAY          10000000
-#define FAST_DELAY          300000
+#define FAST_DELAY          500000
 
 /******************************************************************************/
 /* User Function Prototypes                                                    /
@@ -25,7 +25,8 @@
 
 void InitApp(void);         /* I/O and Peripheral Initialization */
 
-void set_leds(uint32_t, uint32_t, uint32_t, uint32_t); //set certain leds in ON state
+void set_leds(uint32_t l1, uint32_t l2,uint32_t l3,uint32_t l4); //set certain leds in ON state
 
 void win_leds(void); //leds shows who won
 
+void things(void);

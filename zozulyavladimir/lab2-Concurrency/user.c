@@ -10,10 +10,10 @@
 #include <stdbool.h>         /* For true/false definition                     */
 #include "user.h"            /* variables/params used by user.c               */
 #include <sys/attribs.h>
-#include <proc/p32mz2048ecg100.h>
 
 volatile uint32_t win = 0;//win detector 
 volatile int32_t g_position = 0;//current leds position position
+volatile uint32_t test = 0;
 
 /******************************************************************************/
 /* User Functions                                                             */
@@ -22,44 +22,40 @@ void InitApp(void) {
     /* Setup analog functionality and port direction */
     // LED outputs
     // Disable analog mode if present
-    ANSELGbits.ANSG6 = 0;
-    ANSELBbits.ANSB11 = 0;
-    ANSELGbits.ANSG15 = 0;
+    ANSELG &=~((1 << 6) | (1 << 15));
+    ANSELB &=~(1 << 11);
+    
     // Set direction to output 
-    TRISGbits.TRISG6 = 0;
-    TRISBbits.TRISB11 = 0;
-    TRISGbits.TRISG15 = 0;
-    TRISDbits.TRISD4 = 0;
+    TRISG &=~((1 << 6) | (1 << 15));
+    TRISB &=~(1 << 11);
+    TRISD &=~(1 << 4);
     // Turn off LEDs for initialization
-    LD1_PORT_BIT = 0;
-    LD2_PORT_BIT = 0;
-    LD3_PORT_BIT = 0;
-    LD4_PORT_BIT = 0;
-
+    LATG &=~((1 << 6) | (1 << 15));
+    LATB &=~(1 << 11);
+    LATD &=~(1 <<  4);
     // BTN1 and BTN2 inputs
     // Disable analog mode
-    ANSELAbits.ANSA5 = 0;
+    ANSELA &=~(1 << 5);
     // Set directions to input
-    TRISAbits.TRISA5 = 1;
-    TRISAbits.TRISA4 = 1;
-
+    TRISA |= (1 << 5) | (1 << 4);
+    
     // 3. Configure peripheral to generate interrupts
     // Enable change notification interrupt in CN
-    CNENAbits.CNIEA5 = 1;
-    CNENAbits.CNIEA4 = 1;
+    CNENA |= (1 << 4) | (1 << 5);
     // 4. Configure Interrupt Controller
     // Enable change notification  interrupts
-    IEC3bits.CNAIE = 1;
+    IEC3 |= (1 << 22);
     // Set priority
-    IPC29bits.CNAIP = 2;
+    IPC29 |= (1 << 19); 
+    IPC29 &= ~(1 << 18); 
     // Clear interrupt Flag
-    IFS3bits.CNAIF = 0;
+    IFS3 &=~(1 << 22);
     // 5. Set Interrupt Controller for multi-vector mode
     INTCONSET = _INTCON_MVEC_MASK;
     // 6. Globally enable interrupts
     __builtin_enable_interrupts();
     // 7. Enable peripheral
-    CNCONAbits.ON = 1;
+    CNCONA |= (1 << 15);
 }
 
 void delay (int32_t n) {
@@ -70,8 +66,8 @@ void delay (int32_t n) {
 
 void win_leds(void) {
       
-        while(0 != win){
-        
+    int32_t i;
+      for(i = 0; i < 5; i++){  
         if(1 == win){
             set_leds(0,0,0,0);
              delay(FAST_DELAY);
@@ -101,6 +97,7 @@ void win_leds(void) {
              delay(FAST_DELAY);
         }
     }
+        things();
 }
 
 void set_led_position(int32_t g_position){
@@ -134,12 +131,26 @@ void set_led_position(int32_t g_position){
 }
 
 void __ISR(_CHANGE_NOTICE_A_VECTOR, IPL2SRS) ISR_PortA_Change(void) {
-    if(CNSTATAbits.CNSTATA4 || CNSTATAbits.CNSTATA5){
-        switch(win){
+    if(CNSTATAbits.CNSTATA4){
+        g_position = BTN2_PORT_BIT ? g_position + 1 : g_position;
+        test = (BTN1_PORT_BIT && BTN2_PORT_BIT) ? 1 : 0;
+    }
+    if(CNSTATAbits.CNSTATA5){
+        g_position = BTN1_PORT_BIT ? g_position - 1: g_position;
+        test = (BTN1_PORT_BIT && BTN2_PORT_BIT) ? 1 : 0;
+    }
+
+    things();
+
+    IFS3 &=~(1 << 22); // reset interaption flag
+}
+
+void things(void){
+ 
+     switch(win){
 
             case 0:
-               g_position = (BTN1_PORT_BIT && !BTN2_PORT_BIT) ? (g_position - 1) : ((!BTN1_PORT_BIT && BTN2_PORT_BIT) ? (g_position + 1) : 0 /*g_position //for test only*/);
-                
+                if(~test){
                 switch(g_position){
                     
                     case  4:
@@ -155,40 +166,25 @@ void __ISR(_CHANGE_NOTICE_A_VECTOR, IPL2SRS) ISR_PortA_Change(void) {
                     default:
                         set_led_position(g_position);
                         break;
+                    }
                 }
+                test = 0;
                break;
 
-            case 12:
-                if(BTN1_PORT_BIT && BTN2_PORT_BIT){
+         case 1: case 2:
+             if(test){
                     g_position = 0;
                     win = 0;
-                }   
+                    test = 0;
+             }
                 break;
         }
-    }
-    
-    IFS3 |= 0 << 16;
 }
 
-
-
-void set_leds(uint32_t l1, uint32_t l2, uint32_t l3, uint32_t l4)
+void set_leds(uint32_t l1, uint32_t l2,uint32_t l3,uint32_t l4)
 {
-    volatile int32_t i;
-    for(i = 0;i < 3; i++){
-    LATG |= l1 << 6;
-    LATD |= l2 << 4;
-    LATB |= l3 << 11;
-    LATG |= l4 << 15;
-    
-    delay(SLOW_DELAY);
-    
-    LATG &= !l1 << 6;
-    LATD &= !l2 << 4;
-    LATB &= !l3 << 11;
-    LATG &= !l4 << 15;
-    
-    delay(SLOW_DELAY);
-    }
+   LD1_PORT_BIT = l1;
+   LD2_PORT_BIT = l2;
+   LD3_PORT_BIT = l3;
+   LD4_PORT_BIT = l4;
 }
-
