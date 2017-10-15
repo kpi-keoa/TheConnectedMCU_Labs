@@ -16,7 +16,7 @@
 /* TODO Application specific user parameters used in user.c may go here */
 #define SLOW_DELAY          10000000
 #define FAST_DELAY          500000
-#define CONTEST_WIN_VALUE          5
+#define CONTEST_WIN_VALUE          2
 /******************************************************************************/
 /* User Function Prototypes                                                    /
 /******************************************************************************/

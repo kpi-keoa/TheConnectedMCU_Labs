@@ -8,11 +8,14 @@
 #include "system.h"         /* System funct/params, like osc/periph config    */
 #include "user.h"           /* User funct/params, such as InitApp             */
 
+
+
+
+
 int32_t main(void)
 {
-
     InitApp();
-    while(1){
-        TASK_Scan_LEDs();
+    while(1){       
     }
 }
+
