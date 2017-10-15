@@ -21,15 +21,15 @@
 /* Main Program                                                               */
 /******************************************************************************/
 
-int32_t main(void)
+void main(void)
 {
     /* Initialize I/O 
      * and Peripherals
      * for application */
     init_app();
-    
+    task_update_leds();
     while (1) {
-        task_update_leds();
+        
     }
     
 }
