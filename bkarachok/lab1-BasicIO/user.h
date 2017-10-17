@@ -22,9 +22,6 @@
 /* TODO User level functions prototypes (i.e. InitApp) go here */
 
 void InitApp(void);         /* I/O and Peripheral Initialization */
-
-void Flash_LED(void);
-
-void Scan_LEDs(void);
-
-void Sel_mode_LEDs();
+void Flash_LED(void);		/* default function for blinking one LED - ON/OFF */
+void Scan_LEDs(void);		/* default function for blinking 4 LEDs  */
+void Sel_mode_LEDs();		/* new function for blinking 4 LEDs - new modes*/
