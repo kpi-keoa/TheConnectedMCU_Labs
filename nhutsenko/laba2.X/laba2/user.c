@@ -13,7 +13,7 @@
 
 volatile uint32_t G_Allow_Lit_LEDs = 1; // Allow LEDs to be on initially
 volatile uint32_t G_LED_Scan_Delay = SLOW_DELAY; // Scan LEDs slowly initially
-volatile uint32_t G_Position = 0;
+volatile int32_t G_Position = 0;
 
 /******************************************************************************/
 /* User Functions                                                             */
@@ -158,13 +158,5 @@ void UpdateLeds(void){
         default:
             break;
     }
-    /*
-    if (-4 == G_Position){
-        TaskScanLEDs(1);
-    } else if (4 == G_Position){
-        Delay(100000);
-        TaskScanLEDs(0);
-    }
-    */
 }
 
