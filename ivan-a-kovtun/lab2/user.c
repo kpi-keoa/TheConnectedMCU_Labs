@@ -15,7 +15,7 @@
 /* Global data                                                                */
 /******************************************************************************/
 
-int gPosition;
+int32_t gPosition = 0;
 
 /******************************************************************************/
 /* User Functions                                                             */
@@ -61,22 +61,17 @@ void init_app(void) {
     __builtin_enable_interrupts();
     // 7. Enable peripheral
     CNCONAbits.ON = 1;
-    
-    gPosition = 0;
 }
 
 void delay1(int n) {
-    volatile int i;
+    volatile int32_t i;
     for (i = 0; i < n; i++) {
     }
 }
 
 void TASK_decode_gPosition(void) {
-    static int LD1_value, LD2_value,LD3_value,LD4_value;
-    LD1_value = 0;
-    LD2_value = 0;
-    LD3_value = 0;
-    LD4_value = 0;
+    static int32_t LD1_value, LD2_value, LD3_value, LD4_value;
+    LD1_value = LD2_value =  LD3_value = LD4_value = 0;
     switch (gPosition) {
         case 0:
             LD2_value = 1;
@@ -106,7 +101,7 @@ void TASK_decode_gPosition(void) {
     }
     
     PORTG |= (LD1_value << LD1_POS) | (LD4_value << LD4_POS);
-    PORTG &= (  ~ ((~LD1_value)<<LD1_POS)  )  &  (  ~ ((~LD4_value)<<LD4_POS)  );
+    PORTG &= ~ (  ((~LD1_value)<<LD1_POS) | ((~LD4_value)<<LD4_POS)  );
     
     PORTD |= (LD2_value << LD2_POS);
     PORTD &= ~ ((~LD2_value) << LD2_POS);
@@ -141,39 +136,45 @@ void scan_LEDs_with_tasks(void) {
 }
 
 void player1_win() {
-    PORTG &= ~ (1 << LD4_POS);
+    static int k;
+    for(k=0; k<5; k++) {
+        PORTG &= ~ (1 << LD4_POS);
+        delay1(WIN_DELAY);
+        PORTG |= (1 << LD1_POS);
+        delay1(WIN_DELAY);
+        PORTG &= ~ (1 << LD1_POS);
+        PORTD |= (1 << LD2_POS);
+        delay1(WIN_DELAY);
+        PORTD &= ~ (1 << LD2_POS);
+        PORTB |= (1 << LD3_POS);
+        delay1(WIN_DELAY);
+        PORTB &= ~ (1 << LD3_POS);
+        PORTG |= (1 << LD4_POS);
+        delay1(WIN_DELAY);
+        PORTG &= ~ (1 << LD4_POS);
+        delay1(WIN_DELAY);
+    }
     gPosition = 0;
-    delay1(WIN_DELAY);
-    PORTG |= (1 << LD1_POS);
-    delay1(WIN_DELAY);
-    PORTG &= ~ (1 << LD1_POS);
-    PORTD |= (1 << LD2_POS);
-    delay1(WIN_DELAY);
-    PORTD &= ~ (1 << LD2_POS);
-    PORTB |= (1 << LD3_POS);
-    delay1(WIN_DELAY);
-    PORTB &= ~ (1 << LD3_POS);
-    PORTG |= (1 << LD4_POS);
-    delay1(WIN_DELAY);
-    PORTG &= ~ (1 << LD4_POS);
-    delay1(WIN_DELAY);
 }
 
 void player2_win() {
-    PORTG &= ~ (1 << LD1_POS);
+    static int32_t k;
+    for(k=0; k<5; k++) {
+        PORTG &= ~ (1 << LD1_POS);
+        delay1(WIN_DELAY);
+        PORTG |= (1 << LD4_POS);
+        delay1(WIN_DELAY);
+        PORTG &= ~ (1 << LD4_POS);
+        PORTB |= (1 << LD3_POS);
+        delay1(WIN_DELAY);
+        PORTB &= ~ (1 << LD3_POS);
+        PORTD |= (1 << LD2_POS);
+        delay1(WIN_DELAY);
+        PORTD &= ~ (1 << LD2_POS);
+        PORTG |= (1 << LD1_POS);
+        delay1(WIN_DELAY);
+        PORTG &= ~ (1 << LD1_POS);
+        delay1(WIN_DELAY);
+    }
     gPosition = 0;
-    delay1(WIN_DELAY);
-    PORTG |= (1 << LD4_POS);
-    delay1(WIN_DELAY);
-    PORTG &= ~ (1 << LD4_POS);
-    PORTB |= (1 << LD3_POS);
-    delay1(WIN_DELAY);
-    PORTB &= ~ (1 << LD3_POS);
-    PORTD |= (1 << LD2_POS);
-    delay1(WIN_DELAY);
-    PORTD &= ~ (1 << LD2_POS);
-    PORTG |= (1 << LD1_POS);
-    delay1(WIN_DELAY);
-    PORTG &= ~ (1 << LD1_POS);
-    delay1(WIN_DELAY);
 }
