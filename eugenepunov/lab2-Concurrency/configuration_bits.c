@@ -27,7 +27,7 @@
 
 /* TODO Fill in your configuration bits from the config bits generator here.  */
 
-#if 1
+#if 1 // to allow different configurations, change as needed
 
 #include <xc.h> // <p32xxxx.h>
 

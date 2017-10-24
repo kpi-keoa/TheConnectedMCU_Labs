@@ -28,8 +28,6 @@ void main(void)
      * for application */
     init_app();
     task_update_leds();
-    while (1) {
-        
-    }
+    while (1);
     
 }

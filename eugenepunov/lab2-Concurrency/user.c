@@ -60,8 +60,8 @@ void init_app(void) {
 
 void delay(uint32_t n) {
     volatile uint32_t i;
-    n = n * 10000;
-    for (i = 0; i < n; i++) {
+    for (; n >0; n--){
+         for (i = 0; i < 10000; i++);
     }
 }
 
