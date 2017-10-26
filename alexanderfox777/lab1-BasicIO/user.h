@@ -23,5 +23,4 @@
 
 void InitApp(void);         /* I/O and Peripheral Initialization */
 
-void Flash_LED(void);
-void Scan_LEDs(void);
+void Blink_LEDs(void); /* execution of LED lighting with a certain pattern */
