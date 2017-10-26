@@ -11,9 +11,10 @@
 #include "user.h"            /* variables/params used by user.c               */
 
 /******************************************************************************/
-/* User Functions                                                             */
+uint32_t delay_count= 10000000; // delay
+uint32_t count = 0; // counter that shows how many times LED will flash
+uint32_t i; // counter for cycle
 
-/******************************************************************************/
 
 #if 1  // First version without #define names
 void InitApp(void) {
@@ -65,11 +66,6 @@ void delay(volatile uint32_t n) {
 }
 
 void Blink_LEDs(void) {
-    uint32_t delay_count= 10000000; // delay
-    uint32_t count = 0; // counter that shows how many times LED will flash
-    uint32_t i; //
-
-    while (1) {
         if (BTN1_PORT_BIT) { // switch 1 is pressed
             count++;
             LD4_PORT_BIT = 1; // This LED indicates that the information is read
@@ -96,5 +92,4 @@ void Blink_LEDs(void) {
         }
         count = 0; 
         } 
-        }
     }
