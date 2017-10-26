@@ -20,7 +20,7 @@ void main()
 				++current_led;
 
 			FCHECK(pin_write(current_led, HIGH_STATE));
-			delay(1000);
+			delay(10000000);
 		}
 	}
 }
