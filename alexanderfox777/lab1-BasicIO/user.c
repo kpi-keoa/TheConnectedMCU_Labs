@@ -79,9 +79,9 @@ void Blink_LEDs(void) {
                                       //and if a multiple of two then the two LEDs will light, 
                                       //if the multiple is three, then three
             LD1_PORT_BIT = 1; // Turn on LED
-            if(i % 2 == 0 || i % 3 == 0)
+            if( (0 == (i % 2)) || (0 == (i % 3)) )
             LD2_PORT_BIT = 1; // Turn on LED if a multiple of two
-            if(i % 3 == 0)
+            if(0 == (i % 3))
             LD3_PORT_BIT = 1; //Turn on LED if a multiple of three
             delay(delay_count);
          
