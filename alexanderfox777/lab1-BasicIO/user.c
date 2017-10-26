@@ -60,7 +60,7 @@ void InitApp(void) {
 }
 #endif
 
-void  delay(volatile int n) {
+void delay(volatile uint32_t n) {
     for (; n > 0; n--);
 }
 
