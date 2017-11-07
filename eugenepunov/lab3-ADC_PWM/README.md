@@ -1,0 +1,1 @@
+All tasks for lab3 was done. Added two modes of programm. in first mode you can control brigthness using some analog sensors or potrntiometr? and in the second mode you can controll speed of blinking leds with using sensors and potentiometer too. For choosing the mode og programm we use user button 1. using interruptions. In this lab we use timer2 to and work with ADC.
