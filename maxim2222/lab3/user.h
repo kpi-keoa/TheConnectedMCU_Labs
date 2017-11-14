@@ -12,7 +12,11 @@
 #define BTN2_PORT_BIT       PORTAbits.RA4
 
 /* TODO Application specific user parameters used in user.c may go here */
-#define FAST_DELAY          1000000
+#define PWM_FREQ_HZ (1000)
+#define PWM_PERIOD_COUNTS (100000000/(256*PWM_FREQ_HZ))
+#define MAX_ADC_VALUE (4095)
+
+#define VR1_AN_CHAN_NUM (8)
 
 /******************************************************************************/
 /* User Function Prototypes                                                    /
@@ -20,5 +24,23 @@
 
 /* TODO User level functions prototypes (i.e. InitApp) go here */
 
+/*!
+initialization timer
+*/
+//void InitTimer2AndOC5(void);
+
+/*!
+LEDs light up
+\param L2 transfers the logic level to the LED 2
+\param L3 transfers the logic level to the LED 3
+\param L4 transfers the logic level to the LED 4
+*/
+//void led_state (int L2, int L3, int L4);
+
+
+//void AdjustLED1Brightness(void)
+
 void InitApp(void);         /* I/O and Peripheral Initialization */
-void Run_Game_Tasks(void);
+
+void AdjustLED1Brightness(void);
+
