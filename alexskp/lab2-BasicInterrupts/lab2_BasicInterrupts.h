@@ -1,13 +1,11 @@
 
-#ifndef _LAB1_BASICIO_H     /* Guard against multiple inclusion */
-#define _LAB1_BASICIO_H
+#ifndef _LAB1_BASIC_INTERRUPTS_H          /* Guard against multiple inclusion */
+#define _LAB1_BASIC_INTERRUPTS_H
 
-/******************************************************************************/
-/* User Level #define Macros                                                  */
-/******************************************************************************/
 
-#include <p32xxxx.h>         /* Defines system registers                      */
+#include <xc.h>              /* Defines system registers                      */
 #include <stdint.h>          /* For uint32_t definition                       */
+#include <sys/attribs.h>     /* For __ISR definition                          */
 
 #define LED1_BIT    6
 #define LED2_BIT    4
@@ -48,26 +46,25 @@
 #define BTN1 (BTN1_PORT >> BTN1_BIT) & 1
 #define BTN2 (BTN2_PORT >> BTN2_BIT) & 1
 
-#define DEBOUNCE_DELAY          1000000
-#define BASE_LED_DELAY          1000000
+#define LED_DELAY               15
 
-#define BLINKING_MODE           0
+#define LIGHT_MODE              0
 #define SPEED_DISPLAYING_MODE   1
-#define MAX_SPEED               15
+#define MAX_BRIGHT               15
 /******************************************************************************/
 /* User Function Prototypes                                                    /
 /******************************************************************************/
 
+extern volatile uint8_t mode;
+extern volatile uint8_t bright;
+
 /* I/O and Peripheral Initialization */
 void init(void);
 
-/* checking buttons status */
-void check_buttons(uint8_t *, uint8_t *);
+/* function that generate delays for pwm and light up LEDs*/
+void pwm_light(uint8_t);
 
-/* blinking function */
-void blink(uint8_t);
-
-/* displaying the speed of blinking in binary code */
-void display_speed(uint8_t);
+/* displaying the bright of LEDs light in binary code */
+void display_bright(uint8_t);
 
 #endif

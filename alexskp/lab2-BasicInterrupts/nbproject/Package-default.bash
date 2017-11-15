@@ -10,9 +10,9 @@ CND_CONF=default
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/lab1-BasicIO.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=lab1-BasicIO.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=lab1-basicio/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/lab2-BasicInterrupts.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=lab2-BasicInterrupts.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=lab2-basicinterrupts/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/lab1-basicio/bin
+makeDirectory ${TMPDIR}/lab2-basicinterrupts/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/lab1-basicio.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/lab2-basicinterrupts.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/lab1-basicio.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/lab2-basicinterrupts.tar *
 checkReturnCode
 
 # Cleanup

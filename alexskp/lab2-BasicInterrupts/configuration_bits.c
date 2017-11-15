@@ -139,5 +139,3 @@
 #error  Unsupported processor type, please add configuration bit settings. 
 
 #endif
-
-
