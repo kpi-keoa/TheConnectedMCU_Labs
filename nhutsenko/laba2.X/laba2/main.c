@@ -27,5 +27,5 @@ int32_t main(void)
      * and Peripherals
      * for application */
     InitApp();
-    flashLED();
+    UpdateLeds();
 }
