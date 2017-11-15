@@ -1,6 +1,6 @@
 #include "common.h"
 
-void delay(volatile uint32_t val)
+void delay(uint32_t val)
 {
 	while (val --> 0);
 }

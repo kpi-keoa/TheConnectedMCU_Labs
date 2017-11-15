@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=lab1-BasicIO
+PROJECTNAME=lab2-Concurrency
 
 # Active Configuration
 DEFAULTCONF=default
