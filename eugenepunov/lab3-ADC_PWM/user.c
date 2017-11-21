@@ -66,25 +66,6 @@ void init_timer2_and_oc5(void) {
 \param[in] none
 \return none
 */
-void adjust_led1_brightness(void) {
-    unsigned int pot_pos = 0, on_time_counts=0;
-    
-    // Read potentiometer value using ADC
-    pot_pos = read_potentiometer_with_adc();
-    // Convert potentiometer value to on-time (counts)
-    on_time_counts = (pot_pos*PWM_PERIOD_COUNTS)/MAX_ADC_VALUE;
-    // Update OC5RS with new on-time count  
-    OC5RS = on_time_counts;
-    
-    LD1_PORT_BIT = on_time_counts;
-    
-}
-/*!
- initialize gpio
-\param[out] none
-\param[in] none
-\return none
-*/
 void init_gpio(void) {
     /* Setup analog functionality and port direction */
     ANSELBbits.ANSB13 = 1;
@@ -124,6 +105,47 @@ void init_gpio(void) {
     // 7. Enable peripheral
     CNCONAbits.ON = 1;
 }
+
+#define VER 1   //ver 1 - control embeded potentiometer, ver2 - control with potentiometr or any other sensor
+
+#if VER==1 
+void adjust_led1_brightness(void) {
+    unsigned int pot_pos = 0, on_time_counts=0;
+    
+    // Read potentiometer value using ADC
+    pot_pos = read_potentiometer_with_adc();
+    // Convert potentiometer value to on-time (counts)
+    on_time_counts = (pot_pos*PWM_PERIOD_COUNTS)/MAX_ADC_VALUE;
+    // Update OC5RS with new on-time count  
+    OC5RS = on_time_counts;
+    
+    LD1_PORT_BIT = on_time_counts;
+    
+}
+
+#elif VER==2
+
+void adjust_led1_brightness(void) {
+     unsigned int pot = 0, counts=0;
+    
+     // Read mic value using ADC
+     pot = read_empot_with_adc();
+     // Convert mic value to on-time (counts)
+     counts = (pot*PWM_PERIOD_COUNTS)/MAX_ADC_VALUE;
+     // Update OC5RS with new on-time count
+     OC5RS = pot;
+ 
+ }
+ 
+ 
+ #endif
+/*!
+ initialize gpio
+\param[out] none
+\param[in] none
+\return none
+*/
+
 /*!
  begins program
 \param[out] none
