@@ -28,5 +28,6 @@ void InitApp(void);         /* I/O and Peripheral Initialization */
 
 void AdjustLED1Brightness(void);
 
-bool OC5RIncDec = 0;
-int32_t potentiometerValue, incValue = 100;
+//bool OC5RIncDec = 0;
+int32_t potentiometerValue, incValue = 1, OC5R_val = PWM_PERIOD_COUNTS / 5;
+int32_t valuePot = 2000, valuePotOld = 2000;

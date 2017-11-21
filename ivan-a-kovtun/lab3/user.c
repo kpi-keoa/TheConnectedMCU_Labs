@@ -27,10 +27,10 @@ void InitTimer2AndOC5(void) {
     // Initialize OC5. See details in Section 16 (Output Compare) 
     // of the PIC32 Family Reference Manual. Use Pulse Width Modulation, which 
     // is described in Section 16.3.3.
-    // Set initial duty cycle to 50%
-    OC5R = PWM_PERIOD_COUNTS / 2;
-    // Set reload duty cycle to 50%
-    OC5RS = PWM_PERIOD_COUNTS / 2;
+    // Set initial duty cycle to 20%
+    OC5R = PWM_PERIOD_COUNTS / 5;
+    // Set reload duty cycle to 20%
+    OC5RS = PWM_PERIOD_COUNTS / 5;
     // Configure OC5 control register
     OC5CONbits.ON = 1;  // Turn on OC5
     OC5CONbits.OC32 = 0;    // Select 16 bit mode
@@ -50,6 +50,15 @@ void InitTimer2AndOC5(void) {
 
 void AdjustLED1Brightness(void) {
     //it is full because interrupt and peripheral units do everything
+    valuePot = ReadPotentiometerWithADC();
+    int32_t q = (valuePot - valuePotOld);
+    if ((q < 10) && (q > -10)) { // defence from noises
+        LD4_PORT_BIT = 0;
+    }
+    else {
+        LD4_PORT_BIT = 1;
+    }
+    valuePotOld = valuePot;
 }
 
 void InitGPIO(void) {
@@ -70,7 +79,7 @@ void InitGPIO(void) {
 
     // Turn off LEDs for initialization
     LD1_PORT_BIT = 0;
-    LD2_PORT_BIT = 0;
+    LD2_PORT_BIT = 1;
     LD3_PORT_BIT = 0;
     LD4_PORT_BIT = 0;
 
@@ -80,6 +89,23 @@ void InitGPIO(void) {
     // Set directions to input
     TRISAbits.TRISA5 = 1;
     TRISAbits.TRISA4 = 1;
+    
+    // 3. Configure peripheral to generate interrupts
+    // Enable change notification interrupt in CN
+    CNENAbits.CNIEA5 = 1;
+    CNENAbits.CNIEA4 = 1;
+    // Enable change notification  interrupts
+    IEC3bits.CNAIE = 1;
+    // Set priority
+    IPC29bits.CNAIP = 2;
+    // Clear interrupt Flag
+    IFS3bits.CNAIF = 0;
+    // 5. Set Interrupt Controller for multi-vector mode
+    INTCONSET = _INTCON_MVEC_MASK;
+    // 6. Globally enable interrupts
+    __builtin_enable_interrupts();
+    // 7. Enable peripheral
+    CNCONAbits.ON = 1;
 }
 
 void InitApp(void) {
@@ -87,14 +113,4 @@ void InitApp(void) {
     InitGPIO();
     initWiFIREadc();
     InitTimer2AndOC5();
-}
-
-void __ISR(_TIMER_2_VECTOR, IPL3SOFT) ISR_Timer_2 (void) {
-    // change OC5RS for changing time when LED is ON for changing its brightness
-    // I want LED to change its brightness with time
-    if (OC5RIncDec) { OC5RS += incValue; }
-    else  { OC5RS -= incValue; }
-    if (  (OC5RS > 5/6 * PWM_PERIOD_COUNTS) | (OC5RS < 1/6 * PWM_PERIOD_COUNTS)  ) incValue = ~ incValue;
-    // incValue = readPotentiometerWithADC()/10+10;
-    // It is better to try without ADC at first time
 }
