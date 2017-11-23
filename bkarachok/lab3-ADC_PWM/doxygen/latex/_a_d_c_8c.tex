@@ -1,0 +1,328 @@
+\hypertarget{_a_d_c_8c}{}\section{D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab3-\/\+A\+D\+C\+\_\+\+P\+W\+M/\+A\+DC.c File Reference}
+\label{_a_d_c_8c}\index{D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab3-\/\+A\+D\+C\+\_\+\+P\+W\+M/\+A\+D\+C.\+c@{D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab3-\/\+A\+D\+C\+\_\+\+P\+W\+M/\+A\+D\+C.\+c}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}user.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_a_d_c_8c_a35cca17157a4a837279a040cbb9a7228}{init\+Wi\+F\+I\+R\+Eadc} (void)
+\item 
+int \hyperlink{_a_d_c_8c_af5931d39ad95da1d988306ae9e85d7e3}{convert\+Wi\+F\+I\+R\+Eadc} (uint8\+\_\+t channel\+Number)
+\item 
+int \hyperlink{_a_d_c_8c_a80bc01eb01ab88be5e9c4d249540d62e}{Read\+Potentiometer\+With\+A\+DC} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_a_d_c_8c_af5931d39ad95da1d988306ae9e85d7e3}\label{_a_d_c_8c_af5931d39ad95da1d988306ae9e85d7e3}} 
+\index{A\+D\+C.\+c@{A\+D\+C.\+c}!convert\+Wi\+F\+I\+R\+Eadc@{convert\+Wi\+F\+I\+R\+Eadc}}
+\index{convert\+Wi\+F\+I\+R\+Eadc@{convert\+Wi\+F\+I\+R\+Eadc}!A\+D\+C.\+c@{A\+D\+C.\+c}}
+\subsubsection{\texorpdfstring{convert\+Wi\+F\+I\+R\+Eadc()}{convertWiFIREadc()}}
+{\footnotesize\ttfamily int convert\+Wi\+F\+I\+R\+Eadc (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{channel\+Number }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+\textcolor{preprocessor}{#if defined(\_\_32MZ2048ECG100\_\_)  }
+    \textcolor{comment}{// EC uses old ADC, requires work-around to eliminate noise}
+    \textcolor{comment}{// Samples ADC 17 times, discarding first 16 results.}
+    \textcolor{comment}{// Uses DMA to reduce management overhead.}
+    
+    \textcolor{keywordtype}{int} i, k = 0;
+    uint8\_t vcn = channelNumber;
+    \textcolor{keywordtype}{int} analogValue = 0;
+    \textcolor{keyword}{volatile} \textcolor{keywordtype}{unsigned} td;
+
+\textcolor{preprocessor}{#define KVA\_2\_PA(v)             (((uint32\_t) (v)) & 0x1fffffff)}
+    \textcolor{keyword}{static} uint16\_t \_\_attribute\_\_((coherent)) ovsampValue;
+
+    \textcolor{comment}{// set the channel trigger for GSWTRG source triggering}
+    \textcolor{keywordflow}{if} (channelNumber == 43 || channelNumber == 44 || channelNumber >= 50) \{
+        \textcolor{keywordflow}{return} (0);
+    \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (channelNumber >= 45) \{
+        vcn = channelNumber - 45;
+        AD1IMOD |= 1 << ((vcn * 2) + 16); \textcolor{comment}{// say use the alt; set SHxALT}
+    \}
+
+    AD1CON3bits.ADINSEL = vcn; \textcolor{comment}{// manually trigger the conversion}
+    AD1CON1bits.FILTRDLY = AD1CON2bits.SAMC + 5; \textcolor{comment}{// strictly not needed, but set the timing anyway}
+
+    \textcolor{comment}{// set up for 16x oversample}
+    AD1FLTR6 = 0; \textcolor{comment}{// clear oversampling}
+    AD1FLTR6bits.OVRSAM = 1; \textcolor{comment}{// say 16x oversampling}
+    AD1FLTR6bits.CHNLID = vcn; \textcolor{comment}{// the ANx channel}
+
+    \textcolor{comment}{// setup DMA}
+    IEC4bits.DMA7IE = 0; \textcolor{comment}{// disable DMA channel 4 interrupts}
+    IFS4bits.DMA7IF = 0; \textcolor{comment}{// clear existing DMA channel 4 interrupt flag}
+
+    \textcolor{comment}{// setup DMA channel x}
+    DMACONbits.ON = 1; \textcolor{comment}{// make sure the DMA is ON}
+    DCH7CON = 0; \textcolor{comment}{// clear DMA channel CON}
+    DCH7ECON = 0; \textcolor{comment}{// clear DMA ECON}
+    DCH7ECONbits.CABORT = 1; \textcolor{comment}{// reset the DMA channel}
+    \textcolor{keywordflow}{while} (DCH7CONbits.CHEN == 1); \textcolor{comment}{// make sure DMA is not enabled}
+    \textcolor{keywordflow}{while} (DCH7CONbits.CHBUSY == 1); \textcolor{comment}{// make sure DMA is not busy}
+    DCH7CONbits.CHPRI = 3; \textcolor{comment}{// use highest priority}
+    DCH7ECONbits.CHSIRQ = \_ADC1\_DF6\_VECTOR; \textcolor{comment}{// say the ADC filter complete triggers the DMA}
+    DCH7ECONbits.SIRQEN = 1; \textcolor{comment}{// enable the IRQ event for triggering}
+    DCH7SSA = KVA\_2\_PA(&AD1FLTR6); \textcolor{comment}{// address of the source}
+    DCH7SSIZ = 2; \textcolor{comment}{// source size is 2 bytes}
+    DCH7CSIZ = 2; \textcolor{comment}{// cell size transfer}
+    DCH7DSA = KVA\_2\_PA(&ovsampValue); \textcolor{comment}{// destination address}
+    DCH7DSIZ = \textcolor{keyword}{sizeof} (ovsampValue); \textcolor{comment}{// destination size}
+
+    \textcolor{comment}{// must throw out first 16 samples}
+    \textcolor{comment}{// keep the 17th. We can not access any ADC registers}
+    \textcolor{comment}{// however we can look at the DMA to see when things complete}
+    \textcolor{keywordflow}{for} (i = 0; i < 17; i++) \{
+        \textcolor{keywordflow}{do} \{
+
+            DCH7ECONbits.CABORT = 1; \textcolor{comment}{// reset the DMA channel}
+            AD1FLTR6bits.AFEN = 0; \textcolor{comment}{// make sure oversampling is OFF}
+            \textcolor{keywordflow}{while} (DCH7CONbits.CHEN == 1); \textcolor{comment}{// wait for DMA to stop}
+            \textcolor{keywordflow}{while} (DCH7CONbits.CHBUSY == 1); \textcolor{comment}{// wait for DMA not to be busy}
+            DCH7INT = 0; \textcolor{comment}{// clear all interrupts}
+            DCH7CONbits.CHEN = 1; \textcolor{comment}{// enable the DMA channel}
+            AD1FLTR6bits.AFEN = 1; \textcolor{comment}{// enable oversampling}
+
+            AD1CON3bits.RQCONVRT = 1; \textcolor{comment}{// start conversion}
+
+            \textcolor{comment}{// we have noticed problems that the DMA channel is not always}
+            \textcolor{comment}{// triggered, so after a time out value, just try again.}
+            \textcolor{comment}{// fundamentally the problem is that AD1FLTR6bits.AFEN must}
+            \textcolor{comment}{// be reset for each oversample conversion, disable and reenabled.}
+
+            \textcolor{comment}{// we know a conversion is going to take 8000ns * 16, or 128 us}
+            \textcolor{comment}{// we don't want to check too often so DMA and ADC can work}
+            \textcolor{comment}{// but we don't want to wait too long and hold things up}
+
+            \textcolor{keywordflow}{for} (k = 0; k < 20; k++) \textcolor{comment}{// this is more than enough time for the conversion, }
+            \{ \textcolor{comment}{// really 8 should be good enough}
+                \textcolor{keywordflow}{for} (td = 0; td < 16 * 200; td++) \textcolor{comment}{// Time delay}
+                    ;
+                \textcolor{keywordflow}{if} (DCH7INTbits.CHBCIF == 1) \{
+                    \textcolor{keywordflow}{break}; \textcolor{comment}{// DMA completed and copied the oversampled result}
+                \}
+            \}
+        \} \textcolor{keywordflow}{while} (DCH7INTbits.CHBCIF == 0); \textcolor{comment}{// if the conversion did not finish, try again}
+    \}
+    analogValue = ovsampValue >> 2; \textcolor{comment}{// 16 oversample gets you 2 extra bits}
+
+    \textcolor{comment}{// we are done, clean up the DMA, oversampling filter, and ADC}
+    DCH7CON = 0;
+    \textcolor{keywordflow}{while} (DCH7CONbits.CHBUSY == 1);
+    AD1CON3bits.ADINSEL = 0;
+    AD1FLTR6 = 0;
+
+    \textcolor{keywordflow}{if} (channelNumber >= 45) \{
+        AD1IMOD &= ~(0b11 << ((vcn * 2) + 16)); \textcolor{comment}{// don't use alt}
+    \}
+
+    \textcolor{keywordflow}{return} (analogValue);
+\textcolor{preprocessor}{#elif defined(\_\_32MZ2048EFG100\_\_)  }
+    uint32\_t mask;
+
+    \textcolor{keywordflow}{if} (channelNumber >= 32) \textcolor{comment}{// this code only supports channels 0 to 31}
+        \textcolor{keywordflow}{return} 0;
+
+    \textcolor{comment}{// Select channel to convert}
+    ADCCON3bits.ADINSEL = channelNumber;
+    \textcolor{comment}{// Manually trigger conversion}
+    ADCCON3bits.RQCNVRT = 1;
+
+    \textcolor{comment}{// wait for completion of the conversion}
+    mask = 0x1 << channelNumber;
+    \textcolor{keywordflow}{while} ((ADCDSTAT1 & mask) == 0);
+
+    \textcolor{comment}{// return the converted data}
+    \textcolor{keywordflow}{return} ((\textcolor{keywordtype}{int}) ((uint32\_t *) & ADCDATA0)[channelNumber]);
+\textcolor{preprocessor}{#else}
+\textcolor{preprocessor}{#error  Unsupported processor type, please add to ADC.c. }
+\textcolor{preprocessor}{#endif}
+\end{DoxyCode}
+\mbox{\Hypertarget{_a_d_c_8c_a35cca17157a4a837279a040cbb9a7228}\label{_a_d_c_8c_a35cca17157a4a837279a040cbb9a7228}} 
+\index{A\+D\+C.\+c@{A\+D\+C.\+c}!init\+Wi\+F\+I\+R\+Eadc@{init\+Wi\+F\+I\+R\+Eadc}}
+\index{init\+Wi\+F\+I\+R\+Eadc@{init\+Wi\+F\+I\+R\+Eadc}!A\+D\+C.\+c@{A\+D\+C.\+c}}
+\subsubsection{\texorpdfstring{init\+Wi\+F\+I\+R\+Eadc()}{initWiFIREadc()}}
+{\footnotesize\ttfamily void init\+Wi\+F\+I\+R\+Eadc (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Files to Include User Functions 
+\begin{DoxyCode}
+\textcolor{preprocessor}{#if defined(\_\_32MZ2048ECG100\_\_)    }
+    \textcolor{comment}{// Configure AD1CON1 }
+    AD1CON1 = 0; \textcolor{comment}{// No AD1CON1 features are enabled including: Stop-in-Idle, early}
+    \textcolor{comment}{// interrupt, filter delay Fractional mode and scan trigger source.}
+
+    \textcolor{comment}{// Configure AD1CON2 }
+    AD1CON2 = 0; \textcolor{comment}{// Boost, Low-power mode off, SAMC set to min, set up the ADC Clock}
+    AD1CON2bits.ADCSEL = 1; \textcolor{comment}{// 1 = SYSCLK, 2 REFCLK03, 3 FRC}
+    AD1CON2bits.ADCDIV = 10; \textcolor{comment}{// DIV\_20 TQ = 1/200 MHz; Tad = 10 * (TQ * 2) = 100 ns; 10 MHz ADC clock; the
+       sweet spot}
+    AD1CON2bits.SAMC = 75; \textcolor{comment}{// settling time is 76 TADs  ((samc +1) + 4) * TAD <= 8000    (125Kbps is max,
+       time 1/125000 = 8000 ns) => ((75  + 1) + 4) * 100 ns = 8000}
+
+    \textcolor{comment}{// Configure AD1CON3 }
+    AD1CON3 = 0; \textcolor{comment}{// ADINSEL is not configured for this example. VREFSEL of ?0?}
+    \textcolor{comment}{// selects AVDD and AVSS as the voltage reference.}
+
+    \textcolor{comment}{// AD1CON3bits.VREFSEL = 0b011; // set external VRef+/-}
+
+    \textcolor{comment}{// Configure AD1GIRGENx }
+    AD1GIRQEN1 = 0; \textcolor{comment}{// No global interrupts are used.}
+    AD1GIRQEN2 = 0;
+
+    \textcolor{comment}{// Configure AD1CSSx }
+    AD1CSS1 = 0; \textcolor{comment}{// No channel scanning is used.}
+    AD1CSS2 = 0;
+
+    \textcolor{comment}{// Configure AD1CMPCONx }
+    AD1CMPCON1 = 0; \textcolor{comment}{// No digital comparators are used. Setting the AD1CMPCONx}
+    AD1CMPCON2 = 0; \textcolor{comment}{// register to ?0? ensures that the comparator is disabled. Other}
+    AD1CMPCON3 = 0; \textcolor{comment}{// registers are ?don?t care?.}
+    AD1CMPCON4 = 0;
+    AD1CMPCON5 = 0;
+    AD1CMPCON6 = 0;
+
+    \textcolor{comment}{// Configure AD1FLTRx }
+    AD1FLTR1 = 0; \textcolor{comment}{// No oversampling filters are used.}
+    AD1FLTR2 = 0;
+    AD1FLTR3 = 0;
+    AD1FLTR4 = 0;
+    AD1FLTR5 = 0;
+    AD1FLTR6 = 0;
+
+    \textcolor{comment}{// Set up the trigger sources }
+    AD1TRG1 = 0; \textcolor{comment}{// Initialize all sources to no trigger.}
+    AD1TRG2 = 0;
+    AD1TRG3 = 0;
+
+    \textcolor{comment}{// Set up the CAL registers }
+    \textcolor{comment}{// AD1CAL1 = DEVADC1;          // Copy the configuration data to the}
+    \textcolor{comment}{// AD1CAL2 = DEVADC2;          // AD1CALx special function registers.}
+    \textcolor{comment}{// AD1CAL3 = DEVADC3;}
+    \textcolor{comment}{// AD1CAL4 = DEVADC4;}
+    \textcolor{comment}{// AD1CAL5 = DEVADC5;}
+
+    \textcolor{comment}{// comply to the errata}
+    AD1CAL1 = 0xF8894530;
+    AD1CAL2 = 0x01E4AF69;
+    AD1CAL3 = 0x0FBBBBB8;
+    AD1CAL4 = 0x000004AC;
+    AD1CAL5 = 0x02000002;
+
+    \textcolor{comment}{// Turn the ADC on, start calibration }
+    AD1IMODbits.SH0MOD = 2; \textcolor{comment}{// put in differiential mode for self calibration}
+    AD1IMODbits.SH1MOD = 2; \textcolor{comment}{// put in differiential mode for self calibration}
+    AD1IMODbits.SH2MOD = 2; \textcolor{comment}{// put in differiential mode for self calibration}
+    AD1IMODbits.SH3MOD = 2; \textcolor{comment}{// put in differiential mode for self calibration}
+    AD1IMODbits.SH4MOD = 2; \textcolor{comment}{// put in differiential mode for self calibration}
+    AD1IMODbits.SH5MOD = 2; \textcolor{comment}{// put in differiential mode for self calibration}
+    AD1CON1bits.ADCEN = 1; \textcolor{comment}{// enable, start calibration}
+    \textcolor{keywordflow}{while} (AD1CON2bits.ADCRDY == 0); \textcolor{comment}{// wait for calibration to complete}
+    AD1IMODbits.SH0MOD = 0; \textcolor{comment}{// put in unipolar encoding}
+    AD1IMODbits.SH1MOD = 0; \textcolor{comment}{// put in unipolar encoding}
+    AD1IMODbits.SH2MOD = 0; \textcolor{comment}{// put in unipolar encoding}
+    AD1IMODbits.SH3MOD = 0; \textcolor{comment}{// put in unipolar encoding}
+    AD1IMODbits.SH4MOD = 0; \textcolor{comment}{// put in unipolar encoding}
+    AD1IMODbits.SH5MOD = 0; \textcolor{comment}{// put in unipolar encoding}
+\textcolor{preprocessor}{#elif defined(\_\_32MZ2048EFG100\_\_)  }
+    \textcolor{comment}{// initialize configuration registers}
+    ADCCON1 = ADCCON2 = ADCCON3 = ADCANCON = 0;
+    \textcolor{comment}{// resolution 0 - 6bits, 1 - 8bits, 2 - 10bits, 3 - 12bits}
+    ADCCON1bits.SELRES = 3; \textcolor{comment}{// shared ADC, 12 bits resolution (bits+2 TADs, 12bit resolution = 14 TAD).}
+    \textcolor{comment}{// 0 - no trigger, 1 - clearing software trigger, 2 - not clearing software trigger, the rest see
+       datasheet}
+    ADCCON1bits.STRGSRC = 1; \textcolor{comment}{//Global software trigger / self clearing.}
+    \textcolor{comment}{// 0 - internal 3.3, 1 - use external VRef+, 2 - use external VRef-}
+    ADCCON3bits.VREFSEL = 0; \textcolor{comment}{// use internal 3.3 reference}
+    \textcolor{comment}{// set up the TQ and TAD and S&H times}
+    \textcolor{comment}{// TCLK: 00- pbClk3, 01 - SysClk, 10 - External Clk3, 11 - interal 8 MHz clk}
+    ADCCON3bits.ADCSEL = 0b01; \textcolor{comment}{// TCLK clk == Sys Clock == F\_CPU  }
+    \textcolor{comment}{// Global ADC TQ Clock: Global ADC prescaler 0 - 63; Divide by (CONCLKDIV*2) However, the value 0 means
+       divide by 1}
+    ADCCON3bits.CONCLKDIV = 0; \textcolor{comment}{// Divide by 1 == TCLK == SYSCLK == F\_CPU}
+    ADCCON2bits.ADCDIV = 8;
+    ADCCON2bits.SAMC = 10;
+    \textcolor{comment}{// the warm up count is 2^^X where X = 0 -15}
+    ADCANCONbits.WKUPCLKCNT = 9; \textcolor{comment}{// Wakeup exponent = 2^^15 * TADx   }
+    \textcolor{comment}{// Configure ADCIRQENx }
+    ADCCMPEN1 = ADCCMPEN2 = 0; \textcolor{comment}{// No interrupts are used}
+    \textcolor{comment}{// Configure ADCCSSx }
+    ADCCSS1 = ADCCSS2 = 0; \textcolor{comment}{// No scanning is used}
+    \textcolor{comment}{// Configure ADCCMPxCON }
+    ADCCMP1 = ADCCMP2 = ADCCMP3 = 0; \textcolor{comment}{// No digital comparators are used. Setting the ADCCMPxCON}
+    ADCCMP4 = ADCCMP5 = ADCCMP6 = 0; \textcolor{comment}{// register to '0' ensures that the comparator is disabled.}
+    \textcolor{comment}{// Configure ADCFLTRx }
+    ADCFLTR1 = ADCFLTR2 = ADCFLTR3 = 0; \textcolor{comment}{// Clear all bits}
+    ADCFLTR4 = ADCFLTR5 = ADCFLTR6 = 0; \textcolor{comment}{// Clear all bits}
+    \textcolor{comment}{// disable all global interrupts}
+    ADCGIRQEN1 = ADCGIRQEN2 = 0;
+    \textcolor{comment}{// Early interrupt }
+    ADCEIEN1 = ADCEIEN2 = 0; \textcolor{comment}{// No early interrupt}
+    \textcolor{comment}{// no dedicated trigger sources}
+    ADCTRGMODE = 0;
+    \textcolor{comment}{// put everything in single ended unsigned mode}
+    ADCIMCON1 = ADCIMCON2 = ADCIMCON3 = 0;
+    \textcolor{comment}{// triggers are all edge trigger}
+    ADCTRGSNS = 0;
+    \textcolor{comment}{// turn on the ADC}
+    ADCCON1bits.ON = 1;
+    \textcolor{comment}{// Wait for voltage reference to be stable }
+    \textcolor{keywordflow}{while} (!ADCCON2bits.BGVRRDY); \textcolor{comment}{// Wait until the reference voltage is ready}
+    \textcolor{keywordflow}{while} (ADCCON2bits.REFFLT); \textcolor{comment}{// Wait if there is a fault with the reference voltage}
+    \textcolor{comment}{// Enable clock to analog circuit }
+    ADCANCONbits.ANEN7 = 1; \textcolor{comment}{// Enable the clock to analog bias and digital control}
+    \textcolor{comment}{// Wait for ADC to be ready }
+    \textcolor{keywordflow}{while} (!ADCANCONbits.WKRDY7); \textcolor{comment}{// Wait until ADC0 is ready}
+    \textcolor{comment}{// Enable the ADC module }
+    ADCCON3bits.DIGEN7 = 1; \textcolor{comment}{// Enable shared ADC}
+\textcolor{preprocessor}{#else}
+\textcolor{preprocessor}{#error  Unsupported processor type, please add to ADC.c. }
+\textcolor{preprocessor}{#endif}
+\end{DoxyCode}
+\mbox{\Hypertarget{_a_d_c_8c_a80bc01eb01ab88be5e9c4d249540d62e}\label{_a_d_c_8c_a80bc01eb01ab88be5e9c4d249540d62e}} 
+\index{A\+D\+C.\+c@{A\+D\+C.\+c}!Read\+Potentiometer\+With\+A\+DC@{Read\+Potentiometer\+With\+A\+DC}}
+\index{Read\+Potentiometer\+With\+A\+DC@{Read\+Potentiometer\+With\+A\+DC}!A\+D\+C.\+c@{A\+D\+C.\+c}}
+\subsubsection{\texorpdfstring{Read\+Potentiometer\+With\+A\+D\+C()}{ReadPotentiometerWithADC()}}
+{\footnotesize\ttfamily int Read\+Potentiometer\+With\+A\+DC (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+\textcolor{comment}{//read voltage from ponentiometer divider}
+\textcolor{preprocessor}{#if defined(\_\_32MZ2048ECG100\_\_)  }
+    \textcolor{comment}{// EC uses old ADC, requires work-around to eliminate noise}
+    \textcolor{keywordflow}{return} \hyperlink{_a_d_c_8c_af5931d39ad95da1d988306ae9e85d7e3}{convertWiFIREadc}(\hyperlink{user_8h_a2d10214717c8a79b426e5d8c9af123fe}{VR1\_AN\_CHAN\_NUM});
+\textcolor{preprocessor}{#elif defined(\_\_32MZ2048EFG100\_\_)  }
+    \textcolor{comment}{// Select channel to convert}
+    ADCCON3bits.ADINSEL = \hyperlink{user_8h_a2d10214717c8a79b426e5d8c9af123fe}{VR1\_AN\_CHAN\_NUM};
+    \textcolor{comment}{// Manually trigger conversion}
+    ADCCON3bits.RQCNVRT = 1;
+    \textcolor{comment}{// wait for completion of the conversion}
+    \textcolor{keywordflow}{while} (ADCDSTAT1bits.ARDY8 == 0)
+        ;
+    \textcolor{comment}{// return the converted data}
+    \textcolor{keywordflow}{return} ADCDATA8;
+\textcolor{preprocessor}{#else}
+\textcolor{preprocessor}{#error  Unsupported processor type, please add to ADC.c. }
+\textcolor{preprocessor}{#endif}
+\}
+
+\textcolor{keywordtype}{int} ReadExternalRegulatorWithADC(\textcolor{keywordtype}{void}) \{ \textcolor{comment}{//read voltage from micropfone (external voltage regulator)}
+\textcolor{preprocessor}{#if defined(\_\_32MZ2048ECG100\_\_)  }
+    \textcolor{comment}{// EC uses old ADC, requires work-around to eliminate noise}
+    \textcolor{keywordflow}{return} \hyperlink{_a_d_c_8c_af5931d39ad95da1d988306ae9e85d7e3}{convertWiFIREadc}(\hyperlink{user_8h_adba2ac886b6a516776b82104563b65ae}{VR2\_AN\_CHAN\_NUM});
+\textcolor{preprocessor}{#elif defined(\_\_32MZ2048EFG100\_\_)  }
+    \textcolor{comment}{// Select channel to convert}
+    ADCCON3bits.ADINSEL = \hyperlink{user_8h_adba2ac886b6a516776b82104563b65ae}{VR2\_AN\_CHAN\_NUM};
+    \textcolor{comment}{// Manually trigger conversion}
+    ADCCON3bits.RQCNVRT = 1;
+    \textcolor{comment}{// wait for completion of the conversion}
+    \textcolor{keywordflow}{while} (ADCDSTAT1bits.ARDY8 == 0)
+        ;
+    \textcolor{comment}{// return the converted data}
+    \textcolor{keywordflow}{return} ADCDATA8;
+\textcolor{preprocessor}{#else}
+\textcolor{preprocessor}{#error  Unsupported processor type, please add to ADC.c. }
+\textcolor{preprocessor}{#endif}
+\end{DoxyCode}
