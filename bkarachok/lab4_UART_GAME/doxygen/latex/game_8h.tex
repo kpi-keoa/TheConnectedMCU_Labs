@@ -1,0 +1,127 @@
+\hypertarget{game_8h}{}\section{D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab4\+\_\+\+U\+A\+R\+T\+\_\+\+G\+A\+M\+E/game.h File Reference}
+\label{game_8h}\index{D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab4\+\_\+\+U\+A\+R\+T\+\_\+\+G\+A\+M\+E/game.\+h@{D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab4\+\_\+\+U\+A\+R\+T\+\_\+\+G\+A\+M\+E/game.\+h}}
+{\ttfamily \#include $<$xc.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}U\+A\+R\+T.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{game_8h_a45f6976584e6a4e67c35ddc3e4a924ef}{N\+U\+M\+\_\+\+G\+U\+E\+S\+S\+ES}~(3)
+\item 
+\#define \hyperlink{game_8h_a799517031a8334a42807b119bb456c53}{T\+I\+M\+E\+\_\+\+O\+UT}~(-\/1)
+\item 
+\#define \hyperlink{game_8h_a9d9bc16d6dee64280de6063de97939c1}{I\+L\+L\+E\+G\+A\+L\+\_\+\+C\+H\+AR}~(-\/2)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{game_8h_a71a666ebac0910b70aa7c74af4163ab2}{Guessing\+Game} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{game_8h_a9d9bc16d6dee64280de6063de97939c1}\label{game_8h_a9d9bc16d6dee64280de6063de97939c1}} 
+\index{game.\+h@{game.\+h}!I\+L\+L\+E\+G\+A\+L\+\_\+\+C\+H\+AR@{I\+L\+L\+E\+G\+A\+L\+\_\+\+C\+H\+AR}}
+\index{I\+L\+L\+E\+G\+A\+L\+\_\+\+C\+H\+AR@{I\+L\+L\+E\+G\+A\+L\+\_\+\+C\+H\+AR}!game.\+h@{game.\+h}}
+\subsubsection{\texorpdfstring{I\+L\+L\+E\+G\+A\+L\+\_\+\+C\+H\+AR}{ILLEGAL\_CHAR}}
+{\footnotesize\ttfamily \#define I\+L\+L\+E\+G\+A\+L\+\_\+\+C\+H\+AR~(-\/2)}
+
+\mbox{\Hypertarget{game_8h_a45f6976584e6a4e67c35ddc3e4a924ef}\label{game_8h_a45f6976584e6a4e67c35ddc3e4a924ef}} 
+\index{game.\+h@{game.\+h}!N\+U\+M\+\_\+\+G\+U\+E\+S\+S\+ES@{N\+U\+M\+\_\+\+G\+U\+E\+S\+S\+ES}}
+\index{N\+U\+M\+\_\+\+G\+U\+E\+S\+S\+ES@{N\+U\+M\+\_\+\+G\+U\+E\+S\+S\+ES}!game.\+h@{game.\+h}}
+\subsubsection{\texorpdfstring{N\+U\+M\+\_\+\+G\+U\+E\+S\+S\+ES}{NUM\_GUESSES}}
+{\footnotesize\ttfamily \#define N\+U\+M\+\_\+\+G\+U\+E\+S\+S\+ES~(3)}
+
+\mbox{\Hypertarget{game_8h_a799517031a8334a42807b119bb456c53}\label{game_8h_a799517031a8334a42807b119bb456c53}} 
+\index{game.\+h@{game.\+h}!T\+I\+M\+E\+\_\+\+O\+UT@{T\+I\+M\+E\+\_\+\+O\+UT}}
+\index{T\+I\+M\+E\+\_\+\+O\+UT@{T\+I\+M\+E\+\_\+\+O\+UT}!game.\+h@{game.\+h}}
+\subsubsection{\texorpdfstring{T\+I\+M\+E\+\_\+\+O\+UT}{TIME\_OUT}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+\_\+\+O\+UT~(-\/1)}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{game_8h_a71a666ebac0910b70aa7c74af4163ab2}\label{game_8h_a71a666ebac0910b70aa7c74af4163ab2}} 
+\index{game.\+h@{game.\+h}!Guessing\+Game@{Guessing\+Game}}
+\index{Guessing\+Game@{Guessing\+Game}!game.\+h@{game.\+h}}
+\subsubsection{\texorpdfstring{Guessing\+Game()}{GuessingGame()}}
+{\footnotesize\ttfamily void Guessing\+Game (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+\textcolor{keywordtype}{int} guess, number, guesses\_left, won=0, num\_won=0, num\_lost=0, reset\_flag=0;
+\textcolor{keywordtype}{char} buffer[80];
+
+\textcolor{keywordflow}{while} (1) \{ \textcolor{comment}{// new game}
+    \hyperlink{_u_a_r_t_8c_a9737f9bcafe230a8a709dcda393e07b0}{UART4\_puts}(\textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)nGuessed integer number in the range from 0 to 10.\(\backslash\)r\(\backslash\)n"});
+    number = rand() % 10; \textcolor{comment}{// random value of number from 0 to 10;}
+    won = 0;
+    \textcolor{keywordflow}{for} (guesses\_left=\hyperlink{game_8h_a45f6976584e6a4e67c35ddc3e4a924ef}{NUM\_GUESSES}; (guesses\_left>0) && (!won); guesses\_left--) \{
+        sprintf(buffer, \textcolor{stringliteral}{"You have %d guesses left.\(\backslash\)r\(\backslash\)n"}, guesses\_left);
+        \hyperlink{_u_a_r_t_8c_a9737f9bcafe230a8a709dcda393e07b0}{UART4\_puts}(buffer);
+        \hyperlink{_u_a_r_t_8c_a9737f9bcafe230a8a709dcda393e07b0}{UART4\_puts}(\textcolor{stringliteral}{"What is this number?? Please type it and press enter.\(\backslash\)r\(\backslash\)n"});
+        \hyperlink{_u_a_r_t_8c_a9737f9bcafe230a8a709dcda393e07b0}{UART4\_puts}(\textcolor{stringliteral}{"If you want to reset counters of wins and losses, type 11.\(\backslash\)r\(\backslash\)n"});
+        guess = \hyperlink{game_8c_adcc9eca5a3b1f6b8e8329315c4c311d6}{Get\_Guess}();
+        \hyperlink{_u_a_r_t_8c_a9737f9bcafe230a8a709dcda393e07b0}{UART4\_puts}(\textcolor{stringliteral}{"\(\backslash\)r\(\backslash\)n"});
+        \textcolor{keywordflow}{if} (guess == \hyperlink{game_8h_a9d9bc16d6dee64280de6063de97939c1}{ILLEGAL\_CHAR}) \{ \textcolor{comment}{//cheking correct data}
+            \hyperlink{_u_a_r_t_8c_a9737f9bcafe230a8a709dcda393e07b0}{UART4\_puts}(\textcolor{stringliteral}{"That's not a number! You lost your guess.\(\backslash\)r\(\backslash\)n"});
+        \} 
+        \textcolor{keywordflow}{else} \{ \textcolor{comment}{//checking number which user entered}
+            \textcolor{keywordflow}{if} (guess == number) \{ \textcolor{comment}{// user guessed number}
+                \hyperlink{_u_a_r_t_8c_a9737f9bcafe230a8a709dcda393e07b0}{UART4\_puts}(\textcolor{stringliteral}{"Congratulations! You guessed it!\(\backslash\)r\(\backslash\)n"});
+                won = 1;
+            \} 
+            \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (guess < number) \{ \textcolor{comment}{// user didnt guess number}
+                \hyperlink{_u_a_r_t_8c_a9737f9bcafe230a8a709dcda393e07b0}{UART4\_puts}(\textcolor{stringliteral}{"Too low!\(\backslash\)r\(\backslash\)n"});
+            \} 
+            \textcolor{keywordflow}{else} \{ \textcolor{comment}{// user didnt guess number}
+                \textcolor{keywordflow}{if} (guess == 11) \textcolor{comment}{//Reset counters of wins and losses}
+                \{
+                   reset\_flag = 1;
+                   guesses\_left = 0;
+                \}
+                \textcolor{keywordflow}{else} \hyperlink{_u_a_r_t_8c_a9737f9bcafe230a8a709dcda393e07b0}{UART4\_puts}(\textcolor{stringliteral}{"Too high!\(\backslash\)r\(\backslash\)n"});
+                \}
+            \}
+    \}
+    \textcolor{keywordflow}{if} (!reset\_flag) 
+    \{
+         \textcolor{keywordflow}{if} (won)  \textcolor{comment}{//if user did guess number}
+             \{
+             num\_won++;
+             \}
+         \textcolor{keywordflow}{if} (!won) \textcolor{comment}{// if user didnt guess number}
+            \{
+            sprintf(buffer, \textcolor{stringliteral}{"My number was %d.\(\backslash\)r\(\backslash\)n"}, number);
+            \hyperlink{_u_a_r_t_8c_a9737f9bcafe230a8a709dcda393e07b0}{UART4\_puts}(buffer);
+            num\_lost++;
+            \}
+        \textcolor{keywordflow}{if} (num\_won == 5) \textcolor{comment}{//if user have 5 wins in result gradual guessing}
+            \{
+            sprintf(buffer, \textcolor{stringliteral}{"[Congratulations, you get jackpot!!!!]:\(\backslash\)r\(\backslash\)nwon number = %d\(\backslash\)r\(\backslash\)nlost number = %d
+      \(\backslash\)r\(\backslash\)n"}, num\_won, num\_lost);
+            \hyperlink{_u_a_r_t_8c_a9737f9bcafe230a8a709dcda393e07b0}{UART4\_puts}(buffer);  
+            num\_won = 0;
+            num\_lost = 0;
+            \}
+        \textcolor{keywordflow}{if} (num\_lost == 5) \textcolor{comment}{//if user have 5 loses in result gradual guessing}
+            \{
+            sprintf(buffer, \textcolor{stringliteral}{"[Sorry, but you don't get jackpot]:\(\backslash\)r\(\backslash\)nwon number = %d\(\backslash\)r\(\backslash\)nlost number = %d\(\backslash\)r\(\backslash\)n
+      "}, num\_won, num\_lost);
+            \hyperlink{_u_a_r_t_8c_a9737f9bcafe230a8a709dcda393e07b0}{UART4\_puts}(buffer);  
+            num\_lost = 0;
+            num\_won = 0;
+            \} 
+    \}
+    \textcolor{keywordflow}{if} (reset\_flag) 
+    \{
+         num\_lost = 0;
+         num\_won = 0; 
+         \hyperlink{_u_a_r_t_8c_a9737f9bcafe230a8a709dcda393e07b0}{UART4\_puts}(\textcolor{stringliteral}{"Counters of wins and losses were reset!\(\backslash\)r\(\backslash\)n"});
+         reset\_flag = 0;
+        
+    \}
+     \textcolor{comment}{// common quantity of wins and loses}
+     sprintf(buffer, \textcolor{stringliteral}{"Won: %d\(\backslash\)r\(\backslash\)nLost: %d\(\backslash\)r\(\backslash\)n"}, num\_won, num\_lost);
+     \hyperlink{_u_a_r_t_8c_a9737f9bcafe230a8a709dcda393e07b0}{UART4\_puts}(buffer);
+\}  
+\end{DoxyCode}

@@ -1,0 +1,91 @@
+\hypertarget{_u_a_r_t_8h}{}\section{D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab4\+\_\+\+U\+A\+R\+T\+\_\+\+G\+A\+M\+E/\+U\+A\+RT.h File Reference}
+\label{_u_a_r_t_8h}\index{D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab4\+\_\+\+U\+A\+R\+T\+\_\+\+G\+A\+M\+E/\+U\+A\+R\+T.\+h@{D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab4\+\_\+\+U\+A\+R\+T\+\_\+\+G\+A\+M\+E/\+U\+A\+R\+T.\+h}}
+{\ttfamily \#include $<$xc.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_u_a_r_t_8h_a0b207695e4757928cb8a88c33c730b83}{U\+A\+R\+T4\+\_\+init} (void)
+\item 
+char \hyperlink{_u_a_r_t_8h_a6c3f14f7ca653644e800d8c313b31016}{U\+A\+R\+T4\+\_\+getc} (void)
+\item 
+void \hyperlink{_u_a_r_t_8h_afa2c6cdf3c9fab106395764d0751b578}{U\+A\+R\+T4\+\_\+putc} (char c)
+\item 
+void \hyperlink{_u_a_r_t_8h_a9737f9bcafe230a8a709dcda393e07b0}{U\+A\+R\+T4\+\_\+puts} (char $\ast$s)
+\item 
+void \hyperlink{_u_a_r_t_8h_a0198be5f5a59ab74ae5b245fe15cf27f}{U\+A\+R\+T4\+\_\+test} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_u_a_r_t_8h_a6c3f14f7ca653644e800d8c313b31016}\label{_u_a_r_t_8h_a6c3f14f7ca653644e800d8c313b31016}} 
+\index{U\+A\+R\+T.\+h@{U\+A\+R\+T.\+h}!U\+A\+R\+T4\+\_\+getc@{U\+A\+R\+T4\+\_\+getc}}
+\index{U\+A\+R\+T4\+\_\+getc@{U\+A\+R\+T4\+\_\+getc}!U\+A\+R\+T.\+h@{U\+A\+R\+T.\+h}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T4\+\_\+getc()}{UART4\_getc()}}
+{\footnotesize\ttfamily char U\+A\+R\+T4\+\_\+getc (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+\textcolor{keywordflow}{while} (!U4STAbits.URXDA)
+    ; \textcolor{comment}{// wait until character received}
+\textcolor{keywordflow}{return} U4RXREG; \textcolor{comment}{// read character}
+\end{DoxyCode}
+\mbox{\Hypertarget{_u_a_r_t_8h_a0b207695e4757928cb8a88c33c730b83}\label{_u_a_r_t_8h_a0b207695e4757928cb8a88c33c730b83}} 
+\index{U\+A\+R\+T.\+h@{U\+A\+R\+T.\+h}!U\+A\+R\+T4\+\_\+init@{U\+A\+R\+T4\+\_\+init}}
+\index{U\+A\+R\+T4\+\_\+init@{U\+A\+R\+T4\+\_\+init}!U\+A\+R\+T.\+h@{U\+A\+R\+T.\+h}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T4\+\_\+init()}{UART4\_init()}}
+{\footnotesize\ttfamily void U\+A\+R\+T4\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+RPF8R = 2; \textcolor{comment}{// PPS for U4RX from pin F2}
+U4RXR = 11; \textcolor{comment}{// PPS for U4TX to pin F8}
+
+U4STAbits.UTXEN = 1;   \textcolor{comment}{// enable transmit pin}
+U4STAbits.URXEN = 1;   \textcolor{comment}{// enable receive pin}
+U4BRG           = ((100 * 1000000) / (16 * 115200)) - 1;
+U4MODEbits.ON   = 1;   \textcolor{comment}{// enable UART}
+\end{DoxyCode}
+\mbox{\Hypertarget{_u_a_r_t_8h_afa2c6cdf3c9fab106395764d0751b578}\label{_u_a_r_t_8h_afa2c6cdf3c9fab106395764d0751b578}} 
+\index{U\+A\+R\+T.\+h@{U\+A\+R\+T.\+h}!U\+A\+R\+T4\+\_\+putc@{U\+A\+R\+T4\+\_\+putc}}
+\index{U\+A\+R\+T4\+\_\+putc@{U\+A\+R\+T4\+\_\+putc}!U\+A\+R\+T.\+h@{U\+A\+R\+T.\+h}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T4\+\_\+putc()}{UART4\_putc()}}
+{\footnotesize\ttfamily void U\+A\+R\+T4\+\_\+putc (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+\textcolor{keywordflow}{while} (U4STAbits.UTXBF)
+    ;  \textcolor{comment}{// wait until transmit buffer empty}
+U4TXREG = c;  \textcolor{comment}{// transmit character}
+\end{DoxyCode}
+\mbox{\Hypertarget{_u_a_r_t_8h_a9737f9bcafe230a8a709dcda393e07b0}\label{_u_a_r_t_8h_a9737f9bcafe230a8a709dcda393e07b0}} 
+\index{U\+A\+R\+T.\+h@{U\+A\+R\+T.\+h}!U\+A\+R\+T4\+\_\+puts@{U\+A\+R\+T4\+\_\+puts}}
+\index{U\+A\+R\+T4\+\_\+puts@{U\+A\+R\+T4\+\_\+puts}!U\+A\+R\+T.\+h@{U\+A\+R\+T.\+h}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T4\+\_\+puts()}{UART4\_puts()}}
+{\footnotesize\ttfamily void U\+A\+R\+T4\+\_\+puts (\begin{DoxyParamCaption}\item[{char $\ast$}]{s }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+\textcolor{keywordflow}{while} (*s != \textcolor{charliteral}{'\(\backslash\)0'})
+    \hyperlink{_u_a_r_t_8c_afa2c6cdf3c9fab106395764d0751b578}{UART4\_putc} (*s++);
+\end{DoxyCode}
+\mbox{\Hypertarget{_u_a_r_t_8h_a0198be5f5a59ab74ae5b245fe15cf27f}\label{_u_a_r_t_8h_a0198be5f5a59ab74ae5b245fe15cf27f}} 
+\index{U\+A\+R\+T.\+h@{U\+A\+R\+T.\+h}!U\+A\+R\+T4\+\_\+test@{U\+A\+R\+T4\+\_\+test}}
+\index{U\+A\+R\+T4\+\_\+test@{U\+A\+R\+T4\+\_\+test}!U\+A\+R\+T.\+h@{U\+A\+R\+T.\+h}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T4\+\_\+test()}{UART4\_test()}}
+{\footnotesize\ttfamily void U\+A\+R\+T4\+\_\+test (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+\textcolor{keywordtype}{char} c;
+
+\hyperlink{_u_a_r_t_8c_a9737f9bcafe230a8a709dcda393e07b0}{UART4\_puts}(\textcolor{stringliteral}{"Hello, World!\(\backslash\)r\(\backslash\)n"});
+\hyperlink{_u_a_r_t_8c_a9737f9bcafe230a8a709dcda393e07b0}{UART4\_puts}(\textcolor{stringliteral}{"Please press a key.\(\backslash\)r\(\backslash\)n"});
+
+\textcolor{keywordflow}{for} (;;)
+\{
+    c = \hyperlink{_u_a_r_t_8c_a6c3f14f7ca653644e800d8c313b31016}{UART4\_getc}();
+    \hyperlink{_u_a_r_t_8c_afa2c6cdf3c9fab106395764d0751b578}{UART4\_putc}(\textcolor{charliteral}{'['});
+    \hyperlink{_u_a_r_t_8c_afa2c6cdf3c9fab106395764d0751b578}{UART4\_putc} (c);
+    \hyperlink{_u_a_r_t_8c_a9737f9bcafe230a8a709dcda393e07b0}{UART4\_puts}(\textcolor{stringliteral}{"]\(\backslash\)r\(\backslash\)n"}); 
+\}
+\end{DoxyCode}
