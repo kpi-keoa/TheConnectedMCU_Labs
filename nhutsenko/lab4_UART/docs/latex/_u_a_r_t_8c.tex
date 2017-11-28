@@ -1,0 +1,87 @@
+\hypertarget{_u_a_r_t_8c}{}\section{D\+:/\+K\+P\+I/pic32/lab4.X/\+U\+A\+RT.c File Reference}
+\label{_u_a_r_t_8c}\index{D\+:/\+K\+P\+I/pic32/lab4.\+X/\+U\+A\+R\+T.\+c@{D\+:/\+K\+P\+I/pic32/lab4.\+X/\+U\+A\+R\+T.\+c}}
+{\ttfamily \#include \char`\"{}U\+A\+R\+T.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_u_a_r_t_8c_a0b207695e4757928cb8a88c33c730b83}{U\+A\+R\+T4\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em U\+A\+RT init function. \end{DoxyCompactList}\item 
+char \hyperlink{_u_a_r_t_8c_a6c3f14f7ca653644e800d8c313b31016}{U\+A\+R\+T4\+\_\+getc} (void)
+\begin{DoxyCompactList}\small\item\em getting char from PC \end{DoxyCompactList}\item 
+void \hyperlink{_u_a_r_t_8c_afa2c6cdf3c9fab106395764d0751b578}{U\+A\+R\+T4\+\_\+putc} (char c)
+\item 
+void \hyperlink{_u_a_r_t_8c_a9737f9bcafe230a8a709dcda393e07b0}{U\+A\+R\+T4\+\_\+puts} (char $\ast$s)
+\begin{DoxyCompactList}\small\item\em This funcktion send data to U\+A\+RT B\+U\+F\+F\+ER. \end{DoxyCompactList}\item 
+void \hyperlink{_u_a_r_t_8c_a0198be5f5a59ab74ae5b245fe15cf27f}{U\+A\+R\+T4\+\_\+test} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_u_a_r_t_8c_a6c3f14f7ca653644e800d8c313b31016}\label{_u_a_r_t_8c_a6c3f14f7ca653644e800d8c313b31016}} 
+\index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T4\+\_\+getc@{U\+A\+R\+T4\+\_\+getc}}
+\index{U\+A\+R\+T4\+\_\+getc@{U\+A\+R\+T4\+\_\+getc}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T4\+\_\+getc()}{UART4\_getc()}}
+{\footnotesize\ttfamily char U\+A\+R\+T4\+\_\+getc (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+getting char from PC 
+
+This function is reading char witch user sends from serial port and assign it to selected char symbol
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em value} & of U4\+R\+R\+EG \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Char symbol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_u_a_r_t_8c_a0b207695e4757928cb8a88c33c730b83}\label{_u_a_r_t_8c_a0b207695e4757928cb8a88c33c730b83}} 
+\index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T4\+\_\+init@{U\+A\+R\+T4\+\_\+init}}
+\index{U\+A\+R\+T4\+\_\+init@{U\+A\+R\+T4\+\_\+init}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T4\+\_\+init()}{UART4\_init()}}
+{\footnotesize\ttfamily void U\+A\+R\+T4\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+U\+A\+RT init function. 
+
+initialization of U\+A\+RT 
+\begin{DoxyParams}{Parameters}
+{\em N\+O\+NE} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\+O\+NE 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_u_a_r_t_8c_afa2c6cdf3c9fab106395764d0751b578}\label{_u_a_r_t_8c_afa2c6cdf3c9fab106395764d0751b578}} 
+\index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T4\+\_\+putc@{U\+A\+R\+T4\+\_\+putc}}
+\index{U\+A\+R\+T4\+\_\+putc@{U\+A\+R\+T4\+\_\+putc}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T4\+\_\+putc()}{UART4\_putc()}}
+{\footnotesize\ttfamily void U\+A\+R\+T4\+\_\+putc (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_u_a_r_t_8c_a9737f9bcafe230a8a709dcda393e07b0}\label{_u_a_r_t_8c_a9737f9bcafe230a8a709dcda393e07b0}} 
+\index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T4\+\_\+puts@{U\+A\+R\+T4\+\_\+puts}}
+\index{U\+A\+R\+T4\+\_\+puts@{U\+A\+R\+T4\+\_\+puts}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T4\+\_\+puts()}{UART4\_puts()}}
+{\footnotesize\ttfamily void U\+A\+R\+T4\+\_\+puts (\begin{DoxyParamCaption}\item[{char $\ast$}]{s }\end{DoxyParamCaption})}
+
+
+
+This funcktion send data to U\+A\+RT B\+U\+F\+F\+ER. 
+
+This function is read data from input string and send it to U\+A\+RT B\+U\+F\+F\+ER 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$s} & Input string value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\+O\+NE 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_u_a_r_t_8c_a0198be5f5a59ab74ae5b245fe15cf27f}\label{_u_a_r_t_8c_a0198be5f5a59ab74ae5b245fe15cf27f}} 
+\index{U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}!U\+A\+R\+T4\+\_\+test@{U\+A\+R\+T4\+\_\+test}}
+\index{U\+A\+R\+T4\+\_\+test@{U\+A\+R\+T4\+\_\+test}!U\+A\+R\+T.\+c@{U\+A\+R\+T.\+c}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T4\+\_\+test()}{UART4\_test()}}
+{\footnotesize\ttfamily void U\+A\+R\+T4\+\_\+test (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+

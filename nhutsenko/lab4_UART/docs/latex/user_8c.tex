@@ -1,0 +1,72 @@
+\hypertarget{user_8c}{}\section{D\+:/\+K\+P\+I/pic32/lab4.X/user.c File Reference}
+\label{user_8c}\index{D\+:/\+K\+P\+I/pic32/lab4.\+X/user.\+c@{D\+:/\+K\+P\+I/pic32/lab4.\+X/user.\+c}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}user.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$sys/attribs.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{user_8c_afe7a49ab9879bd7044b35eb779f30712}{Init\+G\+P\+IO} (void)
+\begin{DoxyCompactList}\small\item\em This function is using for setting G\+P\+IO. \end{DoxyCompactList}\item 
+void \hyperlink{user_8c_addc0a16fa099430e2337628a38764b67}{Init\+App} (void)
+\begin{DoxyCompactList}\small\item\em This function is using for setting all used devices. \end{DoxyCompactList}\item 
+void \hyperlink{user_8c_a3a61999f980e5ea4e9d018aaffeaf2bd}{Delay} (uint32\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Delay function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{user_8c_a3a61999f980e5ea4e9d018aaffeaf2bd}\label{user_8c_a3a61999f980e5ea4e9d018aaffeaf2bd}} 
+\index{user.\+c@{user.\+c}!Delay@{Delay}}
+\index{Delay@{Delay}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{Delay()}{Delay()}}
+{\footnotesize\ttfamily void Delay (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+
+
+Delay function. 
+
+Software realization of delay function, using empty for cycle 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & The M\+AX count number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\+O\+NE 
+\end{DoxyReturn}
+\mbox{\Hypertarget{user_8c_addc0a16fa099430e2337628a38764b67}\label{user_8c_addc0a16fa099430e2337628a38764b67}} 
+\index{user.\+c@{user.\+c}!Init\+App@{Init\+App}}
+\index{Init\+App@{Init\+App}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{Init\+App()}{InitApp()}}
+{\footnotesize\ttfamily void Init\+App (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function is using for setting all used devices. 
+
+This function is using for setting all used devices 
+\begin{DoxyParams}{Parameters}
+{\em N\+O\+NE} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\+O\+NE 
+\end{DoxyReturn}
+\mbox{\Hypertarget{user_8c_afe7a49ab9879bd7044b35eb779f30712}\label{user_8c_afe7a49ab9879bd7044b35eb779f30712}} 
+\index{user.\+c@{user.\+c}!Init\+G\+P\+IO@{Init\+G\+P\+IO}}
+\index{Init\+G\+P\+IO@{Init\+G\+P\+IO}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{Init\+G\+P\+I\+O()}{InitGPIO()}}
+{\footnotesize\ttfamily void Init\+G\+P\+IO (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function is using for setting G\+P\+IO. 
+
+This function is setting L\+ED\textquotesingle{}s 1-\/4 to digital work mode and output And set B\+TN\textquotesingle{}s 1-\/2 to Digital input mode 
+\begin{DoxyParams}{Parameters}
+{\em N\+O\+NE} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\+O\+NE 
+\end{DoxyReturn}
