@@ -1,4 +1,4 @@
-# Lab #3: Timer and PWM
+# Lab #3: ADC and Timer
 
 ![sin city](img/sin_city_femme_fatale_eva_green.jpg "Femme fatale - Eva Green")
 
