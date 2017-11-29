@@ -1,1 +1,1 @@
-Mykyta V. Hutsenko, DK-42 group / Гуценко Микита Васильович, група ДК-42 / @nhutsenko
+Mykyta V. Hutsenko, DK-42 group / Гуценко Микита Васильович, група ДК-42 / [@nhutsenko](https://github.com/nhutsenko)
