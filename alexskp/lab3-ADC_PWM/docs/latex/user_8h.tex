@@ -1,0 +1,220 @@
+\hypertarget{user_8h}{}\section{src/user.h File Reference}
+\label{user_8h}\index{src/user.\+h@{src/user.\+h}}
+
+
+contains definitions, macroses and function prototypes  
+
+
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{user_8h_ad8b2fe293843ddfd137d04230113fd3a}{L\+D1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}~L\+A\+T\+Gbits.\+L\+A\+T\+G6
+\begin{DoxyCompactList}\small\item\em Macros that used for setting or reseting of L\+E\+D1. \end{DoxyCompactList}\item 
+\#define \hyperlink{user_8h_a7e94e8f8c9f310cbdbd69caf149c50e8}{L\+D2\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}~L\+A\+T\+Dbits.\+L\+A\+T\+D4
+\begin{DoxyCompactList}\small\item\em Macros that used for setting or reseting of L\+E\+D2. \end{DoxyCompactList}\item 
+\#define \hyperlink{user_8h_a0c8f981645aee0b179b2e24e497ab1aa}{B\+T\+N1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}~P\+O\+R\+T\+Abits.\+R\+A5
+\begin{DoxyCompactList}\small\item\em Macros for reading button1 state. \end{DoxyCompactList}\item 
+\#define \hyperlink{user_8h_a56e165627f596c2f42f843ae6571de0e}{P\+W\+M\+\_\+\+F\+R\+E\+Q\+\_\+\+HZ}~(50)
+\begin{DoxyCompactList}\small\item\em Definition of P\+WM frequency. \end{DoxyCompactList}\item 
+\#define \hyperlink{user_8h_a47711156c6f02bd12baf8755b717eb65}{P\+W\+M\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+C\+O\+U\+N\+TS}~(100000000/(256 $\ast$ \hyperlink{user_8h_a56e165627f596c2f42f843ae6571de0e}{P\+W\+M\+\_\+\+F\+R\+E\+Q\+\_\+\+HZ}))
+\begin{DoxyCompactList}\small\item\em Definition of P\+WM period counts. \end{DoxyCompactList}\item 
+\#define \hyperlink{user_8h_a91f5af028cd707fcddafff4416925b21}{M\+A\+X\+\_\+\+A\+D\+C\+\_\+\+V\+A\+L\+UE}~(4095)
+\begin{DoxyCompactList}\small\item\em Definition of maximum A\+DC value. \end{DoxyCompactList}\item 
+\#define \hyperlink{user_8h_a2d10214717c8a79b426e5d8c9af123fe}{V\+R1\+\_\+\+A\+N\+\_\+\+C\+H\+A\+N\+\_\+\+N\+UM}~(8)
+\item 
+\#define \hyperlink{user_8h_abcd97daa3af1161cf285482ac4299ca2}{S\+E\+R\+V\+O\+\_\+0}~(220)
+\begin{DoxyCompactList}\small\item\em Definition of servo angle. \end{DoxyCompactList}\item 
+\#define \hyperlink{user_8h_ae5f1cac0a6fdf03656dadd61be97a0a3}{S\+E\+R\+V\+O\+\_\+90}~(550)
+\begin{DoxyCompactList}\small\item\em Definition of servo angle. \end{DoxyCompactList}\item 
+\#define \hyperlink{user_8h_a1e72bceb473a586fcf1072fc563e536d}{S\+E\+R\+V\+O\+\_\+180}~(880)
+\begin{DoxyCompactList}\small\item\em Definition of servo angle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{user_8h_a017cc7467f17665eca1b702990d9832f}{init\+\_\+gpio} (void)
+\begin{DoxyCompactList}\small\item\em G\+P\+IO initialization. \end{DoxyCompactList}\item 
+void \hyperlink{user_8h_aa82c1241c9848dfe3ad36cd19ff2d3de}{init\+\_\+servo} (void)
+\begin{DoxyCompactList}\small\item\em Servo initialization. \end{DoxyCompactList}\item 
+void \hyperlink{user_8h_a6ada1c875c157078e7c149ce806b83d7}{delay} (volatile uint32\+\_\+t n)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+contains definitions, macroses and function prototypes 
+
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{user_8h_a0c8f981645aee0b179b2e24e497ab1aa}\label{user_8h_a0c8f981645aee0b179b2e24e497ab1aa}} 
+\index{user.\+h@{user.\+h}!B\+T\+N1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT@{B\+T\+N1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}}
+\index{B\+T\+N1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT@{B\+T\+N1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}!user.\+h@{user.\+h}}
+\subsubsection{\texorpdfstring{B\+T\+N1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}{BTN1\_PORT\_BIT}}
+{\footnotesize\ttfamily \#define B\+T\+N1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT~P\+O\+R\+T\+Abits.\+R\+A5}
+
+
+
+Macros for reading button1 state. 
+
+
+
+Definition at line 13 of file user.\+h.
+
+\mbox{\Hypertarget{user_8h_ad8b2fe293843ddfd137d04230113fd3a}\label{user_8h_ad8b2fe293843ddfd137d04230113fd3a}} 
+\index{user.\+h@{user.\+h}!L\+D1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT@{L\+D1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}}
+\index{L\+D1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT@{L\+D1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}!user.\+h@{user.\+h}}
+\subsubsection{\texorpdfstring{L\+D1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}{LD1\_PORT\_BIT}}
+{\footnotesize\ttfamily \#define L\+D1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT~L\+A\+T\+Gbits.\+L\+A\+T\+G6}
+
+
+
+Macros that used for setting or reseting of L\+E\+D1. 
+
+
+
+Definition at line 10 of file user.\+h.
+
+\mbox{\Hypertarget{user_8h_a7e94e8f8c9f310cbdbd69caf149c50e8}\label{user_8h_a7e94e8f8c9f310cbdbd69caf149c50e8}} 
+\index{user.\+h@{user.\+h}!L\+D2\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT@{L\+D2\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}}
+\index{L\+D2\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT@{L\+D2\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}!user.\+h@{user.\+h}}
+\subsubsection{\texorpdfstring{L\+D2\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}{LD2\_PORT\_BIT}}
+{\footnotesize\ttfamily \#define L\+D2\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT~L\+A\+T\+Dbits.\+L\+A\+T\+D4}
+
+
+
+Macros that used for setting or reseting of L\+E\+D2. 
+
+
+
+Definition at line 11 of file user.\+h.
+
+\mbox{\Hypertarget{user_8h_a91f5af028cd707fcddafff4416925b21}\label{user_8h_a91f5af028cd707fcddafff4416925b21}} 
+\index{user.\+h@{user.\+h}!M\+A\+X\+\_\+\+A\+D\+C\+\_\+\+V\+A\+L\+UE@{M\+A\+X\+\_\+\+A\+D\+C\+\_\+\+V\+A\+L\+UE}}
+\index{M\+A\+X\+\_\+\+A\+D\+C\+\_\+\+V\+A\+L\+UE@{M\+A\+X\+\_\+\+A\+D\+C\+\_\+\+V\+A\+L\+UE}!user.\+h@{user.\+h}}
+\subsubsection{\texorpdfstring{M\+A\+X\+\_\+\+A\+D\+C\+\_\+\+V\+A\+L\+UE}{MAX\_ADC\_VALUE}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+A\+D\+C\+\_\+\+V\+A\+L\+UE~(4095)}
+
+
+
+Definition of maximum A\+DC value. 
+
+
+
+Definition at line 18 of file user.\+h.
+
+\mbox{\Hypertarget{user_8h_a56e165627f596c2f42f843ae6571de0e}\label{user_8h_a56e165627f596c2f42f843ae6571de0e}} 
+\index{user.\+h@{user.\+h}!P\+W\+M\+\_\+\+F\+R\+E\+Q\+\_\+\+HZ@{P\+W\+M\+\_\+\+F\+R\+E\+Q\+\_\+\+HZ}}
+\index{P\+W\+M\+\_\+\+F\+R\+E\+Q\+\_\+\+HZ@{P\+W\+M\+\_\+\+F\+R\+E\+Q\+\_\+\+HZ}!user.\+h@{user.\+h}}
+\subsubsection{\texorpdfstring{P\+W\+M\+\_\+\+F\+R\+E\+Q\+\_\+\+HZ}{PWM\_FREQ\_HZ}}
+{\footnotesize\ttfamily \#define P\+W\+M\+\_\+\+F\+R\+E\+Q\+\_\+\+HZ~(50)}
+
+
+
+Definition of P\+WM frequency. 
+
+
+
+Definition at line 16 of file user.\+h.
+
+\mbox{\Hypertarget{user_8h_a47711156c6f02bd12baf8755b717eb65}\label{user_8h_a47711156c6f02bd12baf8755b717eb65}} 
+\index{user.\+h@{user.\+h}!P\+W\+M\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+C\+O\+U\+N\+TS@{P\+W\+M\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+C\+O\+U\+N\+TS}}
+\index{P\+W\+M\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+C\+O\+U\+N\+TS@{P\+W\+M\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+C\+O\+U\+N\+TS}!user.\+h@{user.\+h}}
+\subsubsection{\texorpdfstring{P\+W\+M\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+C\+O\+U\+N\+TS}{PWM\_PERIOD\_COUNTS}}
+{\footnotesize\ttfamily \#define P\+W\+M\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+C\+O\+U\+N\+TS~(100000000/(256 $\ast$ \hyperlink{user_8h_a56e165627f596c2f42f843ae6571de0e}{P\+W\+M\+\_\+\+F\+R\+E\+Q\+\_\+\+HZ}))}
+
+
+
+Definition of P\+WM period counts. 
+
+
+
+Definition at line 17 of file user.\+h.
+
+\mbox{\Hypertarget{user_8h_abcd97daa3af1161cf285482ac4299ca2}\label{user_8h_abcd97daa3af1161cf285482ac4299ca2}} 
+\index{user.\+h@{user.\+h}!S\+E\+R\+V\+O\+\_\+0@{S\+E\+R\+V\+O\+\_\+0}}
+\index{S\+E\+R\+V\+O\+\_\+0@{S\+E\+R\+V\+O\+\_\+0}!user.\+h@{user.\+h}}
+\subsubsection{\texorpdfstring{S\+E\+R\+V\+O\+\_\+0}{SERVO\_0}}
+{\footnotesize\ttfamily \#define S\+E\+R\+V\+O\+\_\+0~(220)}
+
+
+
+Definition of servo angle. 
+
+
+
+Definition at line 21 of file user.\+h.
+
+\mbox{\Hypertarget{user_8h_a1e72bceb473a586fcf1072fc563e536d}\label{user_8h_a1e72bceb473a586fcf1072fc563e536d}} 
+\index{user.\+h@{user.\+h}!S\+E\+R\+V\+O\+\_\+180@{S\+E\+R\+V\+O\+\_\+180}}
+\index{S\+E\+R\+V\+O\+\_\+180@{S\+E\+R\+V\+O\+\_\+180}!user.\+h@{user.\+h}}
+\subsubsection{\texorpdfstring{S\+E\+R\+V\+O\+\_\+180}{SERVO\_180}}
+{\footnotesize\ttfamily \#define S\+E\+R\+V\+O\+\_\+180~(880)}
+
+
+
+Definition of servo angle. 
+
+
+
+Definition at line 23 of file user.\+h.
+
+\mbox{\Hypertarget{user_8h_ae5f1cac0a6fdf03656dadd61be97a0a3}\label{user_8h_ae5f1cac0a6fdf03656dadd61be97a0a3}} 
+\index{user.\+h@{user.\+h}!S\+E\+R\+V\+O\+\_\+90@{S\+E\+R\+V\+O\+\_\+90}}
+\index{S\+E\+R\+V\+O\+\_\+90@{S\+E\+R\+V\+O\+\_\+90}!user.\+h@{user.\+h}}
+\subsubsection{\texorpdfstring{S\+E\+R\+V\+O\+\_\+90}{SERVO\_90}}
+{\footnotesize\ttfamily \#define S\+E\+R\+V\+O\+\_\+90~(550)}
+
+
+
+Definition of servo angle. 
+
+
+
+Definition at line 22 of file user.\+h.
+
+\mbox{\Hypertarget{user_8h_a2d10214717c8a79b426e5d8c9af123fe}\label{user_8h_a2d10214717c8a79b426e5d8c9af123fe}} 
+\index{user.\+h@{user.\+h}!V\+R1\+\_\+\+A\+N\+\_\+\+C\+H\+A\+N\+\_\+\+N\+UM@{V\+R1\+\_\+\+A\+N\+\_\+\+C\+H\+A\+N\+\_\+\+N\+UM}}
+\index{V\+R1\+\_\+\+A\+N\+\_\+\+C\+H\+A\+N\+\_\+\+N\+UM@{V\+R1\+\_\+\+A\+N\+\_\+\+C\+H\+A\+N\+\_\+\+N\+UM}!user.\+h@{user.\+h}}
+\subsubsection{\texorpdfstring{V\+R1\+\_\+\+A\+N\+\_\+\+C\+H\+A\+N\+\_\+\+N\+UM}{VR1\_AN\_CHAN\_NUM}}
+{\footnotesize\ttfamily \#define V\+R1\+\_\+\+A\+N\+\_\+\+C\+H\+A\+N\+\_\+\+N\+UM~(8)}
+
+
+
+Definition at line 19 of file user.\+h.
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{user_8h_a6ada1c875c157078e7c149ce806b83d7}\label{user_8h_a6ada1c875c157078e7c149ce806b83d7}} 
+\index{user.\+h@{user.\+h}!delay@{delay}}
+\index{delay@{delay}!user.\+h@{user.\+h}}
+\subsubsection{\texorpdfstring{delay()}{delay()}}
+{\footnotesize\ttfamily void delay (\begin{DoxyParamCaption}\item[{volatile uint32\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{user_8h_a017cc7467f17665eca1b702990d9832f}\label{user_8h_a017cc7467f17665eca1b702990d9832f}} 
+\index{user.\+h@{user.\+h}!init\+\_\+gpio@{init\+\_\+gpio}}
+\index{init\+\_\+gpio@{init\+\_\+gpio}!user.\+h@{user.\+h}}
+\subsubsection{\texorpdfstring{init\+\_\+gpio()}{init\_gpio()}}
+{\footnotesize\ttfamily void init\+\_\+gpio (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+G\+P\+IO initialization. 
+
+Initialization for pins G6, B11, G15, D4, A4, A5. Disabling analog mode and setting pins directions 
+
+Definition at line 49 of file user.\+c.
+
+\mbox{\Hypertarget{user_8h_aa82c1241c9848dfe3ad36cd19ff2d3de}\label{user_8h_aa82c1241c9848dfe3ad36cd19ff2d3de}} 
+\index{user.\+h@{user.\+h}!init\+\_\+servo@{init\+\_\+servo}}
+\index{init\+\_\+servo@{init\+\_\+servo}!user.\+h@{user.\+h}}
+\subsubsection{\texorpdfstring{init\+\_\+servo()}{init\_servo()}}
+{\footnotesize\ttfamily void init\+\_\+servo (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Servo initialization. 
+
+Initialization of timer to drive servo. Timer 2 configured to generate P\+WM with 20ms period (50\+Hz frequency). O\+C8 output mapped to E3 pin (28th pin on chip\+Kit Wi\+Fire board) 
+
+Definition at line 21 of file user.\+c.
+

@@ -1,0 +1,111 @@
+\begin{theindex}
+
+  \item {A\+D\+C.\+c}
+    \subitem {convert\+Wi\+F\+I\+R\+Eadc}, \hyperpage{5}
+    \subitem {init\+Wi\+F\+I\+R\+Eadc}, \hyperpage{5}
+    \subitem {Read\+Potentiometer\+With\+A\+DC}, \hyperpage{6}
+  \item {A\+D\+C.\+h}
+    \subitem {convert\+Wi\+F\+I\+R\+Eadc}, \hyperpage{6}
+    \subitem {init\+Wi\+F\+I\+R\+Eadc}, \hyperpage{6}
+
+  \indexspace
+
+  \item {B\+T\+N1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}
+    \subitem {user.\+h}, \hyperpage{9}
+
+  \indexspace
+
+  \item {convert\+Wi\+F\+I\+R\+Eadc}
+    \subitem {A\+D\+C.\+c}, \hyperpage{5}
+    \subitem {A\+D\+C.\+h}, \hyperpage{6}
+
+  \indexspace
+
+  \item {delay}
+    \subitem {user.\+h}, \hyperpage{11}
+
+  \indexspace
+
+  \item {init\+\_\+gpio}
+    \subitem {user.\+c}, \hyperpage{8}
+    \subitem {user.\+h}, \hyperpage{12}
+  \item {init\+\_\+servo}
+    \subitem {user.\+c}, \hyperpage{8}
+    \subitem {user.\+h}, \hyperpage{12}
+  \item {init\+Wi\+F\+I\+R\+Eadc}
+    \subitem {A\+D\+C.\+c}, \hyperpage{5}
+    \subitem {A\+D\+C.\+h}, \hyperpage{6}
+
+  \indexspace
+
+  \item {L\+D1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}
+    \subitem {user.\+h}, \hyperpage{10}
+  \item {L\+D2\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}
+    \subitem {user.\+h}, \hyperpage{10}
+
+  \indexspace
+
+  \item {M\+A\+X\+\_\+\+A\+D\+C\+\_\+\+V\+A\+L\+UE}
+    \subitem {user.\+h}, \hyperpage{10}
+  \item {main}
+    \subitem {main.\+c}, \hyperpage{7}
+  \item {main.\+c}
+    \subitem {main}, \hyperpage{7}
+
+  \indexspace
+
+  \item {P\+W\+M\+\_\+\+F\+R\+E\+Q\+\_\+\+HZ}
+    \subitem {user.\+h}, \hyperpage{10}
+  \item {P\+W\+M\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+C\+O\+U\+N\+TS}
+    \subitem {user.\+h}, \hyperpage{10}
+
+  \indexspace
+
+  \item {R\+E\+A\+D\+M\+E.\+md}, \hyperpage{5}
+  \item {Read\+Potentiometer\+With\+A\+DC}
+    \subitem {A\+D\+C.\+c}, \hyperpage{6}
+
+  \indexspace
+
+  \item {S\+E\+R\+V\+O\+\_\+0}
+    \subitem {user.\+h}, \hyperpage{11}
+  \item {S\+E\+R\+V\+O\+\_\+180}
+    \subitem {user.\+h}, \hyperpage{11}
+  \item {S\+E\+R\+V\+O\+\_\+90}
+    \subitem {user.\+h}, \hyperpage{11}
+  \item {src/\+A\+D\+C.\+c}, \hyperpage{5}
+  \item {src/\+A\+D\+C.\+h}, \hyperpage{6}
+  \item {src/configuration\+\_\+bits.\+c}, \hyperpage{7}
+  \item {src/main.\+c}, \hyperpage{7}
+  \item {src/user.\+c}, \hyperpage{8}
+  \item {src/user.\+h}, \hyperpage{9}
+
+  \indexspace
+
+  \item {user.\+c}
+    \subitem {init\+\_\+gpio}, \hyperpage{8}
+    \subitem {init\+\_\+servo}, \hyperpage{8}
+  \item {user.\+h}
+    \subitem {B\+T\+N1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}, \hyperpage{9}
+    \subitem {delay}, \hyperpage{11}
+    \subitem {init\+\_\+gpio}, \hyperpage{12}
+    \subitem {init\+\_\+servo}, \hyperpage{12}
+    \subitem {L\+D1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}, \hyperpage{10}
+    \subitem {L\+D2\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}, \hyperpage{10}
+    \subitem {M\+A\+X\+\_\+\+A\+D\+C\+\_\+\+V\+A\+L\+UE}, 
+		\hyperpage{10}
+    \subitem {P\+W\+M\+\_\+\+F\+R\+E\+Q\+\_\+\+HZ}, \hyperpage{10}
+    \subitem {P\+W\+M\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+C\+O\+U\+N\+TS}, 
+		\hyperpage{10}
+    \subitem {S\+E\+R\+V\+O\+\_\+0}, \hyperpage{11}
+    \subitem {S\+E\+R\+V\+O\+\_\+180}, \hyperpage{11}
+    \subitem {S\+E\+R\+V\+O\+\_\+90}, \hyperpage{11}
+    \subitem {V\+R1\+\_\+\+A\+N\+\_\+\+C\+H\+A\+N\+\_\+\+N\+UM}, 
+		\hyperpage{11}
+
+  \indexspace
+
+  \item {V\+R1\+\_\+\+A\+N\+\_\+\+C\+H\+A\+N\+\_\+\+N\+UM}
+    \subitem {user.\+h}, \hyperpage{11}
+
+\end{theindex}

@@ -1,0 +1,53 @@
+\hypertarget{user_8c}{}\section{src/user.c File Reference}
+\label{user_8c}\index{src/user.\+c@{src/user.\+c}}
+
+
+contains descroption for initialization and system functions  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}user.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$sys/attribs.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{user_8c_aa82c1241c9848dfe3ad36cd19ff2d3de}{init\+\_\+servo} (void)
+\begin{DoxyCompactList}\small\item\em Servo initialization. \end{DoxyCompactList}\item 
+void \hyperlink{user_8c_a017cc7467f17665eca1b702990d9832f}{init\+\_\+gpio} (void)
+\begin{DoxyCompactList}\small\item\em G\+P\+IO initialization. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+contains descroption for initialization and system functions 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{user_8c_a017cc7467f17665eca1b702990d9832f}\label{user_8c_a017cc7467f17665eca1b702990d9832f}} 
+\index{user.\+c@{user.\+c}!init\+\_\+gpio@{init\+\_\+gpio}}
+\index{init\+\_\+gpio@{init\+\_\+gpio}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{init\+\_\+gpio()}{init\_gpio()}}
+{\footnotesize\ttfamily void init\+\_\+gpio (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+G\+P\+IO initialization. 
+
+Initialization for pins G6, B11, G15, D4, A4, A5. Disabling analog mode and setting pins directions 
+
+Definition at line 49 of file user.\+c.
+
+\mbox{\Hypertarget{user_8c_aa82c1241c9848dfe3ad36cd19ff2d3de}\label{user_8c_aa82c1241c9848dfe3ad36cd19ff2d3de}} 
+\index{user.\+c@{user.\+c}!init\+\_\+servo@{init\+\_\+servo}}
+\index{init\+\_\+servo@{init\+\_\+servo}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{init\+\_\+servo()}{init\_servo()}}
+{\footnotesize\ttfamily void init\+\_\+servo (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Servo initialization. 
+
+Initialization of timer to drive servo. Timer 2 configured to generate P\+WM with 20ms period (50\+Hz frequency). O\+C8 output mapped to E3 pin (28th pin on chip\+Kit Wi\+Fire board) 
+
+Definition at line 21 of file user.\+c.
+
