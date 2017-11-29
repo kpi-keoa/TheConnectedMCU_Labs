@@ -1,0 +1,139 @@
+\hypertarget{user_8c}{}\section{D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab3-\/\+A\+D\+C\+\_\+\+P\+W\+M/user.c File Reference}
+\label{user_8c}\index{D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab3-\/\+A\+D\+C\+\_\+\+P\+W\+M/user.\+c@{D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab3-\/\+A\+D\+C\+\_\+\+P\+W\+M/user.\+c}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}user.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$sys/attribs.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}A\+D\+C.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{user_8c_ab8c52c1b4c021ed3e6b6b677bd2ac019}{M\+O\+DE}~2
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{user_8c_ae11bff767a33ada271f15e07e1df56a9}{Init\+Timer2\+And\+O\+C5} (void)
+\item 
+void \hyperlink{user_8c_a496463a03e093c73a255d2616a7cfa82}{Adjust\+L\+E\+D1\+Brightness} (void)
+\item 
+void \hyperlink{user_8c_afe7a49ab9879bd7044b35eb779f30712}{Init\+G\+P\+IO} (void)
+\item 
+void \hyperlink{user_8c_addc0a16fa099430e2337628a38764b67}{Init\+App} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{user_8c_ab8c52c1b4c021ed3e6b6b677bd2ac019}\label{user_8c_ab8c52c1b4c021ed3e6b6b677bd2ac019}} 
+\index{user.\+c@{user.\+c}!M\+O\+DE@{M\+O\+DE}}
+\index{M\+O\+DE@{M\+O\+DE}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{M\+O\+DE}{MODE}}
+{\footnotesize\ttfamily \#define M\+O\+DE~2}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{user_8c_a496463a03e093c73a255d2616a7cfa82}\label{user_8c_a496463a03e093c73a255d2616a7cfa82}} 
+\index{user.\+c@{user.\+c}!Adjust\+L\+E\+D1\+Brightness@{Adjust\+L\+E\+D1\+Brightness}}
+\index{Adjust\+L\+E\+D1\+Brightness@{Adjust\+L\+E\+D1\+Brightness}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{Adjust\+L\+E\+D1\+Brightness()}{AdjustLED1Brightness()}}
+{\footnotesize\ttfamily void Adjust\+L\+E\+D1\+Brightness (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} ext\_level = 0, counts=0;
+ \textcolor{keywordflow}{if}(\hyperlink{user_8h_a1fa05a65f323cee80b9d0f5e6ca2fae3}{BTN2\_PORT\_BIT}) \{ \textcolor{comment}{// if button2 pressed, then LEDs indicate bright level}
+     \textcolor{keywordflow}{if} (ReadExternalRegulatorWithADC() <= 1024)  \textcolor{comment}{// indicating bright level using 3 another LEDs}
+    \{
+    \hyperlink{user_8h_a7e94e8f8c9f310cbdbd69caf149c50e8}{LD2\_PORT\_BIT} = 0;
+    \hyperlink{user_8h_a33187f208d39413cc77baf019c0816b3}{LD3\_PORT\_BIT} = 0;
+    \hyperlink{user_8h_a840ded90320714f84362edab649e3cae}{LD4\_PORT\_BIT} = 1;
+    \}
+    \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (ReadExternalRegulatorWithADC() <= 2048) 
+    \{
+    \hyperlink{user_8h_a7e94e8f8c9f310cbdbd69caf149c50e8}{LD2\_PORT\_BIT} = 0;
+    \hyperlink{user_8h_a33187f208d39413cc77baf019c0816b3}{LD3\_PORT\_BIT} = 1;
+    \hyperlink{user_8h_a840ded90320714f84362edab649e3cae}{LD4\_PORT\_BIT} = 1;
+    \}
+    \textcolor{keywordflow}{else}  
+    \{
+    \hyperlink{user_8h_a7e94e8f8c9f310cbdbd69caf149c50e8}{LD2\_PORT\_BIT} = 1;
+    \hyperlink{user_8h_a33187f208d39413cc77baf019c0816b3}{LD3\_PORT\_BIT} = 1;
+    \hyperlink{user_8h_a840ded90320714f84362edab649e3cae}{LD4\_PORT\_BIT} = 1;
+    \}
+\}
+           \textcolor{comment}{// Read ADC}
+     ext\_level = ReadExternalRegulatorWithADC();
+     \textcolor{comment}{// Convert value to on-time (counts).}
+    counts = (ext\_level*\hyperlink{user_8h_a47711156c6f02bd12baf8755b717eb65}{PWM\_PERIOD\_COUNTS})/\hyperlink{user_8h_a91f5af028cd707fcddafff4416925b21}{MAX\_ADC\_VALUE};
+    \textcolor{comment}{// Update OC5}
+    OC5RS = counts;
+\end{DoxyCode}
+\mbox{\Hypertarget{user_8c_addc0a16fa099430e2337628a38764b67}\label{user_8c_addc0a16fa099430e2337628a38764b67}} 
+\index{user.\+c@{user.\+c}!Init\+App@{Init\+App}}
+\index{Init\+App@{Init\+App}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{Init\+App()}{InitApp()}}
+{\footnotesize\ttfamily void Init\+App (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+\textcolor{comment}{// Initialize peripherals}
+\hyperlink{user_8c_afe7a49ab9879bd7044b35eb779f30712}{InitGPIO}();
+\hyperlink{_a_d_c_8c_a35cca17157a4a837279a040cbb9a7228}{initWiFIREadc}();
+\hyperlink{user_8c_ae11bff767a33ada271f15e07e1df56a9}{InitTimer2AndOC5}();
+\end{DoxyCode}
+\mbox{\Hypertarget{user_8c_afe7a49ab9879bd7044b35eb779f30712}\label{user_8c_afe7a49ab9879bd7044b35eb779f30712}} 
+\index{user.\+c@{user.\+c}!Init\+G\+P\+IO@{Init\+G\+P\+IO}}
+\index{Init\+G\+P\+IO@{Init\+G\+P\+IO}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{Init\+G\+P\+I\+O()}{InitGPIO()}}
+{\footnotesize\ttfamily void Init\+G\+P\+IO (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+   \textcolor{comment}{// Setup functionality and port direction }
+   \textcolor{comment}{// LED output}
+\textcolor{comment}{// Disable analog mode if present}
+   ANSELG &= ~((1 << 6) | (1 << 15));
+   ANSELB &= ~(1 << 11);
+   \textcolor{comment}{// Set direction to output }
+   TRISG &= ~((1 << 6) | (1 << 15));
+   TRISB &= ~(1 << 11);
+   TRISD &= ~(1 << 4);
+   \textcolor{comment}{// Turn off LEDs for initialization}
+   \hyperlink{user_8h_ad8b2fe293843ddfd137d04230113fd3a}{LD1\_PORT\_BIT} = 0;
+   \hyperlink{user_8h_a7e94e8f8c9f310cbdbd69caf149c50e8}{LD2\_PORT\_BIT} = 0;
+   \hyperlink{user_8h_a33187f208d39413cc77baf019c0816b3}{LD3\_PORT\_BIT} = 0;
+   \hyperlink{user_8h_a840ded90320714f84362edab649e3cae}{LD4\_PORT\_BIT} = 0;
+   \textcolor{comment}{// Button inputs}
+   \textcolor{comment}{// Disable analog mode}
+   ANSELA &= ~(1 << 5);
+   \textcolor{comment}{// Set directions to input}
+   TRISA |= (1 << 5)|(1 << 4);
+\end{DoxyCode}
+\mbox{\Hypertarget{user_8c_ae11bff767a33ada271f15e07e1df56a9}\label{user_8c_ae11bff767a33ada271f15e07e1df56a9}} 
+\index{user.\+c@{user.\+c}!Init\+Timer2\+And\+O\+C5@{Init\+Timer2\+And\+O\+C5}}
+\index{Init\+Timer2\+And\+O\+C5@{Init\+Timer2\+And\+O\+C5}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{Init\+Timer2\+And\+O\+C5()}{InitTimer2AndOC5()}}
+{\footnotesize\ttfamily void Init\+Timer2\+And\+O\+C5 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+T2CON = 0; \textcolor{comment}{// clear timer settings to defaults}
+T2CONbits.TCKPS = 7; \textcolor{comment}{// divide clock by 256 with prescaler}
+TMR2 = 0;
+\textcolor{comment}{// Set period for timer}
+PR2 = \hyperlink{user_8h_a47711156c6f02bd12baf8755b717eb65}{PWM\_PERIOD\_COUNTS}-1;    
+\textcolor{comment}{// Set initial duty cycle to 50%}
+OC5R = \hyperlink{user_8h_a47711156c6f02bd12baf8755b717eb65}{PWM\_PERIOD\_COUNTS}/2;
+\textcolor{comment}{// Set reload duty cycle to 50%}
+OC5RS = \hyperlink{user_8h_a47711156c6f02bd12baf8755b717eb65}{PWM\_PERIOD\_COUNTS}/2;
+\textcolor{comment}{// Configure OC5 control register}
+OC5CONbits.ON = 1;
+OC5CONbits.OC32 = 0;    \textcolor{comment}{// 16 bit mode}
+OC5CONbits.OCTSEL = 0; \textcolor{comment}{// Select timer 2}
+OC5CONbits.OCM = 6; \textcolor{comment}{// Select PWM mode without fault pin}
+\textcolor{comment}{// Map OC5 signal to pin G6}
+RPG6R = 11; \textcolor{comment}{// Select OC5}
+\textcolor{comment}{// Start Timer 2}
+T2CONbits.ON = 1;
+\end{DoxyCode}

@@ -1,0 +1,125 @@
+\begin{theindex}
+
+  \item {A\+D\+C.\+c}
+    \subitem {convert\+Wi\+F\+I\+R\+Eadc}, \hyperpage{5}
+    \subitem {init\+Wi\+F\+I\+R\+Eadc}, \hyperpage{7}
+    \subitem {Read\+Potentiometer\+With\+A\+DC}, \hyperpage{8}
+  \item {A\+D\+C.\+h}
+    \subitem {convert\+Wi\+F\+I\+R\+Eadc}, \hyperpage{9}
+    \subitem {init\+Wi\+F\+I\+R\+Eadc}, \hyperpage{11}
+  \item {Adjust\+L\+E\+D1\+Brightness}
+    \subitem {user.\+c}, \hyperpage{14}
+    \subitem {user.\+h}, \hyperpage{17}
+
+  \indexspace
+
+  \item {B\+T\+N1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}
+    \subitem {user.\+h}, \hyperpage{16}
+  \item {B\+T\+N2\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}
+    \subitem {user.\+h}, \hyperpage{16}
+
+  \indexspace
+
+  \item {convert\+Wi\+F\+I\+R\+Eadc}
+    \subitem {A\+D\+C.\+c}, \hyperpage{5}
+    \subitem {A\+D\+C.\+h}, \hyperpage{9}
+
+  \indexspace
+
+  \item {D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab3-\/\+A\+D\+C\+\_\+\+P\+W\+M/\+A\+D\+C.\+c}, 
+		\hyperpage{5}
+  \item {D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab3-\/\+A\+D\+C\+\_\+\+P\+W\+M/\+A\+D\+C.\+h}, 
+		\hyperpage{9}
+  \item {D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab3-\/\+A\+D\+C\+\_\+\+P\+W\+M/\+R\+E\+A\+D\+M\+E.\+md}, 
+		\hyperpage{13}
+  \item {D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab3-\/\+A\+D\+C\+\_\+\+P\+W\+M/configuration\+\_\+bits.\+c}, 
+		\hyperpage{13}
+  \item {D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab3-\/\+A\+D\+C\+\_\+\+P\+W\+M/main.\+c}, 
+		\hyperpage{13}
+  \item {D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab3-\/\+A\+D\+C\+\_\+\+P\+W\+M/user.\+c}, 
+		\hyperpage{13}
+  \item {D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab3-\/\+A\+D\+C\+\_\+\+P\+W\+M/user.\+h}, 
+		\hyperpage{16}
+
+  \indexspace
+
+  \item {Init\+App}
+    \subitem {user.\+c}, \hyperpage{14}
+    \subitem {user.\+h}, \hyperpage{18}
+  \item {Init\+G\+P\+IO}
+    \subitem {user.\+c}, \hyperpage{15}
+  \item {Init\+Timer2\+And\+O\+C5}
+    \subitem {user.\+c}, \hyperpage{15}
+  \item {init\+Wi\+F\+I\+R\+Eadc}
+    \subitem {A\+D\+C.\+c}, \hyperpage{7}
+    \subitem {A\+D\+C.\+h}, \hyperpage{11}
+
+  \indexspace
+
+  \item {L\+D1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}
+    \subitem {user.\+h}, \hyperpage{16}
+  \item {L\+D2\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}
+    \subitem {user.\+h}, \hyperpage{16}
+  \item {L\+D3\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}
+    \subitem {user.\+h}, \hyperpage{16}
+  \item {L\+D4\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}
+    \subitem {user.\+h}, \hyperpage{17}
+
+  \indexspace
+
+  \item {M\+A\+X\+\_\+\+A\+D\+C\+\_\+\+V\+A\+L\+UE}
+    \subitem {user.\+h}, \hyperpage{17}
+  \item {M\+O\+DE}
+    \subitem {user.\+c}, \hyperpage{14}
+  \item {main}
+    \subitem {main.\+c}, \hyperpage{13}
+  \item {main.\+c}
+    \subitem {main}, \hyperpage{13}
+
+  \indexspace
+
+  \item {P\+W\+M\+\_\+\+F\+R\+E\+Q\+\_\+\+HZ}
+    \subitem {user.\+h}, \hyperpage{17}
+  \item {P\+W\+M\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+C\+O\+U\+N\+TS}
+    \subitem {user.\+h}, \hyperpage{17}
+
+  \indexspace
+
+  \item {Read\+Potentiometer\+With\+A\+DC}
+    \subitem {A\+D\+C.\+c}, \hyperpage{8}
+
+  \indexspace
+
+  \item {user.\+c}
+    \subitem {Adjust\+L\+E\+D1\+Brightness}, \hyperpage{14}
+    \subitem {Init\+App}, \hyperpage{14}
+    \subitem {Init\+G\+P\+IO}, \hyperpage{15}
+    \subitem {Init\+Timer2\+And\+O\+C5}, \hyperpage{15}
+    \subitem {M\+O\+DE}, \hyperpage{14}
+  \item {user.\+h}
+    \subitem {Adjust\+L\+E\+D1\+Brightness}, \hyperpage{17}
+    \subitem {B\+T\+N1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}, \hyperpage{16}
+    \subitem {B\+T\+N2\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}, \hyperpage{16}
+    \subitem {Init\+App}, \hyperpage{18}
+    \subitem {L\+D1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}, \hyperpage{16}
+    \subitem {L\+D2\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}, \hyperpage{16}
+    \subitem {L\+D3\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}, \hyperpage{16}
+    \subitem {L\+D4\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}, \hyperpage{17}
+    \subitem {M\+A\+X\+\_\+\+A\+D\+C\+\_\+\+V\+A\+L\+UE}, 
+		\hyperpage{17}
+    \subitem {P\+W\+M\+\_\+\+F\+R\+E\+Q\+\_\+\+HZ}, \hyperpage{17}
+    \subitem {P\+W\+M\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+C\+O\+U\+N\+TS}, 
+		\hyperpage{17}
+    \subitem {V\+R1\+\_\+\+A\+N\+\_\+\+C\+H\+A\+N\+\_\+\+N\+UM}, 
+		\hyperpage{17}
+    \subitem {V\+R2\+\_\+\+A\+N\+\_\+\+C\+H\+A\+N\+\_\+\+N\+UM}, 
+		\hyperpage{17}
+
+  \indexspace
+
+  \item {V\+R1\+\_\+\+A\+N\+\_\+\+C\+H\+A\+N\+\_\+\+N\+UM}
+    \subitem {user.\+h}, \hyperpage{17}
+  \item {V\+R2\+\_\+\+A\+N\+\_\+\+C\+H\+A\+N\+\_\+\+N\+UM}
+    \subitem {user.\+h}, \hyperpage{17}
+
+\end{theindex}
