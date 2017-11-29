@@ -1,0 +1,93 @@
+\hypertarget{user_8c}{}\section{src/user.c File Reference}
+\label{user_8c}\index{src/user.\+c@{src/user.\+c}}
+
+
+contains descroption for initialization and system functions  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$sys/attribs.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{user_8c_ad442c62b85591b16bbebcc35c9e63dc3}{init\+G\+P\+IO} (void)
+\begin{DoxyCompactList}\small\item\em G\+P\+IO initialization. \end{DoxyCompactList}\item 
+void \hyperlink{user_8c_aa82c1241c9848dfe3ad36cd19ff2d3de}{init\+\_\+servo} (void)
+\begin{DoxyCompactList}\small\item\em Servo initialization. \end{DoxyCompactList}\item 
+void \hyperlink{user_8c_ac32735d4f3b56958dbb4a49c50aa0170}{delay\+Ms} (int t)
+\begin{DoxyCompactList}\small\item\em primitive delay function \end{DoxyCompactList}\item 
+void \hyperlink{user_8c_a10da5a1ea2c5c6a9f2cad9f55c0db574}{set\+\_\+angle} (char mode)
+\begin{DoxyCompactList}\small\item\em function for turning servo \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+contains descroption for initialization and system functions 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{user_8c_ac32735d4f3b56958dbb4a49c50aa0170}\label{user_8c_ac32735d4f3b56958dbb4a49c50aa0170}} 
+\index{user.\+c@{user.\+c}!delay\+Ms@{delay\+Ms}}
+\index{delay\+Ms@{delay\+Ms}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{delay\+Ms()}{delayMs()}}
+{\footnotesize\ttfamily void delay\+Ms (\begin{DoxyParamCaption}\item[{int}]{t }\end{DoxyParamCaption})}
+
+
+
+primitive delay function 
+
+Used by O\+L\+ED driver 
+
+Definition at line 85 of file user.\+c.
+
+\mbox{\Hypertarget{user_8c_aa82c1241c9848dfe3ad36cd19ff2d3de}\label{user_8c_aa82c1241c9848dfe3ad36cd19ff2d3de}} 
+\index{user.\+c@{user.\+c}!init\+\_\+servo@{init\+\_\+servo}}
+\index{init\+\_\+servo@{init\+\_\+servo}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{init\+\_\+servo()}{init\_servo()}}
+{\footnotesize\ttfamily void init\+\_\+servo (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Servo initialization. 
+
+Initialization of timer to drive servo. Timer 2 configured to generate P\+WM with 20ms period (50\+Hz frequency). O\+C8 output mapped to E3 pin (28th pin on chip\+Kit Wi\+Fire board) 
+
+Definition at line 58 of file user.\+c.
+
+\mbox{\Hypertarget{user_8c_ad442c62b85591b16bbebcc35c9e63dc3}\label{user_8c_ad442c62b85591b16bbebcc35c9e63dc3}} 
+\index{user.\+c@{user.\+c}!init\+G\+P\+IO@{init\+G\+P\+IO}}
+\index{init\+G\+P\+IO@{init\+G\+P\+IO}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{init\+G\+P\+I\+O()}{initGPIO()}}
+{\footnotesize\ttfamily void init\+G\+P\+IO (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+G\+P\+IO initialization. 
+
+Initialization for pins G6, B11, G15, D4, A4, A5. Disabling analog mode and setting pins directions 
+
+Definition at line 21 of file user.\+c.
+
+\mbox{\Hypertarget{user_8c_a10da5a1ea2c5c6a9f2cad9f55c0db574}\label{user_8c_a10da5a1ea2c5c6a9f2cad9f55c0db574}} 
+\index{user.\+c@{user.\+c}!set\+\_\+angle@{set\+\_\+angle}}
+\index{set\+\_\+angle@{set\+\_\+angle}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{set\+\_\+angle()}{set\_angle()}}
+{\footnotesize\ttfamily void set\+\_\+angle (\begin{DoxyParamCaption}\item[{char}]{mode }\end{DoxyParamCaption})}
+
+
+
+function for turning servo 
+
+Depending on the input parameter (\textquotesingle{}1\textquotesingle{}, \textquotesingle{}2\textquotesingle{} or \textquotesingle{}3\textquotesingle{}) setting servo angle
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em mode} & one of three servo angle states \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 98 of file user.\+c.
+
