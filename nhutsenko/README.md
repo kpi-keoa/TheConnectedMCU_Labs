@@ -1,1 +1,1 @@
-In this laboratory work practical knowledge is used on the use of ADC and Timers in the controller PIK32MZ2048EFG100. At the beginning of work with the help of ADCs, the number of LEDs for illumination is selected, after pressing on the BTN1, the LEDs begin to be sequentially ignited and decayed by an eternal cycle with a delay set by the timer. In each new pass through the cycle, the delay time changes.
+Mykyta V. Hutsenko, DK-42 group / Гуценко Микита Васильович, група ДК-42 / [@nhutsenko](https://github.com/nhutsenko)
