@@ -1,0 +1,37 @@
+\hypertarget{ADC_8c}{}\section{src/\+A\+DC.c File Reference}
+\label{ADC_8c}\index{src/\+A\+D\+C.\+c@{src/\+A\+D\+C.\+c}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}morse\+\_\+code.\+h\char`\"{}}\newline
+Include dependency graph for A\+D\+C.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{ADC_8c_a35cca17157a4a837279a040cbb9a7228}{init\+Wi\+F\+I\+R\+Eadc} (void)
+\item 
+int \hyperlink{ADC_8c_af5931d39ad95da1d988306ae9e85d7e3}{convert\+Wi\+F\+I\+R\+Eadc} (uint8\+\_\+t channel\+Number)
+\item 
+int \hyperlink{ADC_8c_a80bc01eb01ab88be5e9c4d249540d62e}{Read\+Potentiometer\+With\+A\+DC} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{ADC_8c_af5931d39ad95da1d988306ae9e85d7e3}\label{ADC_8c_af5931d39ad95da1d988306ae9e85d7e3}} 
+\index{A\+D\+C.\+c@{A\+D\+C.\+c}!convert\+Wi\+F\+I\+R\+Eadc@{convert\+Wi\+F\+I\+R\+Eadc}}
+\index{convert\+Wi\+F\+I\+R\+Eadc@{convert\+Wi\+F\+I\+R\+Eadc}!A\+D\+C.\+c@{A\+D\+C.\+c}}
+\subsubsection{\texorpdfstring{convert\+Wi\+F\+I\+R\+Eadc()}{convertWiFIREadc()}}
+{\footnotesize\ttfamily int convert\+Wi\+F\+I\+R\+Eadc (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{channel\+Number }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ADC_8c_a35cca17157a4a837279a040cbb9a7228}\label{ADC_8c_a35cca17157a4a837279a040cbb9a7228}} 
+\index{A\+D\+C.\+c@{A\+D\+C.\+c}!init\+Wi\+F\+I\+R\+Eadc@{init\+Wi\+F\+I\+R\+Eadc}}
+\index{init\+Wi\+F\+I\+R\+Eadc@{init\+Wi\+F\+I\+R\+Eadc}!A\+D\+C.\+c@{A\+D\+C.\+c}}
+\subsubsection{\texorpdfstring{init\+Wi\+F\+I\+R\+Eadc()}{initWiFIREadc()}}
+{\footnotesize\ttfamily void init\+Wi\+F\+I\+R\+Eadc (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ADC_8c_a80bc01eb01ab88be5e9c4d249540d62e}\label{ADC_8c_a80bc01eb01ab88be5e9c4d249540d62e}} 
+\index{A\+D\+C.\+c@{A\+D\+C.\+c}!Read\+Potentiometer\+With\+A\+DC@{Read\+Potentiometer\+With\+A\+DC}}
+\index{Read\+Potentiometer\+With\+A\+DC@{Read\+Potentiometer\+With\+A\+DC}!A\+D\+C.\+c@{A\+D\+C.\+c}}
+\subsubsection{\texorpdfstring{Read\+Potentiometer\+With\+A\+D\+C()}{ReadPotentiometerWithADC()}}
+{\footnotesize\ttfamily int Read\+Potentiometer\+With\+A\+DC (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+

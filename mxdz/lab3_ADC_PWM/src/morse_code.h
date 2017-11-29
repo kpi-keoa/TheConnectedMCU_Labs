@@ -1,3 +1,7 @@
+/**
+ *  \file
+ *  \brief contains definitions, macroses and function prototypes
+ */
 #pragma once
 
 #ifdef __XC32

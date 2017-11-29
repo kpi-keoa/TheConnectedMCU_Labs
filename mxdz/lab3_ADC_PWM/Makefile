@@ -104,7 +104,11 @@ help: .help-post
 .help-post: .help-impl
 # Add your post 'help' code here...
 
+pdf:
+	make -C docs/latex/
 
+latex-clean:
+	make clean -C docs/latex/
 
 # include project implementation makefile
 include nbproject/Makefile-impl.mk

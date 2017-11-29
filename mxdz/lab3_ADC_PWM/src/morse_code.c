@@ -1,5 +1,14 @@
-#include "morse_code.h"      
+/**
+     *\file
+     *\brief contains descroption for initialization and system functions
+*/
+#include "morse_code.h"
 
+/*!
+     * \brief Converting text to morse code
+     * \param[in] msg text message to be converted to morse code
+     * \param[in] res array for storing converted msg
+*/      
 void morse_code_encoding(const uint8_t msg[], uint8_t *res) 
 {
     uint8_t *morse_table[] = {
@@ -17,6 +26,10 @@ void morse_code_encoding(const uint8_t msg[], uint8_t *res)
     }
 }
 
+
+/*!
+    * \brief OC8 timer initialization to work in pwm mode
+*/   
 void init_timer(void) {
     T2CON = 0; // clear timer settings to defaults
     T2CONbits.TCKPS = 7; // divide clock by 256 with prescaler
@@ -36,6 +49,11 @@ void init_timer(void) {
     T2CONbits.ON = 1;
 }
 
+/*!
+    * \brief GPIO initialization, 
+    * Disabling analog mode and setting pins directions
+    * Initialization for buttons and LEDs
+*/   
 void init_gpio(void) 
 {
     // Disable LEDs analog mode if present
@@ -75,6 +93,10 @@ void init_gpio(void)
    
 }
 
+/*!
+    * \brief App initialization, 
+    * Calling all initialization functions
+*/ 
 void init_app(void) {
     init_gpio();
     initWiFIREadc();
@@ -88,7 +110,11 @@ void delay(volatile uint32_t val)
     	for(delay_mult = 10000; delay_mult > 0; delay_mult--);
     }
 }
- 
+
+/*!
+     * \brief Setting LEDs on and off, 
+     * \param[in] mode values: 1 - blink with one led, 3 - 2 leds
+*/ 
 void blink_leds(uint32_t mode) 
 {
     uint32_t pot_val = ReadPotentiometerWithADC();
@@ -110,7 +136,9 @@ void blink_leds(uint32_t mode)
     }
 }
 
-
+/*!
+    * \brief Displaying converted msgs on LEDs, 
+*/ 
 void display_msg(void) 
 {
     cur_delay_g = BLINK_DELAY;
@@ -132,6 +160,11 @@ void display_msg(void)
         cur_state_g = RESET;
     }
 }
+
+/*!
+    * \brief Buttons interrupt handler, 
+    * Chanes program state when button is pressed
+*/ 
 
 void __ISR(_CHANGE_NOTICE_A_VECTOR, IPL2SOFT) ISR_PortA_Change(void) 
 {

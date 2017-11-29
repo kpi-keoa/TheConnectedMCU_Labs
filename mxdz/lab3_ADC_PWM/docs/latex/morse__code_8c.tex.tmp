@@ -1,0 +1,75 @@
+\hypertarget{morse__code_8c}{}\section{src/morse\+\_\+code.c File Reference}
+\label{morse__code_8c}\index{src/morse\+\_\+code.\+c@{src/morse\+\_\+code.\+c}}
+
+
+contains descroption for initialization and system functions  
+
+
+{\ttfamily \#include \char`\"{}morse\+\_\+code.\+h\char`\"{}}\newline
+Include dependency graph for morse\+\_\+code.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{morse__code_8c_a82fdae10260c2b86d2174ad3ed11d1eb}{morse\+\_\+code\+\_\+encoding} (const uint8\+\_\+t msg\mbox{[}$\,$\mbox{]}, uint8\+\_\+t $\ast$res)
+\begin{DoxyCompactList}\small\item\em Converting text to morse code. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{morse__code_8c_a44f970d17544b1dbaded6f109580ee46}\label{morse__code_8c_a44f970d17544b1dbaded6f109580ee46}} 
+void \hyperlink{morse__code_8c_a44f970d17544b1dbaded6f109580ee46}{init\+\_\+timer} (void)
+\begin{DoxyCompactList}\small\item\em O\+C8 timer initialization to work in pwm mode. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{morse__code_8c_a017cc7467f17665eca1b702990d9832f}\label{morse__code_8c_a017cc7467f17665eca1b702990d9832f}} 
+void \hyperlink{morse__code_8c_a017cc7467f17665eca1b702990d9832f}{init\+\_\+gpio} (void)
+\begin{DoxyCompactList}\small\item\em G\+P\+IO initialization, Disabling analog mode and setting pins directions Initialization for buttons and L\+E\+Ds. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{morse__code_8c_a58365390a2f6d58ce8173e26f693d999}\label{morse__code_8c_a58365390a2f6d58ce8173e26f693d999}} 
+void \hyperlink{morse__code_8c_a58365390a2f6d58ce8173e26f693d999}{init\+\_\+app} (void)
+\begin{DoxyCompactList}\small\item\em App initialization, Calling all initialization functions. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{morse__code_8c_a78dd341e4a2057ee2dab7100bace4085}\label{morse__code_8c_a78dd341e4a2057ee2dab7100bace4085}} 
+void {\bfseries delay} (volatile uint32\+\_\+t val)
+\item 
+void \hyperlink{morse__code_8c_a8cf7401e3e373bd2b28d664be0b062a0}{blink\+\_\+leds} (uint32\+\_\+t mode)
+\begin{DoxyCompactList}\small\item\em Setting L\+E\+Ds on and off,. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{morse__code_8c_a9b17e773efa1b970bb6c4332b837d420}\label{morse__code_8c_a9b17e773efa1b970bb6c4332b837d420}} 
+void \hyperlink{morse__code_8c_a9b17e773efa1b970bb6c4332b837d420}{display\+\_\+msg} (void)
+\begin{DoxyCompactList}\small\item\em Displaying converted msgs on L\+E\+Ds,. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{morse__code_8c_ae7eb73541958c592ffd015e14f04b022}\label{morse__code_8c_ae7eb73541958c592ffd015e14f04b022}} 
+void \hyperlink{morse__code_8c_ae7eb73541958c592ffd015e14f04b022}{\+\_\+\+\_\+\+I\+SR} (\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+N\+O\+T\+I\+C\+E\+\_\+\+A\+\_\+\+V\+E\+C\+T\+OR, I\+P\+L2\+S\+O\+FT)
+\begin{DoxyCompactList}\small\item\em Buttons interrupt handler, Chanes program state when button is pressed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+contains descroption for initialization and system functions 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{morse__code_8c_a8cf7401e3e373bd2b28d664be0b062a0}\label{morse__code_8c_a8cf7401e3e373bd2b28d664be0b062a0}} 
+\index{morse\+\_\+code.\+c@{morse\+\_\+code.\+c}!blink\+\_\+leds@{blink\+\_\+leds}}
+\index{blink\+\_\+leds@{blink\+\_\+leds}!morse\+\_\+code.\+c@{morse\+\_\+code.\+c}}
+\subsubsection{\texorpdfstring{blink\+\_\+leds()}{blink\_leds()}}
+{\footnotesize\ttfamily void blink\+\_\+leds (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{mode }\end{DoxyParamCaption})}
+
+
+
+Setting L\+E\+Ds on and off,. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em mode} & values\+: 1 -\/ blink with one led, 3 -\/ 2 leds \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{morse__code_8c_a82fdae10260c2b86d2174ad3ed11d1eb}\label{morse__code_8c_a82fdae10260c2b86d2174ad3ed11d1eb}} 
+\index{morse\+\_\+code.\+c@{morse\+\_\+code.\+c}!morse\+\_\+code\+\_\+encoding@{morse\+\_\+code\+\_\+encoding}}
+\index{morse\+\_\+code\+\_\+encoding@{morse\+\_\+code\+\_\+encoding}!morse\+\_\+code.\+c@{morse\+\_\+code.\+c}}
+\subsubsection{\texorpdfstring{morse\+\_\+code\+\_\+encoding()}{morse\_code\_encoding()}}
+{\footnotesize\ttfamily void morse\+\_\+code\+\_\+encoding (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{msg\mbox{[}$\,$\mbox{]},  }\item[{uint8\+\_\+t $\ast$}]{res }\end{DoxyParamCaption})}
+
+
+
+Converting text to morse code. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em msg} & text message to be converted to morse code \\
+\hline
+\mbox{\tt in}  & {\em res} & array for storing converted msg \\
+\hline
+\end{DoxyParams}
