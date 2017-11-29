@@ -1,0 +1,92 @@
+\hypertarget{_u_a_r_t_8h}{}\section{src/\+U\+A\+RT.h File Reference}
+\label{_u_a_r_t_8h}\index{src/\+U\+A\+R\+T.\+h@{src/\+U\+A\+R\+T.\+h}}
+{\ttfamily \#include $<$xc.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_u_a_r_t_8h_a0b207695e4757928cb8a88c33c730b83}{U\+A\+R\+T4\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em U\+A\+RT initialization. \end{DoxyCompactList}\item 
+char \hyperlink{_u_a_r_t_8h_a6c3f14f7ca653644e800d8c313b31016}{U\+A\+R\+T4\+\_\+getc} (void)
+\begin{DoxyCompactList}\small\item\em Reading char from U\+A\+RT. \end{DoxyCompactList}\item 
+void \hyperlink{_u_a_r_t_8h_afa2c6cdf3c9fab106395764d0751b578}{U\+A\+R\+T4\+\_\+putc} (char c)
+\begin{DoxyCompactList}\small\item\em Sending char by U\+A\+RT. \end{DoxyCompactList}\item 
+void \hyperlink{_u_a_r_t_8h_a9737f9bcafe230a8a709dcda393e07b0}{U\+A\+R\+T4\+\_\+puts} (char $\ast$s)
+\begin{DoxyCompactList}\small\item\em Sending string by U\+A\+RT. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_u_a_r_t_8h_a6c3f14f7ca653644e800d8c313b31016}\label{_u_a_r_t_8h_a6c3f14f7ca653644e800d8c313b31016}} 
+\index{U\+A\+R\+T.\+h@{U\+A\+R\+T.\+h}!U\+A\+R\+T4\+\_\+getc@{U\+A\+R\+T4\+\_\+getc}}
+\index{U\+A\+R\+T4\+\_\+getc@{U\+A\+R\+T4\+\_\+getc}!U\+A\+R\+T.\+h@{U\+A\+R\+T.\+h}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T4\+\_\+getc()}{UART4\_getc()}}
+{\footnotesize\ttfamily char U\+A\+R\+T4\+\_\+getc (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Reading char from U\+A\+RT. 
+
+It waits until character received and returns it
+
+\begin{DoxyReturn}{Returns}
+U4\+R\+X\+R\+EG readed character 
+\end{DoxyReturn}
+
+
+Definition at line 58 of file U\+A\+R\+T.\+c.
+
+\mbox{\Hypertarget{_u_a_r_t_8h_a0b207695e4757928cb8a88c33c730b83}\label{_u_a_r_t_8h_a0b207695e4757928cb8a88c33c730b83}} 
+\index{U\+A\+R\+T.\+h@{U\+A\+R\+T.\+h}!U\+A\+R\+T4\+\_\+init@{U\+A\+R\+T4\+\_\+init}}
+\index{U\+A\+R\+T4\+\_\+init@{U\+A\+R\+T4\+\_\+init}!U\+A\+R\+T.\+h@{U\+A\+R\+T.\+h}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T4\+\_\+init()}{UART4\_init()}}
+{\footnotesize\ttfamily void U\+A\+R\+T4\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+U\+A\+RT initialization. 
+
+Setting pins for U\+A\+RT usage and U\+A\+RT speed 
+
+Definition at line 40 of file U\+A\+R\+T.\+c.
+
+\mbox{\Hypertarget{_u_a_r_t_8h_afa2c6cdf3c9fab106395764d0751b578}\label{_u_a_r_t_8h_afa2c6cdf3c9fab106395764d0751b578}} 
+\index{U\+A\+R\+T.\+h@{U\+A\+R\+T.\+h}!U\+A\+R\+T4\+\_\+putc@{U\+A\+R\+T4\+\_\+putc}}
+\index{U\+A\+R\+T4\+\_\+putc@{U\+A\+R\+T4\+\_\+putc}!U\+A\+R\+T.\+h@{U\+A\+R\+T.\+h}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T4\+\_\+putc()}{UART4\_putc()}}
+{\footnotesize\ttfamily void U\+A\+R\+T4\+\_\+putc (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Sending char by U\+A\+RT. 
+
+It waits until transmit buffer not full and transmits char
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em c} & char to send \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 70 of file U\+A\+R\+T.\+c.
+
+\mbox{\Hypertarget{_u_a_r_t_8h_a9737f9bcafe230a8a709dcda393e07b0}\label{_u_a_r_t_8h_a9737f9bcafe230a8a709dcda393e07b0}} 
+\index{U\+A\+R\+T.\+h@{U\+A\+R\+T.\+h}!U\+A\+R\+T4\+\_\+puts@{U\+A\+R\+T4\+\_\+puts}}
+\index{U\+A\+R\+T4\+\_\+puts@{U\+A\+R\+T4\+\_\+puts}!U\+A\+R\+T.\+h@{U\+A\+R\+T.\+h}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T4\+\_\+puts()}{UART4\_puts()}}
+{\footnotesize\ttfamily void U\+A\+R\+T4\+\_\+puts (\begin{DoxyParamCaption}\item[{char $\ast$}]{s }\end{DoxyParamCaption})}
+
+
+
+Sending string by U\+A\+RT. 
+
+It sends chars from string while it\textquotesingle{}s not end symbol
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em s} & pointer for string to send \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 83 of file U\+A\+R\+T.\+c.
+

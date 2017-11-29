@@ -1,0 +1,262 @@
+\hypertarget{lab4___u_a_r_t___s_p_i_8h}{}\section{src/lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+PI.h File Reference}
+\label{lab4___u_a_r_t___s_p_i_8h}\index{src/lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{src/lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{lab4___u_a_r_t___s_p_i_8h_ad8b2fe293843ddfd137d04230113fd3a}{L\+D1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}~L\+A\+T\+Gbits.\+L\+A\+T\+G6
+\begin{DoxyCompactList}\small\item\em Macros that used for setting or reseting of L\+E\+D1. \end{DoxyCompactList}\item 
+\#define \hyperlink{lab4___u_a_r_t___s_p_i_8h_a7e94e8f8c9f310cbdbd69caf149c50e8}{L\+D2\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}~L\+A\+T\+Dbits.\+L\+A\+T\+D4
+\begin{DoxyCompactList}\small\item\em Macros that used for setting or reseting of L\+E\+D2. \end{DoxyCompactList}\item 
+\#define \hyperlink{lab4___u_a_r_t___s_p_i_8h_a33187f208d39413cc77baf019c0816b3}{L\+D3\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}~L\+A\+T\+Bbits.\+L\+A\+T\+B11
+\begin{DoxyCompactList}\small\item\em Macros that used for setting or reseting of L\+E\+D3. \end{DoxyCompactList}\item 
+\#define \hyperlink{lab4___u_a_r_t___s_p_i_8h_a840ded90320714f84362edab649e3cae}{L\+D4\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}~L\+A\+T\+Gbits.\+L\+A\+T\+G15
+\begin{DoxyCompactList}\small\item\em Macros that used for setting or reseting of L\+E\+D4. \end{DoxyCompactList}\item 
+\#define \hyperlink{lab4___u_a_r_t___s_p_i_8h_a0c8f981645aee0b179b2e24e497ab1aa}{B\+T\+N1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}~P\+O\+R\+T\+Abits.\+R\+A5
+\begin{DoxyCompactList}\small\item\em Macros for reading button1 state. \end{DoxyCompactList}\item 
+\#define \hyperlink{lab4___u_a_r_t___s_p_i_8h_a1fa05a65f323cee80b9d0f5e6ca2fae3}{B\+T\+N2\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}~P\+O\+R\+T\+Abits.\+R\+A4
+\begin{DoxyCompactList}\small\item\em Macros for reading button2 state. \end{DoxyCompactList}\item 
+\#define \hyperlink{lab4___u_a_r_t___s_p_i_8h_a56e165627f596c2f42f843ae6571de0e}{P\+W\+M\+\_\+\+F\+R\+E\+Q\+\_\+\+HZ}~(50)
+\begin{DoxyCompactList}\small\item\em Definition of P\+WM frequency. \end{DoxyCompactList}\item 
+\#define \hyperlink{lab4___u_a_r_t___s_p_i_8h_a47711156c6f02bd12baf8755b717eb65}{P\+W\+M\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+C\+O\+U\+N\+TS}~(100000000/(256 $\ast$ \hyperlink{lab4___u_a_r_t___s_p_i_8h_a56e165627f596c2f42f843ae6571de0e}{P\+W\+M\+\_\+\+F\+R\+E\+Q\+\_\+\+HZ}))
+\begin{DoxyCompactList}\small\item\em Definition of P\+WM period counts. \end{DoxyCompactList}\item 
+\#define \hyperlink{lab4___u_a_r_t___s_p_i_8h_abcd97daa3af1161cf285482ac4299ca2}{S\+E\+R\+V\+O\+\_\+0}~(220)
+\begin{DoxyCompactList}\small\item\em Definition of servo angle. \end{DoxyCompactList}\item 
+\#define \hyperlink{lab4___u_a_r_t___s_p_i_8h_ae5f1cac0a6fdf03656dadd61be97a0a3}{S\+E\+R\+V\+O\+\_\+90}~(550)
+\begin{DoxyCompactList}\small\item\em Definition of servo angle. \end{DoxyCompactList}\item 
+\#define \hyperlink{lab4___u_a_r_t___s_p_i_8h_a1e72bceb473a586fcf1072fc563e536d}{S\+E\+R\+V\+O\+\_\+180}~(880)
+\begin{DoxyCompactList}\small\item\em Definition of servo angle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{lab4___u_a_r_t___s_p_i_8h_ad442c62b85591b16bbebcc35c9e63dc3}{init\+G\+P\+IO} (void)
+\begin{DoxyCompactList}\small\item\em G\+P\+IO initialization. \end{DoxyCompactList}\item 
+void \hyperlink{lab4___u_a_r_t___s_p_i_8h_a0b207695e4757928cb8a88c33c730b83}{U\+A\+R\+T4\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em U\+A\+RT initialization. \end{DoxyCompactList}\item 
+void \hyperlink{lab4___u_a_r_t___s_p_i_8h_ac32735d4f3b56958dbb4a49c50aa0170}{delay\+Ms} (int t)
+\begin{DoxyCompactList}\small\item\em primitive delay function \end{DoxyCompactList}\item 
+void \hyperlink{lab4___u_a_r_t___s_p_i_8h_ac6c1a18b80c4da2353f6109d426b89bb}{set\+\_\+angle} (char)
+\begin{DoxyCompactList}\small\item\em function for turning servo \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{lab4___u_a_r_t___s_p_i_8h_a0c8f981645aee0b179b2e24e497ab1aa}\label{lab4___u_a_r_t___s_p_i_8h_a0c8f981645aee0b179b2e24e497ab1aa}} 
+\index{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}!B\+T\+N1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT@{B\+T\+N1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}}
+\index{B\+T\+N1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT@{B\+T\+N1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}!lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}}
+\subsubsection{\texorpdfstring{B\+T\+N1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}{BTN1\_PORT\_BIT}}
+{\footnotesize\ttfamily \#define B\+T\+N1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT~P\+O\+R\+T\+Abits.\+R\+A5}
+
+
+
+Macros for reading button1 state. 
+
+
+
+Definition at line 18 of file lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{lab4___u_a_r_t___s_p_i_8h_a1fa05a65f323cee80b9d0f5e6ca2fae3}\label{lab4___u_a_r_t___s_p_i_8h_a1fa05a65f323cee80b9d0f5e6ca2fae3}} 
+\index{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}!B\+T\+N2\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT@{B\+T\+N2\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}}
+\index{B\+T\+N2\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT@{B\+T\+N2\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}!lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}}
+\subsubsection{\texorpdfstring{B\+T\+N2\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}{BTN2\_PORT\_BIT}}
+{\footnotesize\ttfamily \#define B\+T\+N2\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT~P\+O\+R\+T\+Abits.\+R\+A4}
+
+
+
+Macros for reading button2 state. 
+
+
+
+Definition at line 19 of file lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{lab4___u_a_r_t___s_p_i_8h_ad8b2fe293843ddfd137d04230113fd3a}\label{lab4___u_a_r_t___s_p_i_8h_ad8b2fe293843ddfd137d04230113fd3a}} 
+\index{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}!L\+D1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT@{L\+D1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}}
+\index{L\+D1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT@{L\+D1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}!lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}}
+\subsubsection{\texorpdfstring{L\+D1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}{LD1\_PORT\_BIT}}
+{\footnotesize\ttfamily \#define L\+D1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT~L\+A\+T\+Gbits.\+L\+A\+T\+G6}
+
+
+
+Macros that used for setting or reseting of L\+E\+D1. 
+
+
+
+Definition at line 13 of file lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{lab4___u_a_r_t___s_p_i_8h_a7e94e8f8c9f310cbdbd69caf149c50e8}\label{lab4___u_a_r_t___s_p_i_8h_a7e94e8f8c9f310cbdbd69caf149c50e8}} 
+\index{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}!L\+D2\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT@{L\+D2\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}}
+\index{L\+D2\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT@{L\+D2\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}!lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}}
+\subsubsection{\texorpdfstring{L\+D2\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}{LD2\_PORT\_BIT}}
+{\footnotesize\ttfamily \#define L\+D2\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT~L\+A\+T\+Dbits.\+L\+A\+T\+D4}
+
+
+
+Macros that used for setting or reseting of L\+E\+D2. 
+
+
+
+Definition at line 14 of file lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{lab4___u_a_r_t___s_p_i_8h_a33187f208d39413cc77baf019c0816b3}\label{lab4___u_a_r_t___s_p_i_8h_a33187f208d39413cc77baf019c0816b3}} 
+\index{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}!L\+D3\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT@{L\+D3\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}}
+\index{L\+D3\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT@{L\+D3\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}!lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}}
+\subsubsection{\texorpdfstring{L\+D3\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}{LD3\_PORT\_BIT}}
+{\footnotesize\ttfamily \#define L\+D3\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT~L\+A\+T\+Bbits.\+L\+A\+T\+B11}
+
+
+
+Macros that used for setting or reseting of L\+E\+D3. 
+
+
+
+Definition at line 15 of file lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{lab4___u_a_r_t___s_p_i_8h_a840ded90320714f84362edab649e3cae}\label{lab4___u_a_r_t___s_p_i_8h_a840ded90320714f84362edab649e3cae}} 
+\index{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}!L\+D4\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT@{L\+D4\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}}
+\index{L\+D4\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT@{L\+D4\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}!lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}}
+\subsubsection{\texorpdfstring{L\+D4\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}{LD4\_PORT\_BIT}}
+{\footnotesize\ttfamily \#define L\+D4\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT~L\+A\+T\+Gbits.\+L\+A\+T\+G15}
+
+
+
+Macros that used for setting or reseting of L\+E\+D4. 
+
+
+
+Definition at line 16 of file lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{lab4___u_a_r_t___s_p_i_8h_a56e165627f596c2f42f843ae6571de0e}\label{lab4___u_a_r_t___s_p_i_8h_a56e165627f596c2f42f843ae6571de0e}} 
+\index{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}!P\+W\+M\+\_\+\+F\+R\+E\+Q\+\_\+\+HZ@{P\+W\+M\+\_\+\+F\+R\+E\+Q\+\_\+\+HZ}}
+\index{P\+W\+M\+\_\+\+F\+R\+E\+Q\+\_\+\+HZ@{P\+W\+M\+\_\+\+F\+R\+E\+Q\+\_\+\+HZ}!lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}}
+\subsubsection{\texorpdfstring{P\+W\+M\+\_\+\+F\+R\+E\+Q\+\_\+\+HZ}{PWM\_FREQ\_HZ}}
+{\footnotesize\ttfamily \#define P\+W\+M\+\_\+\+F\+R\+E\+Q\+\_\+\+HZ~(50)}
+
+
+
+Definition of P\+WM frequency. 
+
+
+
+Definition at line 21 of file lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{lab4___u_a_r_t___s_p_i_8h_a47711156c6f02bd12baf8755b717eb65}\label{lab4___u_a_r_t___s_p_i_8h_a47711156c6f02bd12baf8755b717eb65}} 
+\index{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}!P\+W\+M\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+C\+O\+U\+N\+TS@{P\+W\+M\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+C\+O\+U\+N\+TS}}
+\index{P\+W\+M\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+C\+O\+U\+N\+TS@{P\+W\+M\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+C\+O\+U\+N\+TS}!lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}}
+\subsubsection{\texorpdfstring{P\+W\+M\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+C\+O\+U\+N\+TS}{PWM\_PERIOD\_COUNTS}}
+{\footnotesize\ttfamily \#define P\+W\+M\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+C\+O\+U\+N\+TS~(100000000/(256 $\ast$ \hyperlink{lab4___u_a_r_t___s_p_i_8h_a56e165627f596c2f42f843ae6571de0e}{P\+W\+M\+\_\+\+F\+R\+E\+Q\+\_\+\+HZ}))}
+
+
+
+Definition of P\+WM period counts. 
+
+
+
+Definition at line 22 of file lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{lab4___u_a_r_t___s_p_i_8h_abcd97daa3af1161cf285482ac4299ca2}\label{lab4___u_a_r_t___s_p_i_8h_abcd97daa3af1161cf285482ac4299ca2}} 
+\index{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}!S\+E\+R\+V\+O\+\_\+0@{S\+E\+R\+V\+O\+\_\+0}}
+\index{S\+E\+R\+V\+O\+\_\+0@{S\+E\+R\+V\+O\+\_\+0}!lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}}
+\subsubsection{\texorpdfstring{S\+E\+R\+V\+O\+\_\+0}{SERVO\_0}}
+{\footnotesize\ttfamily \#define S\+E\+R\+V\+O\+\_\+0~(220)}
+
+
+
+Definition of servo angle. 
+
+
+
+Definition at line 24 of file lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{lab4___u_a_r_t___s_p_i_8h_a1e72bceb473a586fcf1072fc563e536d}\label{lab4___u_a_r_t___s_p_i_8h_a1e72bceb473a586fcf1072fc563e536d}} 
+\index{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}!S\+E\+R\+V\+O\+\_\+180@{S\+E\+R\+V\+O\+\_\+180}}
+\index{S\+E\+R\+V\+O\+\_\+180@{S\+E\+R\+V\+O\+\_\+180}!lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}}
+\subsubsection{\texorpdfstring{S\+E\+R\+V\+O\+\_\+180}{SERVO\_180}}
+{\footnotesize\ttfamily \#define S\+E\+R\+V\+O\+\_\+180~(880)}
+
+
+
+Definition of servo angle. 
+
+
+
+Definition at line 26 of file lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{lab4___u_a_r_t___s_p_i_8h_ae5f1cac0a6fdf03656dadd61be97a0a3}\label{lab4___u_a_r_t___s_p_i_8h_ae5f1cac0a6fdf03656dadd61be97a0a3}} 
+\index{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}!S\+E\+R\+V\+O\+\_\+90@{S\+E\+R\+V\+O\+\_\+90}}
+\index{S\+E\+R\+V\+O\+\_\+90@{S\+E\+R\+V\+O\+\_\+90}!lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}}
+\subsubsection{\texorpdfstring{S\+E\+R\+V\+O\+\_\+90}{SERVO\_90}}
+{\footnotesize\ttfamily \#define S\+E\+R\+V\+O\+\_\+90~(550)}
+
+
+
+Definition of servo angle. 
+
+
+
+Definition at line 25 of file lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h.
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{lab4___u_a_r_t___s_p_i_8h_ac32735d4f3b56958dbb4a49c50aa0170}\label{lab4___u_a_r_t___s_p_i_8h_ac32735d4f3b56958dbb4a49c50aa0170}} 
+\index{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}!delay\+Ms@{delay\+Ms}}
+\index{delay\+Ms@{delay\+Ms}!lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}}
+\subsubsection{\texorpdfstring{delay\+Ms()}{delayMs()}}
+{\footnotesize\ttfamily void delay\+Ms (\begin{DoxyParamCaption}\item[{int}]{t }\end{DoxyParamCaption})}
+
+
+
+primitive delay function 
+
+Used by O\+L\+ED driver 
+
+Definition at line 85 of file user.\+c.
+
+\mbox{\Hypertarget{lab4___u_a_r_t___s_p_i_8h_ad442c62b85591b16bbebcc35c9e63dc3}\label{lab4___u_a_r_t___s_p_i_8h_ad442c62b85591b16bbebcc35c9e63dc3}} 
+\index{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}!init\+G\+P\+IO@{init\+G\+P\+IO}}
+\index{init\+G\+P\+IO@{init\+G\+P\+IO}!lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}}
+\subsubsection{\texorpdfstring{init\+G\+P\+I\+O()}{initGPIO()}}
+{\footnotesize\ttfamily void init\+G\+P\+IO (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+G\+P\+IO initialization. 
+
+Initialization for pins G6, B11, G15, D4, A4, A5. Disabling analog mode and setting pins directions 
+
+Definition at line 21 of file user.\+c.
+
+\mbox{\Hypertarget{lab4___u_a_r_t___s_p_i_8h_ac6c1a18b80c4da2353f6109d426b89bb}\label{lab4___u_a_r_t___s_p_i_8h_ac6c1a18b80c4da2353f6109d426b89bb}} 
+\index{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}!set\+\_\+angle@{set\+\_\+angle}}
+\index{set\+\_\+angle@{set\+\_\+angle}!lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}}
+\subsubsection{\texorpdfstring{set\+\_\+angle()}{set\_angle()}}
+{\footnotesize\ttfamily void set\+\_\+angle (\begin{DoxyParamCaption}\item[{char}]{mode }\end{DoxyParamCaption})}
+
+
+
+function for turning servo 
+
+Depending on the input parameter (\textquotesingle{}1\textquotesingle{}, \textquotesingle{}2\textquotesingle{} or \textquotesingle{}3\textquotesingle{}) setting servo angle
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em mode} & one of three servo angle states \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 98 of file user.\+c.
+
+\mbox{\Hypertarget{lab4___u_a_r_t___s_p_i_8h_a0b207695e4757928cb8a88c33c730b83}\label{lab4___u_a_r_t___s_p_i_8h_a0b207695e4757928cb8a88c33c730b83}} 
+\index{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}!U\+A\+R\+T4\+\_\+init@{U\+A\+R\+T4\+\_\+init}}
+\index{U\+A\+R\+T4\+\_\+init@{U\+A\+R\+T4\+\_\+init}!lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h@{lab4\+\_\+\+U\+A\+R\+T\+\_\+\+S\+P\+I.\+h}}
+\subsubsection{\texorpdfstring{U\+A\+R\+T4\+\_\+init()}{UART4\_init()}}
+{\footnotesize\ttfamily void U\+A\+R\+T4\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+U\+A\+RT initialization. 
+
+Setting pins for U\+A\+RT usage and U\+A\+RT speed 
+
+Definition at line 40 of file U\+A\+R\+T.\+c.
+
