@@ -1,0 +1,58 @@
+\hypertarget{user_8c}{}\section{D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab4\+\_\+\+U\+A\+R\+T\+\_\+\+G\+A\+M\+E/user.c File Reference}
+\label{user_8c}\index{D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab4\+\_\+\+U\+A\+R\+T\+\_\+\+G\+A\+M\+E/user.\+c@{D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab4\+\_\+\+U\+A\+R\+T\+\_\+\+G\+A\+M\+E/user.\+c}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}user.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$sys/attribs.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{user_8c_afe7a49ab9879bd7044b35eb779f30712}{Init\+G\+P\+IO} (void)
+\item 
+void \hyperlink{user_8c_addc0a16fa099430e2337628a38764b67}{Init\+App} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{user_8c_addc0a16fa099430e2337628a38764b67}\label{user_8c_addc0a16fa099430e2337628a38764b67}} 
+\index{user.\+c@{user.\+c}!Init\+App@{Init\+App}}
+\index{Init\+App@{Init\+App}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{Init\+App()}{InitApp()}}
+{\footnotesize\ttfamily void Init\+App (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+\textcolor{comment}{// Initialize peripherals}
+\hyperlink{user_8c_afe7a49ab9879bd7044b35eb779f30712}{InitGPIO}();
+\hyperlink{_u_a_r_t_8c_a0b207695e4757928cb8a88c33c730b83}{UART4\_init}();
+\end{DoxyCode}
+\mbox{\Hypertarget{user_8c_afe7a49ab9879bd7044b35eb779f30712}\label{user_8c_afe7a49ab9879bd7044b35eb779f30712}} 
+\index{user.\+c@{user.\+c}!Init\+G\+P\+IO@{Init\+G\+P\+IO}}
+\index{Init\+G\+P\+IO@{Init\+G\+P\+IO}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{Init\+G\+P\+I\+O()}{InitGPIO()}}
+{\footnotesize\ttfamily void Init\+G\+P\+IO (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}
+   \textcolor{comment}{// Setup functionality and port direction }
+   \textcolor{comment}{// LED output}
+\textcolor{comment}{// Disable analog mode if present}
+   ANSELG &= ~((1 << 6) | (1 << 15));
+   ANSELB &= ~(1 << 11);
+   \textcolor{comment}{// Set direction to output }
+   TRISG &= ~((1 << 6) | (1 << 15));
+   TRISB &= ~(1 << 11);
+   TRISD &= ~(1 << 4);
+   \textcolor{comment}{// Turn off LEDs for initialization}
+   \hyperlink{user_8h_ad8b2fe293843ddfd137d04230113fd3a}{LD1\_PORT\_BIT} = 0;
+   \hyperlink{user_8h_a7e94e8f8c9f310cbdbd69caf149c50e8}{LD2\_PORT\_BIT} = 0;
+   \hyperlink{user_8h_a33187f208d39413cc77baf019c0816b3}{LD3\_PORT\_BIT} = 0;
+   \hyperlink{user_8h_a840ded90320714f84362edab649e3cae}{LD4\_PORT\_BIT} = 0;
+   \textcolor{comment}{// Button inputs}
+   \textcolor{comment}{// Disable analog mode}
+   ANSELA &= ~(1 << 5);
+   \textcolor{comment}{// Set directions to input}
+   TRISA |= (1 << 5)|(1 << 4);
+    
+   TRISDCLR = 1<<11;
+\end{DoxyCode}
