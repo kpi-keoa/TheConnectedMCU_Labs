@@ -1,0 +1,286 @@
+\hypertarget{_o_l_e_d_8h}{}\section{D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab5\+\_\+\+S\+P\+I\+\_\+\+O\+L\+E\+D/\+O\+L\+ED.h File Reference}
+\label{_o_l_e_d_8h}\index{D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab5\+\_\+\+S\+P\+I\+\_\+\+O\+L\+E\+D/\+O\+L\+E\+D.\+h@{D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab5\+\_\+\+S\+P\+I\+\_\+\+O\+L\+E\+D/\+O\+L\+E\+D.\+h}}
+{\ttfamily \#include $<$xc.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_o_l_e_d_8h_a92f8f972a2c188371fcf0b561c44af97}{M\+A\+SK}(x)~(1$<$$<$(x))
+\item 
+\#define \hyperlink{_o_l_e_d_8h_aa2ad14863be15430cf59f6dbdf947ff1}{prt\+Vdd\+Ctrl}~P\+O\+R\+TD
+\item 
+\#define \hyperlink{_o_l_e_d_8h_a61c9f6477fecd88e208bee5533e0f6ad}{bit\+Vdd\+Ctrl}~\hyperlink{_o_l_e_d_8h_a92f8f972a2c188371fcf0b561c44af97}{M\+A\+SK}(12)
+\item 
+\#define \hyperlink{_o_l_e_d_8h_a5d573f82c6d5e01d5f2b731ff25afc13}{prt\+Vbat\+Ctrl}~P\+O\+R\+TD
+\item 
+\#define \hyperlink{_o_l_e_d_8h_af5cdff124447e2972f89d38b9c578e9f}{bit\+Vbat\+Ctrl}~\hyperlink{_o_l_e_d_8h_a92f8f972a2c188371fcf0b561c44af97}{M\+A\+SK}(15)
+\item 
+\#define \hyperlink{_o_l_e_d_8h_aa743879248335ecc10540b05d3cc4495}{prt\+Data\+Cmd}~P\+O\+R\+TD
+\item 
+\#define \hyperlink{_o_l_e_d_8h_a8f58f5ce61f052d224d1d732a6494253}{bit\+Data\+Cmd}~\hyperlink{_o_l_e_d_8h_a92f8f972a2c188371fcf0b561c44af97}{M\+A\+SK}(14)
+\item 
+\#define \hyperlink{_o_l_e_d_8h_a6ff2ec8986228515f6be20388e4cc654}{prt\+Reset}~P\+O\+R\+TG
+\item 
+\#define \hyperlink{_o_l_e_d_8h_a63fd04f53f2a35a67bf99c4d59718bd9}{bit\+Reset}~\hyperlink{_o_l_e_d_8h_a92f8f972a2c188371fcf0b561c44af97}{M\+A\+SK}(9)
+\item 
+\#define \hyperlink{_o_l_e_d_8h_a9c3fd42769eeedb1a8eccefa38f9ec66}{cb\+Oled\+Disp\+Max}~512
+\item 
+\#define \hyperlink{_o_l_e_d_8h_a101840709d87141c9bfd27f58febcc41}{ccol\+Oled\+Max}~128
+\item 
+\#define \hyperlink{_o_l_e_d_8h_aef3f6635387d347d272bbe5772b96da1}{crow\+Oled\+Max}~32
+\item 
+\#define \hyperlink{_o_l_e_d_8h_a55eaa351fe43dc769f8ff2f890792ea5}{cpag\+Oled\+Max}~4
+\item 
+\#define \hyperlink{_o_l_e_d_8h_aff992d945652fb2ff64d48b785431c3a}{cb\+Oled\+Char}~8
+\item 
+\#define \hyperlink{_o_l_e_d_8h_a9e324336da0d4ad14b0672c5a167ffc1}{ch\+Oled\+User\+Max}~0x20
+\item 
+\#define \hyperlink{_o_l_e_d_8h_a0050b54c2a43adee0e768e229ed369c1}{cb\+Oled\+Font\+User}~(\hyperlink{_o_l_e_d_8h_a9e324336da0d4ad14b0672c5a167ffc1}{ch\+Oled\+User\+Max}$\ast$\hyperlink{_o_l_e_d_8h_aff992d945652fb2ff64d48b785431c3a}{cb\+Oled\+Char})
+\item 
+\#define \hyperlink{_o_l_e_d_8h_a9128c67fb83b328b70fbb230caf303be}{mod\+Oled\+Set}~0
+\item 
+\#define \hyperlink{_o_l_e_d_8h_addc67f4a2ffdc0fb7be6c78334ab9c0a}{mod\+Oled\+Or}~1
+\item 
+\#define \hyperlink{_o_l_e_d_8h_a4e018ab2a983107f4afab9a30aa19f37}{mod\+Oled\+And}~2
+\item 
+\#define \hyperlink{_o_l_e_d_8h_a9bd1a17559010159535109b2c1de5fa8}{mod\+Oled\+Xor}~3
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint8\+\_\+t \hyperlink{_o_l_e_d_8h_aae9749d96e15ccb4f482dd5f55d98f9b}{B\+Y\+TE}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_o_l_e_d_8h_a450ec1efd3aa1a894437db0a1d584a43}{Oled\+Init} ()
+\item 
+void \hyperlink{_o_l_e_d_8h_ae2734560bd075238baafc616edcc03b9}{Oled\+Dvr\+Init} ()
+\item 
+void \hyperlink{_o_l_e_d_8h_ad6596f9ecd6f8d34131134a35b73b5e5}{Oled\+Term} ()
+\item 
+void \hyperlink{_o_l_e_d_8h_aa682cc6a09d181523b03541cc8e4d47a}{Oled\+Display\+On} ()
+\item 
+void \hyperlink{_o_l_e_d_8h_aff4ed7670a694f1ab92838d0714d28f2}{Oled\+Display\+Off} ()
+\item 
+void \hyperlink{_o_l_e_d_8h_ae54cbc5f0a641e0a4a9e92c036aa7bfe}{Oled\+Clear} ()
+\item 
+void \hyperlink{_o_l_e_d_8h_a800e2af8433902e939ac190df378e688}{Oled\+Clear\+Buffer} ()
+\item 
+void \hyperlink{_o_l_e_d_8h_a8ad5cba8b7a3e8f43f7d3bd20a4508a9}{Oled\+Update} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_o_l_e_d_8h_aae9749d96e15ccb4f482dd5f55d98f9b}{B\+Y\+TE} \hyperlink{_o_l_e_d_8h_a16e9646c4b960c427905865b5b98c5b7}{rgb\+Oled\+Bmp} \mbox{[}\hyperlink{_o_l_e_d_8h_a9c3fd42769eeedb1a8eccefa38f9ec66}{cb\+Oled\+Disp\+Max}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_o_l_e_d_8h_a8f58f5ce61f052d224d1d732a6494253}\label{_o_l_e_d_8h_a8f58f5ce61f052d224d1d732a6494253}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!bit\+Data\+Cmd@{bit\+Data\+Cmd}}
+\index{bit\+Data\+Cmd@{bit\+Data\+Cmd}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{bit\+Data\+Cmd}{bitDataCmd}}
+{\footnotesize\ttfamily \#define bit\+Data\+Cmd~\hyperlink{_o_l_e_d_8h_a92f8f972a2c188371fcf0b561c44af97}{M\+A\+SK}(14)}
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a63fd04f53f2a35a67bf99c4d59718bd9}\label{_o_l_e_d_8h_a63fd04f53f2a35a67bf99c4d59718bd9}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!bit\+Reset@{bit\+Reset}}
+\index{bit\+Reset@{bit\+Reset}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{bit\+Reset}{bitReset}}
+{\footnotesize\ttfamily \#define bit\+Reset~\hyperlink{_o_l_e_d_8h_a92f8f972a2c188371fcf0b561c44af97}{M\+A\+SK}(9)}
+
+\mbox{\Hypertarget{_o_l_e_d_8h_af5cdff124447e2972f89d38b9c578e9f}\label{_o_l_e_d_8h_af5cdff124447e2972f89d38b9c578e9f}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!bit\+Vbat\+Ctrl@{bit\+Vbat\+Ctrl}}
+\index{bit\+Vbat\+Ctrl@{bit\+Vbat\+Ctrl}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{bit\+Vbat\+Ctrl}{bitVbatCtrl}}
+{\footnotesize\ttfamily \#define bit\+Vbat\+Ctrl~\hyperlink{_o_l_e_d_8h_a92f8f972a2c188371fcf0b561c44af97}{M\+A\+SK}(15)}
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a61c9f6477fecd88e208bee5533e0f6ad}\label{_o_l_e_d_8h_a61c9f6477fecd88e208bee5533e0f6ad}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!bit\+Vdd\+Ctrl@{bit\+Vdd\+Ctrl}}
+\index{bit\+Vdd\+Ctrl@{bit\+Vdd\+Ctrl}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{bit\+Vdd\+Ctrl}{bitVddCtrl}}
+{\footnotesize\ttfamily \#define bit\+Vdd\+Ctrl~\hyperlink{_o_l_e_d_8h_a92f8f972a2c188371fcf0b561c44af97}{M\+A\+SK}(12)}
+
+\mbox{\Hypertarget{_o_l_e_d_8h_aff992d945652fb2ff64d48b785431c3a}\label{_o_l_e_d_8h_aff992d945652fb2ff64d48b785431c3a}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!cb\+Oled\+Char@{cb\+Oled\+Char}}
+\index{cb\+Oled\+Char@{cb\+Oled\+Char}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{cb\+Oled\+Char}{cbOledChar}}
+{\footnotesize\ttfamily \#define cb\+Oled\+Char~8}
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a9c3fd42769eeedb1a8eccefa38f9ec66}\label{_o_l_e_d_8h_a9c3fd42769eeedb1a8eccefa38f9ec66}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!cb\+Oled\+Disp\+Max@{cb\+Oled\+Disp\+Max}}
+\index{cb\+Oled\+Disp\+Max@{cb\+Oled\+Disp\+Max}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{cb\+Oled\+Disp\+Max}{cbOledDispMax}}
+{\footnotesize\ttfamily \#define cb\+Oled\+Disp\+Max~512}
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a0050b54c2a43adee0e768e229ed369c1}\label{_o_l_e_d_8h_a0050b54c2a43adee0e768e229ed369c1}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!cb\+Oled\+Font\+User@{cb\+Oled\+Font\+User}}
+\index{cb\+Oled\+Font\+User@{cb\+Oled\+Font\+User}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{cb\+Oled\+Font\+User}{cbOledFontUser}}
+{\footnotesize\ttfamily \#define cb\+Oled\+Font\+User~(\hyperlink{_o_l_e_d_8h_a9e324336da0d4ad14b0672c5a167ffc1}{ch\+Oled\+User\+Max}$\ast$\hyperlink{_o_l_e_d_8h_aff992d945652fb2ff64d48b785431c3a}{cb\+Oled\+Char})}
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a101840709d87141c9bfd27f58febcc41}\label{_o_l_e_d_8h_a101840709d87141c9bfd27f58febcc41}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!ccol\+Oled\+Max@{ccol\+Oled\+Max}}
+\index{ccol\+Oled\+Max@{ccol\+Oled\+Max}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{ccol\+Oled\+Max}{ccolOledMax}}
+{\footnotesize\ttfamily \#define ccol\+Oled\+Max~128}
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a9e324336da0d4ad14b0672c5a167ffc1}\label{_o_l_e_d_8h_a9e324336da0d4ad14b0672c5a167ffc1}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!ch\+Oled\+User\+Max@{ch\+Oled\+User\+Max}}
+\index{ch\+Oled\+User\+Max@{ch\+Oled\+User\+Max}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{ch\+Oled\+User\+Max}{chOledUserMax}}
+{\footnotesize\ttfamily \#define ch\+Oled\+User\+Max~0x20}
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a55eaa351fe43dc769f8ff2f890792ea5}\label{_o_l_e_d_8h_a55eaa351fe43dc769f8ff2f890792ea5}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!cpag\+Oled\+Max@{cpag\+Oled\+Max}}
+\index{cpag\+Oled\+Max@{cpag\+Oled\+Max}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{cpag\+Oled\+Max}{cpagOledMax}}
+{\footnotesize\ttfamily \#define cpag\+Oled\+Max~4}
+
+\mbox{\Hypertarget{_o_l_e_d_8h_aef3f6635387d347d272bbe5772b96da1}\label{_o_l_e_d_8h_aef3f6635387d347d272bbe5772b96da1}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!crow\+Oled\+Max@{crow\+Oled\+Max}}
+\index{crow\+Oled\+Max@{crow\+Oled\+Max}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{crow\+Oled\+Max}{crowOledMax}}
+{\footnotesize\ttfamily \#define crow\+Oled\+Max~32}
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a92f8f972a2c188371fcf0b561c44af97}\label{_o_l_e_d_8h_a92f8f972a2c188371fcf0b561c44af97}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!M\+A\+SK@{M\+A\+SK}}
+\index{M\+A\+SK@{M\+A\+SK}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{M\+A\+SK}{MASK}}
+{\footnotesize\ttfamily \#define M\+A\+SK(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~(1$<$$<$(x))}
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a4e018ab2a983107f4afab9a30aa19f37}\label{_o_l_e_d_8h_a4e018ab2a983107f4afab9a30aa19f37}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!mod\+Oled\+And@{mod\+Oled\+And}}
+\index{mod\+Oled\+And@{mod\+Oled\+And}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{mod\+Oled\+And}{modOledAnd}}
+{\footnotesize\ttfamily \#define mod\+Oled\+And~2}
+
+\mbox{\Hypertarget{_o_l_e_d_8h_addc67f4a2ffdc0fb7be6c78334ab9c0a}\label{_o_l_e_d_8h_addc67f4a2ffdc0fb7be6c78334ab9c0a}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!mod\+Oled\+Or@{mod\+Oled\+Or}}
+\index{mod\+Oled\+Or@{mod\+Oled\+Or}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{mod\+Oled\+Or}{modOledOr}}
+{\footnotesize\ttfamily \#define mod\+Oled\+Or~1}
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a9128c67fb83b328b70fbb230caf303be}\label{_o_l_e_d_8h_a9128c67fb83b328b70fbb230caf303be}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!mod\+Oled\+Set@{mod\+Oled\+Set}}
+\index{mod\+Oled\+Set@{mod\+Oled\+Set}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{mod\+Oled\+Set}{modOledSet}}
+{\footnotesize\ttfamily \#define mod\+Oled\+Set~0}
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a9bd1a17559010159535109b2c1de5fa8}\label{_o_l_e_d_8h_a9bd1a17559010159535109b2c1de5fa8}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!mod\+Oled\+Xor@{mod\+Oled\+Xor}}
+\index{mod\+Oled\+Xor@{mod\+Oled\+Xor}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{mod\+Oled\+Xor}{modOledXor}}
+{\footnotesize\ttfamily \#define mod\+Oled\+Xor~3}
+
+\mbox{\Hypertarget{_o_l_e_d_8h_aa743879248335ecc10540b05d3cc4495}\label{_o_l_e_d_8h_aa743879248335ecc10540b05d3cc4495}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!prt\+Data\+Cmd@{prt\+Data\+Cmd}}
+\index{prt\+Data\+Cmd@{prt\+Data\+Cmd}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{prt\+Data\+Cmd}{prtDataCmd}}
+{\footnotesize\ttfamily \#define prt\+Data\+Cmd~P\+O\+R\+TD}
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a6ff2ec8986228515f6be20388e4cc654}\label{_o_l_e_d_8h_a6ff2ec8986228515f6be20388e4cc654}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!prt\+Reset@{prt\+Reset}}
+\index{prt\+Reset@{prt\+Reset}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{prt\+Reset}{prtReset}}
+{\footnotesize\ttfamily \#define prt\+Reset~P\+O\+R\+TG}
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a5d573f82c6d5e01d5f2b731ff25afc13}\label{_o_l_e_d_8h_a5d573f82c6d5e01d5f2b731ff25afc13}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!prt\+Vbat\+Ctrl@{prt\+Vbat\+Ctrl}}
+\index{prt\+Vbat\+Ctrl@{prt\+Vbat\+Ctrl}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{prt\+Vbat\+Ctrl}{prtVbatCtrl}}
+{\footnotesize\ttfamily \#define prt\+Vbat\+Ctrl~P\+O\+R\+TD}
+
+\mbox{\Hypertarget{_o_l_e_d_8h_aa2ad14863be15430cf59f6dbdf947ff1}\label{_o_l_e_d_8h_aa2ad14863be15430cf59f6dbdf947ff1}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!prt\+Vdd\+Ctrl@{prt\+Vdd\+Ctrl}}
+\index{prt\+Vdd\+Ctrl@{prt\+Vdd\+Ctrl}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{prt\+Vdd\+Ctrl}{prtVddCtrl}}
+{\footnotesize\ttfamily \#define prt\+Vdd\+Ctrl~P\+O\+R\+TD}
+
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{_o_l_e_d_8h_aae9749d96e15ccb4f482dd5f55d98f9b}\label{_o_l_e_d_8h_aae9749d96e15ccb4f482dd5f55d98f9b}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!B\+Y\+TE@{B\+Y\+TE}}
+\index{B\+Y\+TE@{B\+Y\+TE}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{B\+Y\+TE}{BYTE}}
+{\footnotesize\ttfamily typedef uint8\+\_\+t \hyperlink{_o_l_e_d_8h_aae9749d96e15ccb4f482dd5f55d98f9b}{B\+Y\+TE}}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_o_l_e_d_8h_ae54cbc5f0a641e0a4a9e92c036aa7bfe}\label{_o_l_e_d_8h_ae54cbc5f0a641e0a4a9e92c036aa7bfe}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!Oled\+Clear@{Oled\+Clear}}
+\index{Oled\+Clear@{Oled\+Clear}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{Oled\+Clear()}{OledClear()}}
+{\footnotesize\ttfamily void Oled\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a800e2af8433902e939ac190df378e688}\label{_o_l_e_d_8h_a800e2af8433902e939ac190df378e688}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!Oled\+Clear\+Buffer@{Oled\+Clear\+Buffer}}
+\index{Oled\+Clear\+Buffer@{Oled\+Clear\+Buffer}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{Oled\+Clear\+Buffer()}{OledClearBuffer()}}
+{\footnotesize\ttfamily void Oled\+Clear\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_o_l_e_d_8h_aff4ed7670a694f1ab92838d0714d28f2}\label{_o_l_e_d_8h_aff4ed7670a694f1ab92838d0714d28f2}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!Oled\+Display\+Off@{Oled\+Display\+Off}}
+\index{Oled\+Display\+Off@{Oled\+Display\+Off}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{Oled\+Display\+Off()}{OledDisplayOff()}}
+{\footnotesize\ttfamily void Oled\+Display\+Off (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_o_l_e_d_8h_aa682cc6a09d181523b03541cc8e4d47a}\label{_o_l_e_d_8h_aa682cc6a09d181523b03541cc8e4d47a}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!Oled\+Display\+On@{Oled\+Display\+On}}
+\index{Oled\+Display\+On@{Oled\+Display\+On}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{Oled\+Display\+On()}{OledDisplayOn()}}
+{\footnotesize\ttfamily void Oled\+Display\+On (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_o_l_e_d_8h_ae2734560bd075238baafc616edcc03b9}\label{_o_l_e_d_8h_ae2734560bd075238baafc616edcc03b9}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!Oled\+Dvr\+Init@{Oled\+Dvr\+Init}}
+\index{Oled\+Dvr\+Init@{Oled\+Dvr\+Init}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{Oled\+Dvr\+Init()}{OledDvrInit()}}
+{\footnotesize\ttfamily void Oled\+Dvr\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a450ec1efd3aa1a894437db0a1d584a43}\label{_o_l_e_d_8h_a450ec1efd3aa1a894437db0a1d584a43}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!Oled\+Init@{Oled\+Init}}
+\index{Oled\+Init@{Oled\+Init}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{Oled\+Init()}{OledInit()}}
+{\footnotesize\ttfamily void Oled\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+{\bfseries Function prototype\+:}
+
+{\bfseries Summary\+:}
+
+{\bfseries Description\+:}
+
+{\bfseries Precondition\+:}
+
+{\bfseries Parameters\+:}
+
+{\bfseries Returns\+:}
+
+{\bfseries Example\+:}
+
+{\ttfamily }
+
+{\ttfamily }
+
+{\bfseries Remarks\+:}\mbox{\Hypertarget{_o_l_e_d_8h_ad6596f9ecd6f8d34131134a35b73b5e5}\label{_o_l_e_d_8h_ad6596f9ecd6f8d34131134a35b73b5e5}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!Oled\+Term@{Oled\+Term}}
+\index{Oled\+Term@{Oled\+Term}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{Oled\+Term()}{OledTerm()}}
+{\footnotesize\ttfamily void Oled\+Term (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_o_l_e_d_8h_a8ad5cba8b7a3e8f43f7d3bd20a4508a9}\label{_o_l_e_d_8h_a8ad5cba8b7a3e8f43f7d3bd20a4508a9}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!Oled\+Update@{Oled\+Update}}
+\index{Oled\+Update@{Oled\+Update}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{Oled\+Update()}{OledUpdate()}}
+{\footnotesize\ttfamily void Oled\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{_o_l_e_d_8h_a16e9646c4b960c427905865b5b98c5b7}\label{_o_l_e_d_8h_a16e9646c4b960c427905865b5b98c5b7}} 
+\index{O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}!rgb\+Oled\+Bmp@{rgb\+Oled\+Bmp}}
+\index{rgb\+Oled\+Bmp@{rgb\+Oled\+Bmp}!O\+L\+E\+D.\+h@{O\+L\+E\+D.\+h}}
+\subsubsection{\texorpdfstring{rgb\+Oled\+Bmp}{rgbOledBmp}}
+{\footnotesize\ttfamily \hyperlink{_o_l_e_d_8h_aae9749d96e15ccb4f482dd5f55d98f9b}{B\+Y\+TE} rgb\+Oled\+Bmp\mbox{[}\hyperlink{_o_l_e_d_8h_a9c3fd42769eeedb1a8eccefa38f9ec66}{cb\+Oled\+Disp\+Max}\mbox{]}}
+

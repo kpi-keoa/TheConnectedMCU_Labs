@@ -1,0 +1,533 @@
+\begin{theindex}
+
+  \item {\+\_\+\+\_\+\+I\+SR}
+    \subitem {user.\+c}, \hyperpage{34}
+
+  \indexspace
+
+  \item {B\+T\+N1}
+    \subitem {user.\+h}, \hyperpage{35}
+  \item {B\+T\+N2}
+    \subitem {user.\+h}, \hyperpage{35}
+  \item {B\+T\+N3}
+    \subitem {user.\+h}, \hyperpage{35}
+  \item {B\+T\+N4}
+    \subitem {user.\+h}, \hyperpage{35}
+  \item {B\+Y\+TE}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{15}
+  \item {bit\+Data\+Cmd}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{12}
+  \item {bit\+Reset}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{12}
+  \item {bit\+Vbat\+Ctrl}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{13}
+  \item {bit\+Vdd\+Ctrl}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{13}
+  \item {bn\+Oled\+Cur}
+    \subitem {O\+L\+E\+D.\+c}, \hyperpage{9}
+    \subitem {Oled\+Char.\+c}, \hyperpage{19}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{28}
+
+  \indexspace
+
+  \item {cb\+Oled\+Char}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{13}
+  \item {cb\+Oled\+Disp\+Max}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{13}
+  \item {cb\+Oled\+Font\+User}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{13}
+  \item {ccol\+Oled\+Max}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{13}
+  \item {ch\+Oled\+User\+Max}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{13}
+  \item {Chr\+Font0.\+c}
+    \subitem {rgb\+Oled\+Font0}, \hyperpage{5}
+  \item {clr\+Oled\+Cur}
+    \subitem {O\+L\+E\+D.\+c}, \hyperpage{9}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{28}
+  \item {cmd\+Oled\+Com\+Config}
+    \subitem {O\+L\+E\+D.\+c}, \hyperpage{7}
+  \item {cmd\+Oled\+Com\+Dir}
+    \subitem {O\+L\+E\+D.\+c}, \hyperpage{8}
+  \item {cmd\+Oled\+Display\+Off}
+    \subitem {O\+L\+E\+D.\+c}, \hyperpage{8}
+  \item {cmd\+Oled\+Display\+On}
+    \subitem {O\+L\+E\+D.\+c}, \hyperpage{8}
+  \item {cmd\+Oled\+Seg\+Remap}
+    \subitem {O\+L\+E\+D.\+c}, \hyperpage{8}
+  \item {cpag\+Oled\+Max}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{13}
+  \item {crow\+Oled\+Max}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{14}
+
+  \indexspace
+
+  \item {D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab5\+\_\+\+S\+P\+I\+\_\+\+O\+L\+E\+D/\+Chr\+Font0.\+c}, 
+		\hyperpage{5}
+  \item {D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab5\+\_\+\+S\+P\+I\+\_\+\+O\+L\+E\+D/\+Fill\+Pat.\+c}, 
+		\hyperpage{5}
+  \item {D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab5\+\_\+\+S\+P\+I\+\_\+\+O\+L\+E\+D/\+O\+L\+E\+D.\+c}, 
+		\hyperpage{7}
+  \item {D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab5\+\_\+\+S\+P\+I\+\_\+\+O\+L\+E\+D/\+O\+L\+E\+D.\+h}, 
+		\hyperpage{11}
+  \item {D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab5\+\_\+\+S\+P\+I\+\_\+\+O\+L\+E\+D/\+Oled\+Char.\+c}, 
+		\hyperpage{17}
+  \item {D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab5\+\_\+\+S\+P\+I\+\_\+\+O\+L\+E\+D/\+Oled\+Char.\+h}, 
+		\hyperpage{21}
+  \item {D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab5\+\_\+\+S\+P\+I\+\_\+\+O\+L\+E\+D/\+Oled\+Grph.\+c}, 
+		\hyperpage{23}
+  \item {D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab5\+\_\+\+S\+P\+I\+\_\+\+O\+L\+E\+D/\+Oled\+Grph.\+h}, 
+		\hyperpage{30}
+  \item {D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab5\+\_\+\+S\+P\+I\+\_\+\+O\+L\+E\+D/\+R\+E\+A\+D\+M\+E.\+md}, 
+		\hyperpage{33}
+  \item {D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab5\+\_\+\+S\+P\+I\+\_\+\+O\+L\+E\+D/\+S\+P\+I.\+c}, 
+		\hyperpage{33}
+  \item {D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab5\+\_\+\+S\+P\+I\+\_\+\+O\+L\+E\+D/configuration\+\_\+bits.\+c}, 
+		\hyperpage{5}
+  \item {D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab5\+\_\+\+S\+P\+I\+\_\+\+O\+L\+E\+D/main.\+c}, 
+		\hyperpage{6}
+  \item {D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab5\+\_\+\+S\+P\+I\+\_\+\+O\+L\+E\+D/user.\+c}, 
+		\hyperpage{33}
+  \item {D\+:/\+G\+I\+T/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/bkarachok/lab5\+\_\+\+S\+P\+I\+\_\+\+O\+L\+E\+D/user.\+h}, 
+		\hyperpage{35}
+  \item {Delay\+Ms}
+    \subitem {user.\+c}, \hyperpage{34}
+    \subitem {user.\+h}, \hyperpage{36}
+  \item {dxco\+Oled\+Font\+Cur}
+    \subitem {O\+L\+E\+D.\+c}, \hyperpage{9}
+    \subitem {Oled\+Char.\+c}, \hyperpage{19}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{28}
+  \item {dyco\+Oled\+Font\+Cur}
+    \subitem {O\+L\+E\+D.\+c}, \hyperpage{10}
+    \subitem {Oled\+Char.\+c}, \hyperpage{19}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{28}
+
+  \indexspace
+
+  \item {f\+Oled\+Char\+Update}
+    \subitem {O\+L\+E\+D.\+c}, \hyperpage{10}
+    \subitem {Oled\+Char.\+c}, \hyperpage{19}
+  \item {Fill\+Pat.\+c}
+    \subitem {rgb\+Fill\+Pat}, \hyperpage{6}
+
+  \indexspace
+
+  \item {Init\+App}
+    \subitem {user.\+c}, \hyperpage{34}
+    \subitem {user.\+h}, \hyperpage{36}
+  \item {Init\+G\+P\+IO}
+    \subitem {user.\+c}, \hyperpage{34}
+  \item {Init\+Timer2}
+    \subitem {user.\+c}, \hyperpage{34}
+
+  \indexspace
+
+  \item {L\+D1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}
+    \subitem {user.\+h}, \hyperpage{36}
+  \item {L\+D2\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}
+    \subitem {user.\+h}, \hyperpage{36}
+  \item {L\+D3\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}
+    \subitem {user.\+h}, \hyperpage{36}
+  \item {L\+D4\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}
+    \subitem {user.\+h}, \hyperpage{36}
+
+  \indexspace
+
+  \item {M\+A\+SK}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{14}
+  \item {main}
+    \subitem {main.\+c}, \hyperpage{6}
+  \item {main.\+c}
+    \subitem {main}, \hyperpage{6}
+  \item {mod\+Oled\+And}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{14}
+  \item {mod\+Oled\+Cur}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{28}
+  \item {mod\+Oled\+Or}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{14}
+  \item {mod\+Oled\+Set}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{14}
+  \item {mod\+Oled\+Xor}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{14}
+  \item {msk\+Oled\+Cur}
+    \subitem {Oled\+Char.\+c}, \hyperpage{19}
+
+  \indexspace
+
+  \item {O\+L\+E\+D.\+c}
+    \subitem {bn\+Oled\+Cur}, \hyperpage{9}
+    \subitem {clr\+Oled\+Cur}, \hyperpage{9}
+    \subitem {cmd\+Oled\+Com\+Config}, \hyperpage{7}
+    \subitem {cmd\+Oled\+Com\+Dir}, \hyperpage{8}
+    \subitem {cmd\+Oled\+Display\+Off}, \hyperpage{8}
+    \subitem {cmd\+Oled\+Display\+On}, \hyperpage{8}
+    \subitem {cmd\+Oled\+Seg\+Remap}, \hyperpage{8}
+    \subitem {dxco\+Oled\+Font\+Cur}, \hyperpage{9}
+    \subitem {dyco\+Oled\+Font\+Cur}, \hyperpage{10}
+    \subitem {f\+Oled\+Char\+Update}, \hyperpage{10}
+    \subitem {Oled\+Dev\+Term}, \hyperpage{8}
+    \subitem {Oled\+Dsp\+Init}, \hyperpage{8}
+    \subitem {Oled\+Dvr\+Init}, \hyperpage{8}
+    \subitem {Oled\+Host\+Init}, \hyperpage{9}
+    \subitem {Oled\+Host\+Term}, \hyperpage{9}
+    \subitem {Oled\+Update}, \hyperpage{9}
+    \subitem {pb\+Oled\+Cur}, \hyperpage{10}
+    \subitem {pb\+Oled\+Font\+Cur}, \hyperpage{10}
+    \subitem {pb\+Oled\+Font\+User}, \hyperpage{10}
+    \subitem {pb\+Oled\+Pat\+Cur}, \hyperpage{10}
+    \subitem {rgb\+Fill\+Pat}, \hyperpage{10}
+    \subitem {rgb\+Oled\+Font0}, \hyperpage{10}
+    \subitem {rgb\+Oled\+Font\+User}, \hyperpage{11}
+    \subitem {xch\+Oled\+Max}, \hyperpage{11}
+    \subitem {xco\+Oled\+Cur}, \hyperpage{11}
+    \subitem {ych\+Oled\+Max}, \hyperpage{11}
+    \subitem {yco\+Oled\+Cur}, \hyperpage{11}
+  \item {O\+L\+E\+D.\+h}
+    \subitem {B\+Y\+TE}, \hyperpage{15}
+    \subitem {bit\+Data\+Cmd}, \hyperpage{12}
+    \subitem {bit\+Reset}, \hyperpage{12}
+    \subitem {bit\+Vbat\+Ctrl}, \hyperpage{13}
+    \subitem {bit\+Vdd\+Ctrl}, \hyperpage{13}
+    \subitem {cb\+Oled\+Char}, \hyperpage{13}
+    \subitem {cb\+Oled\+Disp\+Max}, \hyperpage{13}
+    \subitem {cb\+Oled\+Font\+User}, \hyperpage{13}
+    \subitem {ccol\+Oled\+Max}, \hyperpage{13}
+    \subitem {ch\+Oled\+User\+Max}, \hyperpage{13}
+    \subitem {cpag\+Oled\+Max}, \hyperpage{13}
+    \subitem {crow\+Oled\+Max}, \hyperpage{14}
+    \subitem {M\+A\+SK}, \hyperpage{14}
+    \subitem {mod\+Oled\+And}, \hyperpage{14}
+    \subitem {mod\+Oled\+Or}, \hyperpage{14}
+    \subitem {mod\+Oled\+Set}, \hyperpage{14}
+    \subitem {mod\+Oled\+Xor}, \hyperpage{14}
+    \subitem {Oled\+Clear}, \hyperpage{15}
+    \subitem {Oled\+Clear\+Buffer}, \hyperpage{15}
+    \subitem {Oled\+Display\+Off}, \hyperpage{15}
+    \subitem {Oled\+Display\+On}, \hyperpage{16}
+    \subitem {Oled\+Dvr\+Init}, \hyperpage{16}
+    \subitem {Oled\+Init}, \hyperpage{16}
+    \subitem {Oled\+Term}, \hyperpage{16}
+    \subitem {Oled\+Update}, \hyperpage{16}
+    \subitem {prt\+Data\+Cmd}, \hyperpage{14}
+    \subitem {prt\+Reset}, \hyperpage{15}
+    \subitem {prt\+Vbat\+Ctrl}, \hyperpage{15}
+    \subitem {prt\+Vdd\+Ctrl}, \hyperpage{15}
+    \subitem {rgb\+Oled\+Bmp}, \hyperpage{17}
+  \item {Oled\+Advance\+Cursor}
+    \subitem {Oled\+Char.\+c}, \hyperpage{18}
+  \item {Oled\+Char.\+c}
+    \subitem {bn\+Oled\+Cur}, \hyperpage{19}
+    \subitem {dxco\+Oled\+Font\+Cur}, \hyperpage{19}
+    \subitem {dyco\+Oled\+Font\+Cur}, \hyperpage{19}
+    \subitem {f\+Oled\+Char\+Update}, \hyperpage{19}
+    \subitem {msk\+Oled\+Cur}, \hyperpage{19}
+    \subitem {Oled\+Advance\+Cursor}, \hyperpage{18}
+    \subitem {Oled\+Def\+User\+Char}, \hyperpage{18}
+    \subitem {Oled\+Draw\+Glyph}, \hyperpage{18}
+    \subitem {Oled\+Get\+Char\+Update}, \hyperpage{18}
+    \subitem {Oled\+Get\+Cursor}, \hyperpage{18}
+    \subitem {Oled\+Put\+Char}, \hyperpage{18}
+    \subitem {Oled\+Put\+String}, \hyperpage{18}
+    \subitem {Oled\+Set\+Char\+Update}, \hyperpage{19}
+    \subitem {Oled\+Set\+Cursor}, \hyperpage{19}
+    \subitem {pb\+Oled\+Cur}, \hyperpage{20}
+    \subitem {pb\+Oled\+Font\+Cur}, \hyperpage{20}
+    \subitem {pb\+Oled\+Font\+Ext}, \hyperpage{20}
+    \subitem {pb\+Oled\+Font\+User}, \hyperpage{20}
+    \subitem {rgb\+Oled\+Bmp}, \hyperpage{20}
+    \subitem {rgb\+Oled\+Font\+User}, \hyperpage{20}
+    \subitem {xch\+Oled\+Cur}, \hyperpage{20}
+    \subitem {xch\+Oled\+Max}, \hyperpage{20}
+    \subitem {xco\+Oled\+Cur}, \hyperpage{21}
+    \subitem {ych\+Oled\+Cur}, \hyperpage{21}
+    \subitem {ych\+Oled\+Max}, \hyperpage{21}
+    \subitem {yco\+Oled\+Cur}, \hyperpage{21}
+  \item {Oled\+Char.\+h}
+    \subitem {Oled\+Def\+User\+Char}, \hyperpage{21}
+    \subitem {Oled\+Get\+Char\+Update}, \hyperpage{22}
+    \subitem {Oled\+Get\+Cursor}, \hyperpage{22}
+    \subitem {Oled\+Put\+Char}, \hyperpage{22}
+    \subitem {Oled\+Put\+String}, \hyperpage{22}
+    \subitem {Oled\+Set\+Char\+Update}, \hyperpage{22}
+    \subitem {Oled\+Set\+Cursor}, \hyperpage{22}
+  \item {Oled\+Clamp\+Xco}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{24}
+  \item {Oled\+Clamp\+Yco}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{24}
+  \item {Oled\+Clear}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{15}
+  \item {Oled\+Clear\+Buffer}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{15}
+  \item {Oled\+Def\+User\+Char}
+    \subitem {Oled\+Char.\+c}, \hyperpage{18}
+    \subitem {Oled\+Char.\+h}, \hyperpage{21}
+  \item {Oled\+Dev\+Term}
+    \subitem {O\+L\+E\+D.\+c}, \hyperpage{8}
+  \item {Oled\+Display\+Off}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{15}
+  \item {Oled\+Display\+On}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{16}
+  \item {Oled\+Draw\+Char}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{24}
+    \subitem {Oled\+Grph.\+h}, \hyperpage{30}
+  \item {Oled\+Draw\+Glyph}
+    \subitem {Oled\+Char.\+c}, \hyperpage{18}
+  \item {Oled\+Draw\+Pixel}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{24}
+    \subitem {Oled\+Grph.\+h}, \hyperpage{30}
+  \item {Oled\+Draw\+Rect}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{24}
+    \subitem {Oled\+Grph.\+h}, \hyperpage{30}
+  \item {Oled\+Draw\+String}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{24}
+    \subitem {Oled\+Grph.\+h}, \hyperpage{30}
+  \item {Oled\+Dsp\+Init}
+    \subitem {O\+L\+E\+D.\+c}, \hyperpage{8}
+  \item {Oled\+Dvr\+Init}
+    \subitem {O\+L\+E\+D.\+c}, \hyperpage{8}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{16}
+  \item {Oled\+Fill\+Rect}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{24}
+    \subitem {Oled\+Grph.\+h}, \hyperpage{31}
+  \item {Oled\+Get\+Bmp}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{25}
+    \subitem {Oled\+Grph.\+h}, \hyperpage{31}
+  \item {Oled\+Get\+Char\+Update}
+    \subitem {Oled\+Char.\+c}, \hyperpage{18}
+    \subitem {Oled\+Char.\+h}, \hyperpage{22}
+  \item {Oled\+Get\+Cursor}
+    \subitem {Oled\+Char.\+c}, \hyperpage{18}
+    \subitem {Oled\+Char.\+h}, \hyperpage{22}
+  \item {Oled\+Get\+Draw\+Mode}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{25}
+    \subitem {Oled\+Grph.\+h}, \hyperpage{31}
+  \item {Oled\+Get\+Pixel}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{25}
+    \subitem {Oled\+Grph.\+h}, \hyperpage{31}
+  \item {Oled\+Get\+Pos}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{25}
+    \subitem {Oled\+Grph.\+h}, \hyperpage{31}
+  \item {Oled\+Get\+Std\+Pattern}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{25}
+    \subitem {Oled\+Grph.\+h}, \hyperpage{31}
+  \item {Oled\+Grph.\+c}
+    \subitem {bn\+Oled\+Cur}, \hyperpage{28}
+    \subitem {clr\+Oled\+Cur}, \hyperpage{28}
+    \subitem {dxco\+Oled\+Font\+Cur}, \hyperpage{28}
+    \subitem {dyco\+Oled\+Font\+Cur}, \hyperpage{28}
+    \subitem {mod\+Oled\+Cur}, \hyperpage{28}
+    \subitem {Oled\+Clamp\+Xco}, \hyperpage{24}
+    \subitem {Oled\+Clamp\+Yco}, \hyperpage{24}
+    \subitem {Oled\+Draw\+Char}, \hyperpage{24}
+    \subitem {Oled\+Draw\+Pixel}, \hyperpage{24}
+    \subitem {Oled\+Draw\+Rect}, \hyperpage{24}
+    \subitem {Oled\+Draw\+String}, \hyperpage{24}
+    \subitem {Oled\+Fill\+Rect}, \hyperpage{24}
+    \subitem {Oled\+Get\+Bmp}, \hyperpage{25}
+    \subitem {Oled\+Get\+Draw\+Mode}, \hyperpage{25}
+    \subitem {Oled\+Get\+Pixel}, \hyperpage{25}
+    \subitem {Oled\+Get\+Pos}, \hyperpage{25}
+    \subitem {Oled\+Get\+Std\+Pattern}, \hyperpage{25}
+    \subitem {Oled\+Line\+To}, \hyperpage{25}
+    \subitem {Oled\+Move\+Down}, \hyperpage{26}
+    \subitem {Oled\+Move\+Left}, \hyperpage{26}
+    \subitem {Oled\+Move\+Right}, \hyperpage{26}
+    \subitem {Oled\+Move\+To}, \hyperpage{26}
+    \subitem {Oled\+Move\+Up}, \hyperpage{26}
+    \subitem {Oled\+Put\+Bmp}, \hyperpage{26}
+    \subitem {Oled\+Rop\+And}, \hyperpage{26}
+    \subitem {Oled\+Rop\+Or}, \hyperpage{27}
+    \subitem {Oled\+Rop\+Set}, \hyperpage{27}
+    \subitem {Oled\+Rop\+Xor}, \hyperpage{27}
+    \subitem {Oled\+Set\+Draw\+Color}, \hyperpage{27}
+    \subitem {Oled\+Set\+Draw\+Mode}, \hyperpage{27}
+    \subitem {Oled\+Set\+Fill\+Pattern}, \hyperpage{27}
+    \subitem {pb\+Oled\+Cur}, \hyperpage{28}
+    \subitem {pb\+Oled\+Font\+Cur}, \hyperpage{28}
+    \subitem {pb\+Oled\+Font\+User}, \hyperpage{29}
+    \subitem {pb\+Oled\+Pat\+Cur}, \hyperpage{29}
+    \subitem {pfn\+Do\+Rop}, \hyperpage{29}
+    \subitem {rgb\+Fill\+Pat}, \hyperpage{29}
+    \subitem {rgb\+Oled\+Bmp}, \hyperpage{29}
+    \subitem {xco\+Oled\+Cur}, \hyperpage{29}
+    \subitem {yco\+Oled\+Cur}, \hyperpage{29}
+  \item {Oled\+Grph.\+h}
+    \subitem {Oled\+Draw\+Char}, \hyperpage{30}
+    \subitem {Oled\+Draw\+Pixel}, \hyperpage{30}
+    \subitem {Oled\+Draw\+Rect}, \hyperpage{30}
+    \subitem {Oled\+Draw\+String}, \hyperpage{30}
+    \subitem {Oled\+Fill\+Rect}, \hyperpage{31}
+    \subitem {Oled\+Get\+Bmp}, \hyperpage{31}
+    \subitem {Oled\+Get\+Draw\+Mode}, \hyperpage{31}
+    \subitem {Oled\+Get\+Pixel}, \hyperpage{31}
+    \subitem {Oled\+Get\+Pos}, \hyperpage{31}
+    \subitem {Oled\+Get\+Std\+Pattern}, \hyperpage{31}
+    \subitem {Oled\+Line\+To}, \hyperpage{31}
+    \subitem {Oled\+Move\+To}, \hyperpage{32}
+    \subitem {Oled\+Put\+Bmp}, \hyperpage{32}
+    \subitem {Oled\+Set\+Draw\+Color}, \hyperpage{32}
+    \subitem {Oled\+Set\+Draw\+Mode}, \hyperpage{32}
+    \subitem {Oled\+Set\+Fill\+Pattern}, \hyperpage{32}
+  \item {Oled\+Host\+Init}
+    \subitem {O\+L\+E\+D.\+c}, \hyperpage{9}
+  \item {Oled\+Host\+Term}
+    \subitem {O\+L\+E\+D.\+c}, \hyperpage{9}
+  \item {Oled\+Init}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{16}
+  \item {Oled\+Line\+To}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{25}
+    \subitem {Oled\+Grph.\+h}, \hyperpage{31}
+  \item {Oled\+Move\+Down}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{26}
+  \item {Oled\+Move\+Left}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{26}
+  \item {Oled\+Move\+Right}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{26}
+  \item {Oled\+Move\+To}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{26}
+    \subitem {Oled\+Grph.\+h}, \hyperpage{32}
+  \item {Oled\+Move\+Up}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{26}
+  \item {Oled\+Put\+Bmp}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{26}
+    \subitem {Oled\+Grph.\+h}, \hyperpage{32}
+  \item {Oled\+Put\+Buffer}
+    \subitem {S\+P\+I.\+c}, \hyperpage{33}
+  \item {Oled\+Put\+Char}
+    \subitem {Oled\+Char.\+c}, \hyperpage{18}
+    \subitem {Oled\+Char.\+h}, \hyperpage{22}
+  \item {Oled\+Put\+String}
+    \subitem {Oled\+Char.\+c}, \hyperpage{18}
+    \subitem {Oled\+Char.\+h}, \hyperpage{22}
+  \item {Oled\+Rop\+And}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{26}
+  \item {Oled\+Rop\+Or}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{27}
+  \item {Oled\+Rop\+Set}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{27}
+  \item {Oled\+Rop\+Xor}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{27}
+  \item {Oled\+Set\+Char\+Update}
+    \subitem {Oled\+Char.\+c}, \hyperpage{19}
+    \subitem {Oled\+Char.\+h}, \hyperpage{22}
+  \item {Oled\+Set\+Cursor}
+    \subitem {Oled\+Char.\+c}, \hyperpage{19}
+    \subitem {Oled\+Char.\+h}, \hyperpage{22}
+  \item {Oled\+Set\+Draw\+Color}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{27}
+    \subitem {Oled\+Grph.\+h}, \hyperpage{32}
+  \item {Oled\+Set\+Draw\+Mode}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{27}
+    \subitem {Oled\+Grph.\+h}, \hyperpage{32}
+  \item {Oled\+Set\+Fill\+Pattern}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{27}
+    \subitem {Oled\+Grph.\+h}, \hyperpage{32}
+  \item {Oled\+Term}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{16}
+  \item {Oled\+Update}
+    \subitem {O\+L\+E\+D.\+c}, \hyperpage{9}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{16}
+
+  \indexspace
+
+  \item {pb\+Oled\+Cur}
+    \subitem {O\+L\+E\+D.\+c}, \hyperpage{10}
+    \subitem {Oled\+Char.\+c}, \hyperpage{20}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{28}
+  \item {pb\+Oled\+Font\+Cur}
+    \subitem {O\+L\+E\+D.\+c}, \hyperpage{10}
+    \subitem {Oled\+Char.\+c}, \hyperpage{20}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{28}
+  \item {pb\+Oled\+Font\+Ext}
+    \subitem {Oled\+Char.\+c}, \hyperpage{20}
+  \item {pb\+Oled\+Font\+User}
+    \subitem {O\+L\+E\+D.\+c}, \hyperpage{10}
+    \subitem {Oled\+Char.\+c}, \hyperpage{20}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{29}
+  \item {pb\+Oled\+Pat\+Cur}
+    \subitem {O\+L\+E\+D.\+c}, \hyperpage{10}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{29}
+  \item {pfn\+Do\+Rop}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{29}
+  \item {prt\+Data\+Cmd}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{14}
+  \item {prt\+Reset}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{15}
+  \item {prt\+Vbat\+Ctrl}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{15}
+  \item {prt\+Vdd\+Ctrl}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{15}
+
+  \indexspace
+
+  \item {rgb\+Fill\+Pat}
+    \subitem {Fill\+Pat.\+c}, \hyperpage{6}
+    \subitem {O\+L\+E\+D.\+c}, \hyperpage{10}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{29}
+  \item {rgb\+Oled\+Bmp}
+    \subitem {O\+L\+E\+D.\+h}, \hyperpage{17}
+    \subitem {Oled\+Char.\+c}, \hyperpage{20}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{29}
+  \item {rgb\+Oled\+Font0}
+    \subitem {Chr\+Font0.\+c}, \hyperpage{5}
+    \subitem {O\+L\+E\+D.\+c}, \hyperpage{10}
+  \item {rgb\+Oled\+Font\+User}
+    \subitem {O\+L\+E\+D.\+c}, \hyperpage{11}
+    \subitem {Oled\+Char.\+c}, \hyperpage{20}
+
+  \indexspace
+
+  \item {S\+P\+I.\+c}
+    \subitem {Oled\+Put\+Buffer}, \hyperpage{33}
+    \subitem {Spi2\+Put\+Byte}, \hyperpage{33}
+  \item {S\+W1}
+    \subitem {user.\+h}, \hyperpage{36}
+  \item {Spi2\+Put\+Byte}
+    \subitem {S\+P\+I.\+c}, \hyperpage{33}
+
+  \indexspace
+
+  \item {user.\+c}
+    \subitem {\+\_\+\+\_\+\+I\+SR}, \hyperpage{34}
+    \subitem {Delay\+Ms}, \hyperpage{34}
+    \subitem {Init\+App}, \hyperpage{34}
+    \subitem {Init\+G\+P\+IO}, \hyperpage{34}
+    \subitem {Init\+Timer2}, \hyperpage{34}
+  \item {user.\+h}
+    \subitem {B\+T\+N1}, \hyperpage{35}
+    \subitem {B\+T\+N2}, \hyperpage{35}
+    \subitem {B\+T\+N3}, \hyperpage{35}
+    \subitem {B\+T\+N4}, \hyperpage{35}
+    \subitem {Delay\+Ms}, \hyperpage{36}
+    \subitem {Init\+App}, \hyperpage{36}
+    \subitem {L\+D1\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}, \hyperpage{36}
+    \subitem {L\+D2\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}, \hyperpage{36}
+    \subitem {L\+D3\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}, \hyperpage{36}
+    \subitem {L\+D4\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}, \hyperpage{36}
+    \subitem {S\+W1}, \hyperpage{36}
+
+  \indexspace
+
+  \item {xch\+Oled\+Cur}
+    \subitem {Oled\+Char.\+c}, \hyperpage{20}
+  \item {xch\+Oled\+Max}
+    \subitem {O\+L\+E\+D.\+c}, \hyperpage{11}
+    \subitem {Oled\+Char.\+c}, \hyperpage{20}
+  \item {xco\+Oled\+Cur}
+    \subitem {O\+L\+E\+D.\+c}, \hyperpage{11}
+    \subitem {Oled\+Char.\+c}, \hyperpage{21}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{29}
+
+  \indexspace
+
+  \item {ych\+Oled\+Cur}
+    \subitem {Oled\+Char.\+c}, \hyperpage{21}
+  \item {ych\+Oled\+Max}
+    \subitem {O\+L\+E\+D.\+c}, \hyperpage{11}
+    \subitem {Oled\+Char.\+c}, \hyperpage{21}
+  \item {yco\+Oled\+Cur}
+    \subitem {O\+L\+E\+D.\+c}, \hyperpage{11}
+    \subitem {Oled\+Char.\+c}, \hyperpage{21}
+    \subitem {Oled\+Grph.\+c}, \hyperpage{29}
+
+\end{theindex}
