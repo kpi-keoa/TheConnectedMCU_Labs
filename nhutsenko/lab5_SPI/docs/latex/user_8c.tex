@@ -1,0 +1,92 @@
+\hypertarget{user_8c}{}\section{user.\+c File Reference}
+\label{user_8c}\index{user.\+c@{user.\+c}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}user.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$sys/attribs.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{user_8c_af4c904c48cffb15c04e3c5419020cebb}{Delay\+Ms} (int t)
+\begin{DoxyCompactList}\small\item\em Delay function. \end{DoxyCompactList}\item 
+void \hyperlink{user_8c_afe7a49ab9879bd7044b35eb779f30712}{Init\+G\+P\+IO} (void)
+\begin{DoxyCompactList}\small\item\em This function is using for setting buttons on I/O shield. \end{DoxyCompactList}\item 
+void \hyperlink{user_8c_addc0a16fa099430e2337628a38764b67}{Init\+App} (void)
+\begin{DoxyCompactList}\small\item\em This function is using for setting all used devices. \end{DoxyCompactList}\item 
+int32\+\_\+t \hyperlink{user_8c_af43a5ccba84396f9e915d620a3040c64}{Set\+Num} ()
+\begin{DoxyCompactList}\small\item\em This function is using for chhose a number for game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{user_8c_af4c904c48cffb15c04e3c5419020cebb}\label{user_8c_af4c904c48cffb15c04e3c5419020cebb}} 
+\index{user.\+c@{user.\+c}!Delay\+Ms@{Delay\+Ms}}
+\index{Delay\+Ms@{Delay\+Ms}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{Delay\+Ms()}{DelayMs()}}
+{\footnotesize\ttfamily void Delay\+Ms (\begin{DoxyParamCaption}\item[{int}]{t }\end{DoxyParamCaption})}
+
+
+
+Delay function. 
+
+This function is using for delay between operations 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em delay} & in ms \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\+O\+NE 
+\end{DoxyReturn}
+\mbox{\Hypertarget{user_8c_addc0a16fa099430e2337628a38764b67}\label{user_8c_addc0a16fa099430e2337628a38764b67}} 
+\index{user.\+c@{user.\+c}!Init\+App@{Init\+App}}
+\index{Init\+App@{Init\+App}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{Init\+App()}{InitApp()}}
+{\footnotesize\ttfamily void Init\+App (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function is using for setting all used devices. 
+
+This function is using for setting all used devices 
+\begin{DoxyParams}{Parameters}
+{\em N\+O\+NE} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\+O\+NE 
+\end{DoxyReturn}
+\mbox{\Hypertarget{user_8c_afe7a49ab9879bd7044b35eb779f30712}\label{user_8c_afe7a49ab9879bd7044b35eb779f30712}} 
+\index{user.\+c@{user.\+c}!Init\+G\+P\+IO@{Init\+G\+P\+IO}}
+\index{Init\+G\+P\+IO@{Init\+G\+P\+IO}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{Init\+G\+P\+I\+O()}{InitGPIO()}}
+{\footnotesize\ttfamily void Init\+G\+P\+IO (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function is using for setting buttons on I/O shield. 
+
+This function is using for setting all used devices 
+\begin{DoxyParams}{Parameters}
+{\em N\+O\+NE} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\+O\+NE 
+\end{DoxyReturn}
+\mbox{\Hypertarget{user_8c_af43a5ccba84396f9e915d620a3040c64}\label{user_8c_af43a5ccba84396f9e915d620a3040c64}} 
+\index{user.\+c@{user.\+c}!Set\+Num@{Set\+Num}}
+\index{Set\+Num@{Set\+Num}!user.\+c@{user.\+c}}
+\subsubsection{\texorpdfstring{Set\+Num()}{SetNum()}}
+{\footnotesize\ttfamily int32\+\_\+t Set\+Num (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function is using for chhose a number for game. 
+
+This function is using for chhose a number for game 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em integer} & number from 0 to 9 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+integer number from 0 to 9 
+\end{DoxyReturn}
