@@ -1,0 +1,153 @@
+\begin{theindex}
+
+  \item {\+\_\+\+\_\+\+I\+SR}
+    \subitem {morse\+\_\+code.\+c}, \hyperpage{5}
+
+  \indexspace
+
+  \item {A\+D\+C.\+h}
+    \subitem {convert\+Wi\+F\+I\+R\+Eadc}, \hyperpage{3}
+    \subitem {init\+Wi\+F\+I\+R\+Eadc}, \hyperpage{3}
+    \subitem {Read\+Potentiometer\+With\+A\+DC}, \hyperpage{4}
+
+  \indexspace
+
+  \item {B\+L\+I\+N\+K\+\_\+\+D\+E\+L\+AY}
+    \subitem {morse\+\_\+code.\+h}, \hyperpage{8}
+  \item {B\+T\+N\+\_\+1}
+    \subitem {morse\+\_\+code.\+h}, \hyperpage{8}
+  \item {B\+T\+N\+\_\+2}
+    \subitem {morse\+\_\+code.\+h}, \hyperpage{8}
+  \item {blink\+\_\+leds}
+    \subitem {morse\+\_\+code.\+c}, \hyperpage{5}
+    \subitem {morse\+\_\+code.\+h}, \hyperpage{10}
+
+  \indexspace
+
+  \item {convert\+Wi\+F\+I\+R\+Eadc}
+    \subitem {A\+D\+C.\+h}, \hyperpage{3}
+  \item {cur\+\_\+delay\+\_\+g}
+    \subitem {morse\+\_\+code.\+h}, \hyperpage{11}
+  \item {cur\+\_\+state\+\_\+g}
+    \subitem {morse\+\_\+code.\+h}, \hyperpage{11}
+
+  \indexspace
+
+  \item {D\+E\+B\+O\+U\+N\+C\+E\+\_\+\+D\+E\+L\+AY}
+    \subitem {morse\+\_\+code.\+h}, \hyperpage{8}
+  \item {delay}
+    \subitem {morse\+\_\+code.\+c}, \hyperpage{6}
+    \subitem {morse\+\_\+code.\+h}, \hyperpage{10}
+  \item {display\+\_\+msg}
+    \subitem {morse\+\_\+code.\+c}, \hyperpage{6}
+    \subitem {morse\+\_\+code.\+h}, \hyperpage{10}
+
+  \indexspace
+
+  \item {encoded\+\_\+msg\+\_\+g}
+    \subitem {morse\+\_\+code.\+h}, \hyperpage{11}
+
+  \indexspace
+
+  \item {init\+\_\+app}
+    \subitem {morse\+\_\+code.\+c}, \hyperpage{6}
+    \subitem {morse\+\_\+code.\+h}, \hyperpage{10}
+  \item {init\+\_\+gpio}
+    \subitem {morse\+\_\+code.\+c}, \hyperpage{6}
+  \item {init\+\_\+timer}
+    \subitem {morse\+\_\+code.\+c}, \hyperpage{6}
+  \item {init\+Wi\+F\+I\+R\+Eadc}
+    \subitem {A\+D\+C.\+h}, \hyperpage{3}
+
+  \indexspace
+
+  \item {L\+E\+D\+\_\+1}
+    \subitem {morse\+\_\+code.\+h}, \hyperpage{8}
+  \item {L\+E\+D\+\_\+2}
+    \subitem {morse\+\_\+code.\+h}, \hyperpage{8}
+  \item {L\+E\+D\+\_\+3}
+    \subitem {morse\+\_\+code.\+h}, \hyperpage{9}
+  \item {L\+E\+D\+\_\+4}
+    \subitem {morse\+\_\+code.\+h}, \hyperpage{9}
+
+  \indexspace
+
+  \item {M\+A\+X\+\_\+\+A\+D\+C\+\_\+\+V\+A\+L\+UE}
+    \subitem {morse\+\_\+code.\+h}, \hyperpage{9}
+  \item {M\+SG}
+    \subitem {morse\+\_\+code.\+h}, \hyperpage{11}
+  \item {main}
+    \subitem {main.\+c}, \hyperpage{4}
+  \item {main.\+c}
+    \subitem {main}, \hyperpage{4}
+  \item {morse\+\_\+code.\+c}
+    \subitem {\+\_\+\+\_\+\+I\+SR}, \hyperpage{5}
+    \subitem {blink\+\_\+leds}, \hyperpage{5}
+    \subitem {delay}, \hyperpage{6}
+    \subitem {display\+\_\+msg}, \hyperpage{6}
+    \subitem {init\+\_\+app}, \hyperpage{6}
+    \subitem {init\+\_\+gpio}, \hyperpage{6}
+    \subitem {init\+\_\+timer}, \hyperpage{6}
+    \subitem {morse\+\_\+code\+\_\+encoding}, \hyperpage{6}
+  \item {morse\+\_\+code.\+h}
+    \subitem {B\+L\+I\+N\+K\+\_\+\+D\+E\+L\+AY}, \hyperpage{8}
+    \subitem {B\+T\+N\+\_\+1}, \hyperpage{8}
+    \subitem {B\+T\+N\+\_\+2}, \hyperpage{8}
+    \subitem {blink\+\_\+leds}, \hyperpage{10}
+    \subitem {cur\+\_\+delay\+\_\+g}, \hyperpage{11}
+    \subitem {cur\+\_\+state\+\_\+g}, \hyperpage{11}
+    \subitem {D\+E\+B\+O\+U\+N\+C\+E\+\_\+\+D\+E\+L\+AY}, \hyperpage{8}
+    \subitem {delay}, \hyperpage{10}
+    \subitem {display\+\_\+msg}, \hyperpage{10}
+    \subitem {encoded\+\_\+msg\+\_\+g}, \hyperpage{11}
+    \subitem {init\+\_\+app}, \hyperpage{10}
+    \subitem {L\+E\+D\+\_\+1}, \hyperpage{8}
+    \subitem {L\+E\+D\+\_\+2}, \hyperpage{8}
+    \subitem {L\+E\+D\+\_\+3}, \hyperpage{9}
+    \subitem {L\+E\+D\+\_\+4}, \hyperpage{9}
+    \subitem {M\+A\+X\+\_\+\+A\+D\+C\+\_\+\+V\+A\+L\+UE}, \hyperpage{9}
+    \subitem {M\+SG}, \hyperpage{11}
+    \subitem {morse\+\_\+code\+\_\+ecoding}, \hyperpage{10}
+    \subitem {P\+W\+M\+\_\+\+F\+R\+E\+Q\+\_\+\+HZ}, \hyperpage{9}
+    \subitem {P\+W\+M\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+C\+O\+U\+N\+TS}, 
+		\hyperpage{9}
+    \subitem {S\+T\+A\+T\+ES}, \hyperpage{9}
+    \subitem {states}, \hyperpage{9}
+    \subitem {V\+R1\+\_\+\+A\+N\+\_\+\+C\+H\+A\+N\+\_\+\+N\+UM}, 
+		\hyperpage{9}
+  \item {morse\+\_\+code\+\_\+ecoding}
+    \subitem {morse\+\_\+code.\+h}, \hyperpage{10}
+  \item {morse\+\_\+code\+\_\+encoding}
+    \subitem {morse\+\_\+code.\+c}, \hyperpage{6}
+
+  \indexspace
+
+  \item {P\+W\+M\+\_\+\+F\+R\+E\+Q\+\_\+\+HZ}
+    \subitem {morse\+\_\+code.\+h}, \hyperpage{9}
+  \item {P\+W\+M\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+C\+O\+U\+N\+TS}
+    \subitem {morse\+\_\+code.\+h}, \hyperpage{9}
+
+  \indexspace
+
+  \item {Read\+Potentiometer\+With\+A\+DC}
+    \subitem {A\+D\+C.\+h}, \hyperpage{4}
+
+  \indexspace
+
+  \item {S\+T\+A\+T\+ES}
+    \subitem {morse\+\_\+code.\+h}, \hyperpage{9}
+  \item {src/\+A\+D\+C.\+c}, \hyperpage{3}
+  \item {src/\+A\+D\+C.\+h}, \hyperpage{3}
+  \item {src/configuration\+\_\+bits.\+c}, \hyperpage{4}
+  \item {src/main.\+c}, \hyperpage{4}
+  \item {src/morse\+\_\+code.\+c}, \hyperpage{4}
+  \item {src/morse\+\_\+code.\+h}, \hyperpage{7}
+  \item {states}
+    \subitem {morse\+\_\+code.\+h}, \hyperpage{9}
+
+  \indexspace
+
+  \item {V\+R1\+\_\+\+A\+N\+\_\+\+C\+H\+A\+N\+\_\+\+N\+UM}
+    \subitem {morse\+\_\+code.\+h}, \hyperpage{9}
+
+\end{theindex}
