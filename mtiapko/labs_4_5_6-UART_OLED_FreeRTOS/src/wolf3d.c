@@ -29,7 +29,7 @@ FRESULT wolf3d_create()
 
 void wolf3d_draw_map()
 {
-	uint32_t delta = window_g.width / 2 - data_g.map.width / 2;
+	uint32_t delta = window_g.width / 2 - data_g.map.width;  //  data_g.map.width / 2 * 2 - draw 2 pixels per cell
 
 	for (size_t x = 0; x < data_g.map.width; ++x)
 		for (size_t y = 0; y < data_g.map.height; ++y)
