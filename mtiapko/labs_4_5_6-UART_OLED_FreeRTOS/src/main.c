@@ -9,6 +9,7 @@
 void main()
 {
 	wolf3d_create();
+	wolf3d_run();
 
 	/* Configure the hardware for maximum performance. */
 	vHardwareConfigurePerformance();
@@ -16,10 +17,9 @@ void main()
 	/* Setup to use the external interrupt controller. */
 	vHardwareUseMultiVectoredInterrupts();
 
-	portDISABLE_INTERRUPTS();
 	xTaskCreate(wolf3d_run, "Wolf3D", configMINIMAL_STACK_SIZE, NULL, 1, NULL);
     xTaskCreate(input_read, "Input read", configMINIMAL_STACK_SIZE, NULL, 2, NULL);
-    vTaskStartScheduler();
+	vTaskStartScheduler();
 
 	while(1);
 }
