@@ -9,6 +9,7 @@
 #include <stdint.h>          /* For uint32_t definition                       */
 #include <stdbool.h>         /* For true/false definition                     */
 #include "user.h"            /* variables/params used by user.c               */
+#include "OLED.h"
 #include <sys/attribs.h>
 
 /******************************************************************************/
@@ -71,9 +72,11 @@ int32_t SetNum()
     int32_t ret_num = 0;
     while (!BTN3_PORT_BIT)
     {
+        DelayMs(200);
         if(BTN1_PORT_BIT)
         {
-            if(ret_num < 0)
+            DelayMs(200);
+            if(ret_num <= 0)
             {
                 ret_num = 0;
             }
@@ -84,7 +87,8 @@ int32_t SetNum()
         }
         if(BTN2_PORT_BIT)
         {
-            if(ret_num > 9)
+            DelayMs(200);
+            if(ret_num >= 9)
             {
                 ret_num = 9;
             }
@@ -93,5 +97,11 @@ int32_t SetNum()
                 ret_num += 1;
             }
         }
+        OledSetCursor(0, 2);
+        char num_c [2];
+        num_c[0] = ret_num + 48;
+        num_c[1] = '\0';
+        OledPutString(num_c);
     }
+    return ret_num;
 }

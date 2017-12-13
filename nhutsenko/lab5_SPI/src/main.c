@@ -49,9 +49,8 @@ int32_t main(void)
      * and Peripherals
      * for application */
     InitApp();
-    
     OledDvrInit();
-    
+    srand(time(NULL));
     OledSetDrawColor(1);
     OledSetDrawMode(modOledSet);
     OledSetFillPattern(OledGetStdPattern(3));
@@ -60,6 +59,7 @@ int32_t main(void)
     OledPutString("Bulls and Cows");
     OledSetCursor(0,1);
     OledPutString("GAME");
+    DelayMs(2000);
     int32_t random_mass[4];
     int32_t my_mass[4];
     int cows = 0, bulls = 0;
@@ -75,17 +75,15 @@ int32_t main(void)
     {
         random_mass[i] = 0 + rand() % 9;
     }
+    DelayMs(2000);
     OledClear();
     OledSetCursor(0,0);
-    OledPutString("Input your numbers from 0 to 9:");
+    OledPutString("Input numbers from 0 to 9:");
     for (i = 0; i < NELEMS(my_mass); i++)
     {
-        my_mass[i] = SetNum();
-        OledSetCursor(1, i);
-        char num [2];
-        num[0] = my_mass[i] + 48;
-        num[1] = '\0';
-        OledPutString(num);
+        int32_t num = SetNum();
+        DelayMs(200);
+        my_mass[i] = num;
     }
     OledClear();
     OledSetCursor(0,0);
@@ -104,6 +102,7 @@ int32_t main(void)
             }
         }
     }
+    DelayMs(2000);
     OledClear();
     char bulls_char [2];
     bulls_char[0] = bulls + 48;
@@ -114,8 +113,14 @@ int32_t main(void)
     cows_char[1] = '\0';
     OledSetCursor(0,0);
     OledPutString("Congradulations! You have");
-    OledSetCursor(1,0);
-    OledPutString(bulls + " bulls and");
-    OledSetCursor(2,0);
-    OledPutString(cows + "cows");
+    DelayMs(1000);
+    OledClear();
+    OledSetCursor(0,0);
+    OledPutString(bulls_char);
+    OledSetCursor(3,0);
+    OledPutString("bulls and");
+    OledSetCursor(0,1);
+    OledPutString(cows_char);
+    OledSetCursor(3,1);
+    OledPutString(" cows");
 }
