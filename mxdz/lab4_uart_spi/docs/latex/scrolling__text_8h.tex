@@ -1,0 +1,229 @@
+\hypertarget{scrolling__text_8h}{}\section{src/scrolling\+\_\+text.h File Reference}
+\label{scrolling__text_8h}\index{src/scrolling\+\_\+text.\+h@{src/scrolling\+\_\+text.\+h}}
+
+
+contains definitions, macroses and function prototypes  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for scrolling\+\_\+text.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{scrolling__text_8h_aaf81f5fa7d1e779f83e9bf4ce631a7b6}{L\+E\+D\+\_\+1}~L\+A\+T\+Gbits.\+L\+A\+T\+G6
+\item 
+\#define \hyperlink{scrolling__text_8h_ae60a8c1e03b38463f77d556a4a0a8a3b}{L\+E\+D\+\_\+2}~L\+A\+T\+Dbits.\+L\+A\+T\+D4
+\item 
+\#define \hyperlink{scrolling__text_8h_a07b3fb51ae7c3cc824dd714b46c1b2b6}{L\+E\+D\+\_\+3}~L\+A\+T\+Bbits.\+L\+A\+T\+B11
+\item 
+\#define \hyperlink{scrolling__text_8h_aec84038372d7a55c8b358398978e1dac}{L\+E\+D\+\_\+4}~L\+A\+T\+Gbits.\+L\+A\+T\+G15
+\item 
+\#define \hyperlink{scrolling__text_8h_a4aea8f880b2ade2327bbdabf6ec099ba}{B\+T\+N\+\_\+1}~P\+O\+R\+T\+Abits.\+R\+A5
+\item 
+\#define \hyperlink{scrolling__text_8h_a07a21ca3fb839836109b8ac0055a4db9}{B\+T\+N\+\_\+2}~P\+O\+R\+T\+Abits.\+R\+A4
+\item 
+\#define \hyperlink{scrolling__text_8h_a565f2ccbf0f69140109e6f650c9cac77}{B\+T\+N\+\_\+4\+\_\+\+S\+C\+H\+LD}~P\+O\+R\+T\+Abits.\+R\+A2
+\item 
+\#define \hyperlink{scrolling__text_8h_a128bcbe586c02280b7dcb3bf9eb5cf7d}{B\+T\+N\+\_\+3\+\_\+\+S\+C\+H\+LD}~P\+O\+R\+T\+Fbits.\+R\+F1
+\item 
+\#define \hyperlink{scrolling__text_8h_afc246b4e2d2065ab876d18f1d23da7f5}{B\+T\+N\+\_\+2\+\_\+\+S\+C\+H\+LD}~P\+O\+R\+T\+Dbits.\+R\+D5
+\item 
+\#define \hyperlink{scrolling__text_8h_a78f6382f5f41e1359f88a710008fa232}{B\+T\+N\+\_\+1\+\_\+\+S\+C\+H\+LD}~P\+O\+R\+T\+Abits.\+R\+A3
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \hyperlink{scrolling__text_8h_aa19be6305a5a4485e1e70de70ed7d677}{states} \hyperlink{scrolling__text_8h_aaa373490fd83670672be02d50e945e23}{S\+T\+A\+T\+ES}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{scrolling__text_8h_aa19be6305a5a4485e1e70de70ed7d677}{states} \{ \hyperlink{scrolling__text_8h_aa19be6305a5a4485e1e70de70ed7d677a589b7d94a3d91d145720e2fed0eb3a05}{R\+E\+S\+ET} = 0, 
+\hyperlink{scrolling__text_8h_aa19be6305a5a4485e1e70de70ed7d677a13d000b4d7dc70d90239b7430d1eb6b2}{S\+T\+A\+RT}, 
+\hyperlink{scrolling__text_8h_aa19be6305a5a4485e1e70de70ed7d677a56b36d0d0bb01b339cf1041adc08e262}{P\+A\+U\+SE}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{scrolling__text_8h_af4c904c48cffb15c04e3c5419020cebb}{Delay\+Ms} (int t)
+\item 
+void \hyperlink{scrolling__text_8h_a78dd341e4a2057ee2dab7100bace4085}{delay} (volatile uint32\+\_\+t val)
+\item 
+void \hyperlink{scrolling__text_8h_a58365390a2f6d58ce8173e26f693d999}{init\+\_\+app} (void)
+\begin{DoxyCompactList}\small\item\em App initialization, Calling initialization functions for U\+A\+RT, G\+P\+IO and O\+L\+ED Basic O\+L\+ED configuration. \end{DoxyCompactList}\item 
+void \hyperlink{scrolling__text_8h_a16db80fea57f17ca944e3d2fc13a9fa2}{shift\+\_\+str} (uint8\+\_\+t $\ast$str)
+\begin{DoxyCompactList}\small\item\em Circular shift of array to the left. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile uint32\+\_\+t \hyperlink{scrolling__text_8h_a27189fc71d8a31a89cfd67be58e3de2a}{cur\+\_\+state\+\_\+g}
+\item 
+uint8\+\_\+t \hyperlink{scrolling__text_8h_a267972668d7286ea313c8c355f4529f2}{msg\+\_\+g} \mbox{[}120\mbox{]} = \char`\"{}test msg \char`\"{}
+\item 
+uint32\+\_\+t \hyperlink{scrolling__text_8h_a00cc4cbc8159051cd27995d7729ee306}{delay\+\_\+g}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+contains definitions, macroses and function prototypes 
+
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{scrolling__text_8h_a4aea8f880b2ade2327bbdabf6ec099ba}\label{scrolling__text_8h_a4aea8f880b2ade2327bbdabf6ec099ba}} 
+\index{scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}!B\+T\+N\+\_\+1@{B\+T\+N\+\_\+1}}
+\index{B\+T\+N\+\_\+1@{B\+T\+N\+\_\+1}!scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}}
+\subsubsection{\texorpdfstring{B\+T\+N\+\_\+1}{BTN\_1}}
+{\footnotesize\ttfamily \#define B\+T\+N\+\_\+1~P\+O\+R\+T\+Abits.\+R\+A5}
+
+\mbox{\Hypertarget{scrolling__text_8h_a78f6382f5f41e1359f88a710008fa232}\label{scrolling__text_8h_a78f6382f5f41e1359f88a710008fa232}} 
+\index{scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}!B\+T\+N\+\_\+1\+\_\+\+S\+C\+H\+LD@{B\+T\+N\+\_\+1\+\_\+\+S\+C\+H\+LD}}
+\index{B\+T\+N\+\_\+1\+\_\+\+S\+C\+H\+LD@{B\+T\+N\+\_\+1\+\_\+\+S\+C\+H\+LD}!scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}}
+\subsubsection{\texorpdfstring{B\+T\+N\+\_\+1\+\_\+\+S\+C\+H\+LD}{BTN\_1\_SCHLD}}
+{\footnotesize\ttfamily \#define B\+T\+N\+\_\+1\+\_\+\+S\+C\+H\+LD~P\+O\+R\+T\+Abits.\+R\+A3}
+
+\mbox{\Hypertarget{scrolling__text_8h_a07a21ca3fb839836109b8ac0055a4db9}\label{scrolling__text_8h_a07a21ca3fb839836109b8ac0055a4db9}} 
+\index{scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}!B\+T\+N\+\_\+2@{B\+T\+N\+\_\+2}}
+\index{B\+T\+N\+\_\+2@{B\+T\+N\+\_\+2}!scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}}
+\subsubsection{\texorpdfstring{B\+T\+N\+\_\+2}{BTN\_2}}
+{\footnotesize\ttfamily \#define B\+T\+N\+\_\+2~P\+O\+R\+T\+Abits.\+R\+A4}
+
+\mbox{\Hypertarget{scrolling__text_8h_afc246b4e2d2065ab876d18f1d23da7f5}\label{scrolling__text_8h_afc246b4e2d2065ab876d18f1d23da7f5}} 
+\index{scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}!B\+T\+N\+\_\+2\+\_\+\+S\+C\+H\+LD@{B\+T\+N\+\_\+2\+\_\+\+S\+C\+H\+LD}}
+\index{B\+T\+N\+\_\+2\+\_\+\+S\+C\+H\+LD@{B\+T\+N\+\_\+2\+\_\+\+S\+C\+H\+LD}!scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}}
+\subsubsection{\texorpdfstring{B\+T\+N\+\_\+2\+\_\+\+S\+C\+H\+LD}{BTN\_2\_SCHLD}}
+{\footnotesize\ttfamily \#define B\+T\+N\+\_\+2\+\_\+\+S\+C\+H\+LD~P\+O\+R\+T\+Dbits.\+R\+D5}
+
+\mbox{\Hypertarget{scrolling__text_8h_a128bcbe586c02280b7dcb3bf9eb5cf7d}\label{scrolling__text_8h_a128bcbe586c02280b7dcb3bf9eb5cf7d}} 
+\index{scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}!B\+T\+N\+\_\+3\+\_\+\+S\+C\+H\+LD@{B\+T\+N\+\_\+3\+\_\+\+S\+C\+H\+LD}}
+\index{B\+T\+N\+\_\+3\+\_\+\+S\+C\+H\+LD@{B\+T\+N\+\_\+3\+\_\+\+S\+C\+H\+LD}!scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}}
+\subsubsection{\texorpdfstring{B\+T\+N\+\_\+3\+\_\+\+S\+C\+H\+LD}{BTN\_3\_SCHLD}}
+{\footnotesize\ttfamily \#define B\+T\+N\+\_\+3\+\_\+\+S\+C\+H\+LD~P\+O\+R\+T\+Fbits.\+R\+F1}
+
+\mbox{\Hypertarget{scrolling__text_8h_a565f2ccbf0f69140109e6f650c9cac77}\label{scrolling__text_8h_a565f2ccbf0f69140109e6f650c9cac77}} 
+\index{scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}!B\+T\+N\+\_\+4\+\_\+\+S\+C\+H\+LD@{B\+T\+N\+\_\+4\+\_\+\+S\+C\+H\+LD}}
+\index{B\+T\+N\+\_\+4\+\_\+\+S\+C\+H\+LD@{B\+T\+N\+\_\+4\+\_\+\+S\+C\+H\+LD}!scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}}
+\subsubsection{\texorpdfstring{B\+T\+N\+\_\+4\+\_\+\+S\+C\+H\+LD}{BTN\_4\_SCHLD}}
+{\footnotesize\ttfamily \#define B\+T\+N\+\_\+4\+\_\+\+S\+C\+H\+LD~P\+O\+R\+T\+Abits.\+R\+A2}
+
+\mbox{\Hypertarget{scrolling__text_8h_aaf81f5fa7d1e779f83e9bf4ce631a7b6}\label{scrolling__text_8h_aaf81f5fa7d1e779f83e9bf4ce631a7b6}} 
+\index{scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}!L\+E\+D\+\_\+1@{L\+E\+D\+\_\+1}}
+\index{L\+E\+D\+\_\+1@{L\+E\+D\+\_\+1}!scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}}
+\subsubsection{\texorpdfstring{L\+E\+D\+\_\+1}{LED\_1}}
+{\footnotesize\ttfamily \#define L\+E\+D\+\_\+1~L\+A\+T\+Gbits.\+L\+A\+T\+G6}
+
+\mbox{\Hypertarget{scrolling__text_8h_ae60a8c1e03b38463f77d556a4a0a8a3b}\label{scrolling__text_8h_ae60a8c1e03b38463f77d556a4a0a8a3b}} 
+\index{scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}!L\+E\+D\+\_\+2@{L\+E\+D\+\_\+2}}
+\index{L\+E\+D\+\_\+2@{L\+E\+D\+\_\+2}!scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}}
+\subsubsection{\texorpdfstring{L\+E\+D\+\_\+2}{LED\_2}}
+{\footnotesize\ttfamily \#define L\+E\+D\+\_\+2~L\+A\+T\+Dbits.\+L\+A\+T\+D4}
+
+\mbox{\Hypertarget{scrolling__text_8h_a07b3fb51ae7c3cc824dd714b46c1b2b6}\label{scrolling__text_8h_a07b3fb51ae7c3cc824dd714b46c1b2b6}} 
+\index{scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}!L\+E\+D\+\_\+3@{L\+E\+D\+\_\+3}}
+\index{L\+E\+D\+\_\+3@{L\+E\+D\+\_\+3}!scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}}
+\subsubsection{\texorpdfstring{L\+E\+D\+\_\+3}{LED\_3}}
+{\footnotesize\ttfamily \#define L\+E\+D\+\_\+3~L\+A\+T\+Bbits.\+L\+A\+T\+B11}
+
+\mbox{\Hypertarget{scrolling__text_8h_aec84038372d7a55c8b358398978e1dac}\label{scrolling__text_8h_aec84038372d7a55c8b358398978e1dac}} 
+\index{scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}!L\+E\+D\+\_\+4@{L\+E\+D\+\_\+4}}
+\index{L\+E\+D\+\_\+4@{L\+E\+D\+\_\+4}!scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}}
+\subsubsection{\texorpdfstring{L\+E\+D\+\_\+4}{LED\_4}}
+{\footnotesize\ttfamily \#define L\+E\+D\+\_\+4~L\+A\+T\+Gbits.\+L\+A\+T\+G15}
+
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{scrolling__text_8h_aaa373490fd83670672be02d50e945e23}\label{scrolling__text_8h_aaa373490fd83670672be02d50e945e23}} 
+\index{scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}!S\+T\+A\+T\+ES@{S\+T\+A\+T\+ES}}
+\index{S\+T\+A\+T\+ES@{S\+T\+A\+T\+ES}!scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}}
+\subsubsection{\texorpdfstring{S\+T\+A\+T\+ES}{STATES}}
+{\footnotesize\ttfamily typedef enum \hyperlink{scrolling__text_8h_aa19be6305a5a4485e1e70de70ed7d677}{states}  \hyperlink{scrolling__text_8h_aaa373490fd83670672be02d50e945e23}{S\+T\+A\+T\+ES}}
+
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{scrolling__text_8h_aa19be6305a5a4485e1e70de70ed7d677}\label{scrolling__text_8h_aa19be6305a5a4485e1e70de70ed7d677}} 
+\index{scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}!states@{states}}
+\index{states@{states}!scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}}
+\subsubsection{\texorpdfstring{states}{states}}
+{\footnotesize\ttfamily enum \hyperlink{scrolling__text_8h_aa19be6305a5a4485e1e70de70ed7d677}{states}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+E\+S\+ET@{R\+E\+S\+ET}!scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}}\index{scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}!R\+E\+S\+ET@{R\+E\+S\+ET}}}\mbox{\Hypertarget{scrolling__text_8h_aa19be6305a5a4485e1e70de70ed7d677a589b7d94a3d91d145720e2fed0eb3a05}\label{scrolling__text_8h_aa19be6305a5a4485e1e70de70ed7d677a589b7d94a3d91d145720e2fed0eb3a05}} 
+R\+E\+S\+ET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\+T\+A\+RT@{S\+T\+A\+RT}!scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}}\index{scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}!S\+T\+A\+RT@{S\+T\+A\+RT}}}\mbox{\Hypertarget{scrolling__text_8h_aa19be6305a5a4485e1e70de70ed7d677a13d000b4d7dc70d90239b7430d1eb6b2}\label{scrolling__text_8h_aa19be6305a5a4485e1e70de70ed7d677a13d000b4d7dc70d90239b7430d1eb6b2}} 
+S\+T\+A\+RT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+A\+U\+SE@{P\+A\+U\+SE}!scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}}\index{scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}!P\+A\+U\+SE@{P\+A\+U\+SE}}}\mbox{\Hypertarget{scrolling__text_8h_aa19be6305a5a4485e1e70de70ed7d677a56b36d0d0bb01b339cf1041adc08e262}\label{scrolling__text_8h_aa19be6305a5a4485e1e70de70ed7d677a56b36d0d0bb01b339cf1041adc08e262}} 
+P\+A\+U\+SE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{scrolling__text_8h_a78dd341e4a2057ee2dab7100bace4085}\label{scrolling__text_8h_a78dd341e4a2057ee2dab7100bace4085}} 
+\index{scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}!delay@{delay}}
+\index{delay@{delay}!scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}}
+\subsubsection{\texorpdfstring{delay()}{delay()}}
+{\footnotesize\ttfamily void delay (\begin{DoxyParamCaption}\item[{volatile uint32\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{scrolling__text_8h_af4c904c48cffb15c04e3c5419020cebb}\label{scrolling__text_8h_af4c904c48cffb15c04e3c5419020cebb}} 
+\index{scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}!Delay\+Ms@{Delay\+Ms}}
+\index{Delay\+Ms@{Delay\+Ms}!scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}}
+\subsubsection{\texorpdfstring{Delay\+Ms()}{DelayMs()}}
+{\footnotesize\ttfamily void Delay\+Ms (\begin{DoxyParamCaption}\item[{int}]{t }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{scrolling__text_8h_a58365390a2f6d58ce8173e26f693d999}\label{scrolling__text_8h_a58365390a2f6d58ce8173e26f693d999}} 
+\index{scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}!init\+\_\+app@{init\+\_\+app}}
+\index{init\+\_\+app@{init\+\_\+app}!scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}}
+\subsubsection{\texorpdfstring{init\+\_\+app()}{init\_app()}}
+{\footnotesize\ttfamily void init\+\_\+app (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+App initialization, Calling initialization functions for U\+A\+RT, G\+P\+IO and O\+L\+ED Basic O\+L\+ED configuration. 
+
+\mbox{\Hypertarget{scrolling__text_8h_a16db80fea57f17ca944e3d2fc13a9fa2}\label{scrolling__text_8h_a16db80fea57f17ca944e3d2fc13a9fa2}} 
+\index{scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}!shift\+\_\+str@{shift\+\_\+str}}
+\index{shift\+\_\+str@{shift\+\_\+str}!scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}}
+\subsubsection{\texorpdfstring{shift\+\_\+str()}{shift\_str()}}
+{\footnotesize\ttfamily void shift\+\_\+str (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Circular shift of array to the left. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em array} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{scrolling__text_8h_a27189fc71d8a31a89cfd67be58e3de2a}\label{scrolling__text_8h_a27189fc71d8a31a89cfd67be58e3de2a}} 
+\index{scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}!cur\+\_\+state\+\_\+g@{cur\+\_\+state\+\_\+g}}
+\index{cur\+\_\+state\+\_\+g@{cur\+\_\+state\+\_\+g}!scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}}
+\subsubsection{\texorpdfstring{cur\+\_\+state\+\_\+g}{cur\_state\_g}}
+{\footnotesize\ttfamily volatile uint32\+\_\+t cur\+\_\+state\+\_\+g}
+
+\mbox{\Hypertarget{scrolling__text_8h_a00cc4cbc8159051cd27995d7729ee306}\label{scrolling__text_8h_a00cc4cbc8159051cd27995d7729ee306}} 
+\index{scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}!delay\+\_\+g@{delay\+\_\+g}}
+\index{delay\+\_\+g@{delay\+\_\+g}!scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}}
+\subsubsection{\texorpdfstring{delay\+\_\+g}{delay\_g}}
+{\footnotesize\ttfamily uint32\+\_\+t delay\+\_\+g}
+
+\mbox{\Hypertarget{scrolling__text_8h_a267972668d7286ea313c8c355f4529f2}\label{scrolling__text_8h_a267972668d7286ea313c8c355f4529f2}} 
+\index{scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}!msg\+\_\+g@{msg\+\_\+g}}
+\index{msg\+\_\+g@{msg\+\_\+g}!scrolling\+\_\+text.\+h@{scrolling\+\_\+text.\+h}}
+\subsubsection{\texorpdfstring{msg\+\_\+g}{msg\_g}}
+{\footnotesize\ttfamily uint8\+\_\+t msg\+\_\+g\mbox{[}120\mbox{]} = \char`\"{}test msg \char`\"{}}
+

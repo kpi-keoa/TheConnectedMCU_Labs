@@ -1,0 +1,129 @@
+\begin{theindex}
+
+  \item {\+\_\+\+\_\+\+I\+SR}
+    \subitem {scrolling\+\_\+text.\+c}, \hyperpage{4}
+
+  \indexspace
+
+  \item {B\+T\+N\+\_\+1}
+    \subitem {scrolling\+\_\+text.\+h}, \hyperpage{6}
+  \item {B\+T\+N\+\_\+1\+\_\+\+S\+C\+H\+LD}
+    \subitem {scrolling\+\_\+text.\+h}, \hyperpage{6}
+  \item {B\+T\+N\+\_\+2}
+    \subitem {scrolling\+\_\+text.\+h}, \hyperpage{6}
+  \item {B\+T\+N\+\_\+2\+\_\+\+S\+C\+H\+LD}
+    \subitem {scrolling\+\_\+text.\+h}, \hyperpage{6}
+  \item {B\+T\+N\+\_\+3\+\_\+\+S\+C\+H\+LD}
+    \subitem {scrolling\+\_\+text.\+h}, \hyperpage{6}
+  \item {B\+T\+N\+\_\+4\+\_\+\+S\+C\+H\+LD}
+    \subitem {scrolling\+\_\+text.\+h}, \hyperpage{7}
+
+  \indexspace
+
+  \item {cur\+\_\+state\+\_\+g}
+    \subitem {scrolling\+\_\+text.\+h}, \hyperpage{9}
+
+  \indexspace
+
+  \item {delay}
+    \subitem {scrolling\+\_\+text.\+h}, \hyperpage{8}
+  \item {delay\+\_\+g}
+    \subitem {scrolling\+\_\+text.\+c}, \hyperpage{5}
+    \subitem {scrolling\+\_\+text.\+h}, \hyperpage{9}
+  \item {Delay\+Ms}
+    \subitem {scrolling\+\_\+text.\+c}, \hyperpage{4}
+    \subitem {scrolling\+\_\+text.\+h}, \hyperpage{8}
+
+  \indexspace
+
+  \item {init\+\_\+app}
+    \subitem {scrolling\+\_\+text.\+c}, \hyperpage{4}
+    \subitem {scrolling\+\_\+text.\+h}, \hyperpage{8}
+  \item {init\+\_\+gpio}
+    \subitem {scrolling\+\_\+text.\+c}, \hyperpage{4}
+
+  \indexspace
+
+  \item {L\+E\+D\+\_\+1}
+    \subitem {scrolling\+\_\+text.\+h}, \hyperpage{7}
+  \item {L\+E\+D\+\_\+2}
+    \subitem {scrolling\+\_\+text.\+h}, \hyperpage{7}
+  \item {L\+E\+D\+\_\+3}
+    \subitem {scrolling\+\_\+text.\+h}, \hyperpage{7}
+  \item {L\+E\+D\+\_\+4}
+    \subitem {scrolling\+\_\+text.\+h}, \hyperpage{7}
+
+  \indexspace
+
+  \item {msg\+\_\+g}
+    \subitem {scrolling\+\_\+text.\+h}, \hyperpage{9}
+
+  \indexspace
+
+  \item {S\+T\+A\+T\+ES}
+    \subitem {scrolling\+\_\+text.\+h}, \hyperpage{7}
+  \item {scrolling\+\_\+text.\+c}
+    \subitem {\+\_\+\+\_\+\+I\+SR}, \hyperpage{4}
+    \subitem {delay\+\_\+g}, \hyperpage{5}
+    \subitem {Delay\+Ms}, \hyperpage{4}
+    \subitem {init\+\_\+app}, \hyperpage{4}
+    \subitem {init\+\_\+gpio}, \hyperpage{4}
+    \subitem {shift\+\_\+str}, \hyperpage{4}
+  \item {scrolling\+\_\+text.\+h}
+    \subitem {B\+T\+N\+\_\+1}, \hyperpage{6}
+    \subitem {B\+T\+N\+\_\+1\+\_\+\+S\+C\+H\+LD}, \hyperpage{6}
+    \subitem {B\+T\+N\+\_\+2}, \hyperpage{6}
+    \subitem {B\+T\+N\+\_\+2\+\_\+\+S\+C\+H\+LD}, \hyperpage{6}
+    \subitem {B\+T\+N\+\_\+3\+\_\+\+S\+C\+H\+LD}, \hyperpage{6}
+    \subitem {B\+T\+N\+\_\+4\+\_\+\+S\+C\+H\+LD}, \hyperpage{7}
+    \subitem {cur\+\_\+state\+\_\+g}, \hyperpage{9}
+    \subitem {delay}, \hyperpage{8}
+    \subitem {delay\+\_\+g}, \hyperpage{9}
+    \subitem {Delay\+Ms}, \hyperpage{8}
+    \subitem {init\+\_\+app}, \hyperpage{8}
+    \subitem {L\+E\+D\+\_\+1}, \hyperpage{7}
+    \subitem {L\+E\+D\+\_\+2}, \hyperpage{7}
+    \subitem {L\+E\+D\+\_\+3}, \hyperpage{7}
+    \subitem {L\+E\+D\+\_\+4}, \hyperpage{7}
+    \subitem {msg\+\_\+g}, \hyperpage{9}
+    \subitem {S\+T\+A\+T\+ES}, \hyperpage{7}
+    \subitem {shift\+\_\+str}, \hyperpage{8}
+    \subitem {states}, \hyperpage{7}
+  \item {shift\+\_\+str}
+    \subitem {scrolling\+\_\+text.\+c}, \hyperpage{4}
+    \subitem {scrolling\+\_\+text.\+h}, \hyperpage{8}
+  \item {src/configuration\+\_\+bits.\+c}, \hyperpage{3}
+  \item {src/main.\+c}, \hyperpage{3}
+  \item {src/scrolling\+\_\+text.\+c}, \hyperpage{3}
+  \item {src/scrolling\+\_\+text.\+h}, \hyperpage{5}
+  \item {src/uart.\+c}, \hyperpage{9}
+  \item {src/uart.\+h}, \hyperpage{11}
+  \item {states}
+    \subitem {scrolling\+\_\+text.\+h}, \hyperpage{7}
+
+  \indexspace
+
+  \item {U\+A\+R\+T4\+\_\+getc}
+    \subitem {uart.\+c}, \hyperpage{9}
+    \subitem {uart.\+h}, \hyperpage{11}
+  \item {U\+A\+R\+T4\+\_\+init}
+    \subitem {uart.\+c}, \hyperpage{10}
+    \subitem {uart.\+h}, \hyperpage{11}
+  \item {U\+A\+R\+T4\+\_\+putc}
+    \subitem {uart.\+c}, \hyperpage{10}
+    \subitem {uart.\+h}, \hyperpage{11}
+  \item {U\+A\+R\+T4\+\_\+puts}
+    \subitem {uart.\+c}, \hyperpage{10}
+    \subitem {uart.\+h}, \hyperpage{12}
+  \item {uart.\+c}
+    \subitem {U\+A\+R\+T4\+\_\+getc}, \hyperpage{9}
+    \subitem {U\+A\+R\+T4\+\_\+init}, \hyperpage{10}
+    \subitem {U\+A\+R\+T4\+\_\+putc}, \hyperpage{10}
+    \subitem {U\+A\+R\+T4\+\_\+puts}, \hyperpage{10}
+  \item {uart.\+h}
+    \subitem {U\+A\+R\+T4\+\_\+getc}, \hyperpage{11}
+    \subitem {U\+A\+R\+T4\+\_\+init}, \hyperpage{11}
+    \subitem {U\+A\+R\+T4\+\_\+putc}, \hyperpage{11}
+    \subitem {U\+A\+R\+T4\+\_\+puts}, \hyperpage{12}
+
+\end{theindex}
