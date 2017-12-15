@@ -1,5 +1,4 @@
-
-w/******************************************************************************/
+/******************************************************************************/
 /*  Files to Include                                                          */
 /******************************************************************************/
 #ifdef __XC32
@@ -9,7 +8,9 @@ w/******************************************************************************
 #include <stdint.h>         /* For uint32_t definition                        */
 #include <stdbool.h>        /* For true/false definition                      */
 
-#include "user.h"           /* User funct/params, such as InitApp             */
+#include "selection.h"
+#include "UART.h"
+#include "game.h"
 
 /******************************************************************************/
 /* Global Variable Declaration                                                */
@@ -27,7 +28,5 @@ int32_t main(void)
      * and Peripherals
      * for application */
     InitApp();
-    while(1){
-    Blink_LEDs();
-    }
+    Program_Selection();  
 }

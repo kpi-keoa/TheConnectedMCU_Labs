@@ -8,69 +8,75 @@
 
 #include <stdint.h>          /* For uint32_t definition                       */
 #include <stdbool.h>         /* For true/false definition                     */
-#include "user.h"            /* variables/params used by user.c               */
+#include "user1.h"            /* variables/params used by user.c               */
 
 /******************************************************************************/
-uint32_t delay_count= 10000000; // delay
-uint32_t count = 0; // counter that shows how many times LED will flash
-uint32_t i; // counter for cycle
+/* User Functions                                                             */
 
+/******************************************************************************/
 
 #if 1  // First version without #define names
 void InitApp(void) {
     /* Setup analog functionality and port direction */
-
-    // LED output
-    // Disable analog mode for G6
+    // LED outputs
+    // Disable analog mode if present
     ANSELGbits.ANSG6 = 0;
-    // Set direction to output for G6
-    TRISGbits.TRISG6 = 0;
-
-    // Initialize outputs for other LEDs
     ANSELBbits.ANSB11 = 0;
     ANSELGbits.ANSG15 = 0;
-
+    // Set direction to output 
+    TRISGbits.TRISG6 = 0;
     TRISBbits.TRISB11 = 0;
     TRISGbits.TRISG15 = 0;
     TRISDbits.TRISD4 = 0;
+    // Turn off LEDs for initialization
+    LD1_PORT_BIT = 0;
+    LD2_PORT_BIT = 0;
+    LD3_PORT_BIT = 0;
+    LD4_PORT_BIT = 0;
 
-    // Turn on LEDs for testing
-    LATBbits.LATB11 = 0;
-    LATGbits.LATG6 = 0;
-    LATGbits.LATG15 = 0;
-    LATDbits.LATD4 = 0;
-
-    
-    // Stop program here
-    // while (1);
-
-    // BTN1 input
+    // BTN1 and BTN2 inputs
     // Disable analog mode
     ANSELAbits.ANSA5 = 0;
     // Set directions to input
     TRISAbits.TRISA5 = 1;
-
-    // Initialize input for BTN2
     TRISAbits.TRISA4 = 1;
-  
-    // Test switches
-  //  while (1) {
-    //    LATGbits.LATG6 = PORTAbits.RA5;
-      //  LATDbits.LATD4 = PORTAbits.RA4;
-    //}
+
+    // 3. Configure peripheral to generate interrupts
+    // Enable change notification interrupt in CN
+    CNENAbits.CNIEA5 = 1;
+    CNENAbits.CNIEA4 = 1;
+    // 4. Configure Interrupt Controller
+    // Enable change notification  interrupts
+    IEC3bits.CNAIE = 1;
+    // Set priority
+    IPC29bits.CNAIP = 2;
+    // Clear interrupt Flag
+    IFS3bits.CNAIF = 0;
+    // 5. Set Interrupt Controller for multi-vector mode
+    INTCONSET = _INTCON_MVEC_MASK;
+    // 6. Globally enable interrupts
+    __builtin_enable_interrupts();
+    // 7. Enable peripheral
+    CNCONAbits.ON = 1;
 }
 #endif
 
-void delay(volatile uint32_t n) {
+void  delay(volatile int n) {
     for (; n > 0; n--);
 }
 
 void Blink_LEDs(void) {
+    uint32_t delay_count= 10000000; // delay
+    uint32_t count = 0; // counter that shows how many times LED will flash
+    uint32_t i; //
+
+    while (1) {
         if (BTN1_PORT_BIT) { // switch 1 is pressed
             count++;
             LD4_PORT_BIT = 1; // This LED indicates that the information is read
             delay(delay_count);
             LD4_PORT_BIT = 0; //
+       //     delay(delay_count);
             continue;
         }
         
@@ -79,9 +85,9 @@ void Blink_LEDs(void) {
                                       //and if a multiple of two then the two LEDs will light, 
                                       //if the multiple is three, then three
             LD1_PORT_BIT = 1; // Turn on LED
-            if( (0 == (i % 2)) || (0 == (i % 3)) )
+            if(i % 2 == 0 || i % 3 == 0)
             LD2_PORT_BIT = 1; // Turn on LED if a multiple of two
-            if(0 == (i % 3))
+            if(i % 3 == 0)
             LD3_PORT_BIT = 1; //Turn on LED if a multiple of three
             delay(delay_count);
          
@@ -92,4 +98,5 @@ void Blink_LEDs(void) {
         }
         count = 0; 
         } 
+        }
     }
