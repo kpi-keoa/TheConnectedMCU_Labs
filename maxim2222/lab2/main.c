@@ -27,5 +27,5 @@ int32_t main(void)
      * and Peripherals
      * for application */
     InitApp();
-    Scan_LEDs();
+    Run_Game_Tasks();
 }
