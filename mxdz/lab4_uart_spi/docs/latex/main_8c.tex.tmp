@@ -1,0 +1,25 @@
+\hypertarget{main_8c}{}\section{src/main.c File Reference}
+\label{main_8c}\index{src/main.\+c@{src/main.\+c}}
+{\ttfamily \#include \char`\"{}scrolling\+\_\+text.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}O\+L\+E\+D/\+O\+L\+E\+D.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+Include dependency graph for main.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}{main} (void)
+\begin{DoxyCompactList}\small\item\em this is where the magic happens \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}\label{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}} 
+\index{main.\+c@{main.\+c}!main@{main}}
+\index{main@{main}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily void main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+this is where the magic happens 
+

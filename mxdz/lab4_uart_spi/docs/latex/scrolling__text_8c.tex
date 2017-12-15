@@ -1,0 +1,101 @@
+\hypertarget{scrolling__text_8c}{}\section{src/scrolling\+\_\+text.c File Reference}
+\label{scrolling__text_8c}\index{src/scrolling\+\_\+text.\+c@{src/scrolling\+\_\+text.\+c}}
+
+
+initialization and system functions, inter  
+
+
+{\ttfamily \#include \char`\"{}scrolling\+\_\+text.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$xc.\+h$>$}\newline
+{\ttfamily \#include $<$sys/attribs.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}uart.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}O\+L\+E\+D/\+O\+L\+E\+D.\+h\char`\"{}}\newline
+Include dependency graph for scrolling\+\_\+text.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{scrolling__text_8c_af4c904c48cffb15c04e3c5419020cebb}{Delay\+Ms} (int t)
+\item 
+void \hyperlink{scrolling__text_8c_a017cc7467f17665eca1b702990d9832f}{init\+\_\+gpio} (void)
+\begin{DoxyCompactList}\small\item\em G\+P\+IO initialization, Initialization for buttons and L\+E\+Ds Disabling analog mode and setting pins directions. \end{DoxyCompactList}\item 
+void \hyperlink{scrolling__text_8c_a58365390a2f6d58ce8173e26f693d999}{init\+\_\+app} (void)
+\begin{DoxyCompactList}\small\item\em App initialization, Calling initialization functions for U\+A\+RT, G\+P\+IO and O\+L\+ED Basic O\+L\+ED configuration. \end{DoxyCompactList}\item 
+void \hyperlink{scrolling__text_8c_a16db80fea57f17ca944e3d2fc13a9fa2}{shift\+\_\+str} (uint8\+\_\+t $\ast$str)
+\begin{DoxyCompactList}\small\item\em Circular shift of array to the left. \end{DoxyCompactList}\item 
+void \hyperlink{scrolling__text_8c_ae7eb73541958c592ffd015e14f04b022}{\+\_\+\+\_\+\+I\+SR} (\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+N\+O\+T\+I\+C\+E\+\_\+\+A\+\_\+\+V\+E\+C\+T\+OR, I\+P\+L2\+S\+O\+FT)
+\begin{DoxyCompactList}\small\item\em Buttons interrupt handler, Changes program state when button is pressed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \hyperlink{scrolling__text_8c_a00cc4cbc8159051cd27995d7729ee306}{delay\+\_\+g} = 200
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+initialization and system functions, inter 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{scrolling__text_8c_ae7eb73541958c592ffd015e14f04b022}\label{scrolling__text_8c_ae7eb73541958c592ffd015e14f04b022}} 
+\index{scrolling\+\_\+text.\+c@{scrolling\+\_\+text.\+c}!\+\_\+\+\_\+\+I\+SR@{\+\_\+\+\_\+\+I\+SR}}
+\index{\+\_\+\+\_\+\+I\+SR@{\+\_\+\+\_\+\+I\+SR}!scrolling\+\_\+text.\+c@{scrolling\+\_\+text.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+\+I\+S\+R()}{\_\_ISR()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+\+I\+SR (\begin{DoxyParamCaption}\item[{\+\_\+\+C\+H\+A\+N\+G\+E\+\_\+\+N\+O\+T\+I\+C\+E\+\_\+\+A\+\_\+\+V\+E\+C\+T\+OR}]{,  }\item[{I\+P\+L2\+S\+O\+FT}]{ }\end{DoxyParamCaption})}
+
+
+
+Buttons interrupt handler, Changes program state when button is pressed. 
+
+\mbox{\Hypertarget{scrolling__text_8c_af4c904c48cffb15c04e3c5419020cebb}\label{scrolling__text_8c_af4c904c48cffb15c04e3c5419020cebb}} 
+\index{scrolling\+\_\+text.\+c@{scrolling\+\_\+text.\+c}!Delay\+Ms@{Delay\+Ms}}
+\index{Delay\+Ms@{Delay\+Ms}!scrolling\+\_\+text.\+c@{scrolling\+\_\+text.\+c}}
+\subsubsection{\texorpdfstring{Delay\+Ms()}{DelayMs()}}
+{\footnotesize\ttfamily void Delay\+Ms (\begin{DoxyParamCaption}\item[{int}]{t }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{scrolling__text_8c_a58365390a2f6d58ce8173e26f693d999}\label{scrolling__text_8c_a58365390a2f6d58ce8173e26f693d999}} 
+\index{scrolling\+\_\+text.\+c@{scrolling\+\_\+text.\+c}!init\+\_\+app@{init\+\_\+app}}
+\index{init\+\_\+app@{init\+\_\+app}!scrolling\+\_\+text.\+c@{scrolling\+\_\+text.\+c}}
+\subsubsection{\texorpdfstring{init\+\_\+app()}{init\_app()}}
+{\footnotesize\ttfamily void init\+\_\+app (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+App initialization, Calling initialization functions for U\+A\+RT, G\+P\+IO and O\+L\+ED Basic O\+L\+ED configuration. 
+
+\mbox{\Hypertarget{scrolling__text_8c_a017cc7467f17665eca1b702990d9832f}\label{scrolling__text_8c_a017cc7467f17665eca1b702990d9832f}} 
+\index{scrolling\+\_\+text.\+c@{scrolling\+\_\+text.\+c}!init\+\_\+gpio@{init\+\_\+gpio}}
+\index{init\+\_\+gpio@{init\+\_\+gpio}!scrolling\+\_\+text.\+c@{scrolling\+\_\+text.\+c}}
+\subsubsection{\texorpdfstring{init\+\_\+gpio()}{init\_gpio()}}
+{\footnotesize\ttfamily void init\+\_\+gpio (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+G\+P\+IO initialization, Initialization for buttons and L\+E\+Ds Disabling analog mode and setting pins directions. 
+
+\mbox{\Hypertarget{scrolling__text_8c_a16db80fea57f17ca944e3d2fc13a9fa2}\label{scrolling__text_8c_a16db80fea57f17ca944e3d2fc13a9fa2}} 
+\index{scrolling\+\_\+text.\+c@{scrolling\+\_\+text.\+c}!shift\+\_\+str@{shift\+\_\+str}}
+\index{shift\+\_\+str@{shift\+\_\+str}!scrolling\+\_\+text.\+c@{scrolling\+\_\+text.\+c}}
+\subsubsection{\texorpdfstring{shift\+\_\+str()}{shift\_str()}}
+{\footnotesize\ttfamily void shift\+\_\+str (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Circular shift of array to the left. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em array} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{scrolling__text_8c_a00cc4cbc8159051cd27995d7729ee306}\label{scrolling__text_8c_a00cc4cbc8159051cd27995d7729ee306}} 
+\index{scrolling\+\_\+text.\+c@{scrolling\+\_\+text.\+c}!delay\+\_\+g@{delay\+\_\+g}}
+\index{delay\+\_\+g@{delay\+\_\+g}!scrolling\+\_\+text.\+c@{scrolling\+\_\+text.\+c}}
+\subsubsection{\texorpdfstring{delay\+\_\+g}{delay\_g}}
+{\footnotesize\ttfamily uint32\+\_\+t delay\+\_\+g = 200}
+
