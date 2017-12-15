@@ -1,0 +1,1 @@
+﻿All tasks for lab2 was done. Added repeating the game after smb wins. So after wining of some player, programm shows who win and then all variables nil and the game begins again. When board turn on all leds should turn on and then turn off for testing power.
