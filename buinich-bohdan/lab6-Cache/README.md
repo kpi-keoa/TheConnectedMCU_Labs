@@ -1,0 +1,1 @@
+In this lab, I increased the speed of the program by speeding up the memory system. In the lab I used cache.
