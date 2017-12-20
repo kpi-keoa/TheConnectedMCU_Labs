@@ -1,0 +1,58 @@
+\hypertarget{main_8c}{}\section{D\+:/git/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/belash-\/bo/lab5-\/6/main.c File Reference}
+\label{main_8c}\index{D\+:/git/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/belash-\/bo/lab5-\/6/main.\+c@{D\+:/git/\+The\+Connected\+M\+C\+U\+\_\+\+Labs/belash-\/bo/lab5-\/6/main.\+c}}
+{\ttfamily \#include \char`\"{}Free\+R\+T\+O\+S.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}semphr.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}queue.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}user.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}O\+L\+E\+D.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}O\+L\+E\+D/\+Oled\+Char.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}O\+L\+E\+D/\+Oled\+Grph.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}U\+A\+R\+T.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Config\+Performance.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
+\item 
+void \hyperlink{main_8c_a306672a74bdd13ce210c05fca3385c59}{v\+Application\+Stack\+Overflow\+Hook} (Task\+Handle\+\_\+t px\+Task, char $\ast$pc\+Task\+Name)
+\item 
+void \hyperlink{main_8c_a9ca051aa77e17583aa5a85d5de5c199a}{v\+Application\+Tick\+Hook} (void)
+\item 
+void \hyperlink{main_8c_a68ef99acadce6ddf7c6976ef0fbbb293}{v\+Assert\+Called} (const char $\ast$pc\+File, unsigned long ul\+Line)
+\item 
+void \hyperlink{main_8c_ab447301f9b8180a3c4144762e789dff0}{\+\_\+general\+\_\+exception\+\_\+handler} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_ab447301f9b8180a3c4144762e789dff0}\label{main_8c_ab447301f9b8180a3c4144762e789dff0}} 
+\index{main.\+c@{main.\+c}!\+\_\+general\+\_\+exception\+\_\+handler@{\+\_\+general\+\_\+exception\+\_\+handler}}
+\index{\+\_\+general\+\_\+exception\+\_\+handler@{\+\_\+general\+\_\+exception\+\_\+handler}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+general\+\_\+exception\+\_\+handler()}{\_general\_exception\_handler()}}
+{\footnotesize\ttfamily void \+\_\+general\+\_\+exception\+\_\+handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{main_8c_a840291bc02cba5474a4cb46a9b9566fe}} 
+\index{main.\+c@{main.\+c}!main@{main}}
+\index{main@{main}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8c_a306672a74bdd13ce210c05fca3385c59}\label{main_8c_a306672a74bdd13ce210c05fca3385c59}} 
+\index{main.\+c@{main.\+c}!v\+Application\+Stack\+Overflow\+Hook@{v\+Application\+Stack\+Overflow\+Hook}}
+\index{v\+Application\+Stack\+Overflow\+Hook@{v\+Application\+Stack\+Overflow\+Hook}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{v\+Application\+Stack\+Overflow\+Hook()}{vApplicationStackOverflowHook()}}
+{\footnotesize\ttfamily void v\+Application\+Stack\+Overflow\+Hook (\begin{DoxyParamCaption}\item[{Task\+Handle\+\_\+t}]{px\+Task,  }\item[{char $\ast$}]{pc\+Task\+Name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8c_a9ca051aa77e17583aa5a85d5de5c199a}\label{main_8c_a9ca051aa77e17583aa5a85d5de5c199a}} 
+\index{main.\+c@{main.\+c}!v\+Application\+Tick\+Hook@{v\+Application\+Tick\+Hook}}
+\index{v\+Application\+Tick\+Hook@{v\+Application\+Tick\+Hook}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{v\+Application\+Tick\+Hook()}{vApplicationTickHook()}}
+{\footnotesize\ttfamily void v\+Application\+Tick\+Hook (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8c_a68ef99acadce6ddf7c6976ef0fbbb293}\label{main_8c_a68ef99acadce6ddf7c6976ef0fbbb293}} 
+\index{main.\+c@{main.\+c}!v\+Assert\+Called@{v\+Assert\+Called}}
+\index{v\+Assert\+Called@{v\+Assert\+Called}!main.\+c@{main.\+c}}
+\subsubsection{\texorpdfstring{v\+Assert\+Called()}{vAssertCalled()}}
+{\footnotesize\ttfamily void v\+Assert\+Called (\begin{DoxyParamCaption}\item[{const char $\ast$}]{pc\+File,  }\item[{unsigned long}]{ul\+Line }\end{DoxyParamCaption})}
+
